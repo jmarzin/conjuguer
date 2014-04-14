@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Infinitif:
+  = @conjugaison.infinitif
+%p
+  %b Essais:
+  = @conjugaison.essais
+%p
+  %b Detail:
+  = @conjugaison.detail
+
+= link_to 'Edit', edit_conjugaison_path(@conjugaison)
+\|
+= link_to 'Back', conjugaisons_path

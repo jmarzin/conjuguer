@@ -1,0 +1,19 @@
+= form_for @conjugaison do |f|
+  - if @conjugaison.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@conjugaison.errors.count, "error")} prohibited this conjugaison from being saved:"
+      %ul
+        - @conjugaison.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :infinitif
+    = f.text_field :infinitif
+  .field
+    = f.label :essais
+    = f.number_field :essais
+  .field
+    = f.label :detail
+    = f.text_field :detail
+  .actions
+    = f.submit 'Save'

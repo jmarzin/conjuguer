@@ -1,0 +1,23 @@
+%h1 Listing conjugaisons
+
+%table
+  %tr
+    %th Infinitif
+    %th Essais
+    %th Detail
+    %th
+    %th
+    %th
+
+  - @conjugaisons.each do |conjugaison|
+    %tr
+      %td= conjugaison.infinitif
+      %td= conjugaison.essais
+      %td= conjugaison.detail
+      %td= link_to 'Show', conjugaison
+      %td= link_to 'Edit', edit_conjugaison_path(conjugaison)
+      %td= link_to 'Destroy', conjugaison, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Conjugaison', new_conjugaison_path
