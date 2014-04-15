@@ -6,9 +6,71 @@
 %p
   %b Essais:
   = @conjugaison.essais
-%p
-  %b Detail:
-  = @conjugaison.detail
+
+%table#verbe1
+  %tr
+    %th
+    %th PRESENT
+    %th IMPARFAIT
+    %th PARFAIT
+    %th FUTUR
+  %tr
+    %td
+    %td=@verbe.ind.pres.s1
+    %td=@verbe.ind.imp.s1
+    %td=@verbe.ind.parf.s1
+    %td=@verbe.ind.fut.s1
+  %tr
+    %td
+    %td=@verbe.ind.pres.s2
+    %td=@verbe.ind.imp.s2
+    %td=@verbe.ind.parf.s2
+    %td=@verbe.ind.fut.s2
+  %tr
+    %td#gras INDICATIF
+    %td=@verbe.ind.pres.s3
+    %td=@verbe.ind.imp.s3
+    %td=@verbe.ind.parf.s3
+    %td=@verbe.ind.fut.s3
+  %tr
+    %td
+    %td=@verbe.ind.pres.p1
+    %td=@verbe.ind.imp.p1
+    %td=@verbe.ind.parf.p1
+    %td=@verbe.ind.fut.p1
+  %tr
+    %td
+    %td=@verbe.ind.pres.p2
+    %td=@verbe.ind.imp.p2
+    %td=@verbe.ind.parf.p2
+    %td=@verbe.ind.fut.p2
+  %tr
+    %td
+    %td=@verbe.ind.pres.p3
+    %td=@verbe.ind.imp.p3
+    %td=@verbe.ind.parf.p3
+    %td=@verbe.ind.fut.p3
+
+
+
+%table#verbe2
+  %tr
+    %th
+    %th PRESENT
+    %th IMPARFAIT
+    %th IMPERATIF
+    %th CONDITIONNEL
+  %tr
+    %td SUBJONCTIF
+
+%table#verbe3
+  %tr
+    %th INFINITIF
+    %th GERONDIF
+    %th PARTICIPE PASSE
+    %th PARTICIPE PRESENT
+
+
 
 = link_to 'Edit', edit_conjugaison_path(@conjugaison)
 \|

@@ -10,6 +10,7 @@ class ConjugaisonsController < ApplicationController
   # GET /conjugaisons/1
   # GET /conjugaisons/1.json
   def show
+    @verbe = Verbe.new(@conjugaison)
   end
 
   # GET /conjugaisons/new
