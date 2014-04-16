@@ -23,7 +23,7 @@ describe "Le verbe avere" do
   it "a un présent de l'indicatif" do
     expect(@avere.ind.pres).to be_a_kind_of(Temps)
   end
-  it "le présent de l'indicatif se conjugaison ho hai ha abbiamo avete hanno" do
+  it "le présent de l'indicatif se conjugue ho hai ha abbiamo avete hanno" do
     expect(@avere.ind.pres.to_s).to eq('ho hai ha abbiamo avete hanno')
   end
   it "la 1ère personne du singulier du présent de l'indicatif est ho" do
@@ -47,19 +47,19 @@ describe "Le verbe avere" do
   it "a un imparfait de l'indicatif" do
     expect(@avere.ind.imp).to be_a_kind_of(Temps)
   end
-  it "l'imparfait de l'indicatif se conjugaison avevo avevi aveva avevamo avevate avevano" do
+  it "l'imparfait de l'indicatif se conjugue avevo avevi aveva avevamo avevate avevano" do
     expect(@avere.ind.imp.to_s).to eq('avevo avevi aveva avevamo avevate avevano')
   end
   it "a un parfait de l'indicatif" do
     expect(@avere.ind.parf).to be_a_kind_of(Temps)
   end
-  it "le parfait de l'indicatif se conjugaison ebbi avesti ebbe avemmo aveste ebbero" do
+  it "le parfait de l'indicatif se conjugue ebbi avesti ebbe avemmo aveste ebbero" do
     expect(@avere.ind.parf.to_s).to eq('ebbi avesti ebbe avemmo aveste ebbero')
   end
   it "a un futur de l'indiatif" do
     expect(@avere.ind.fut).to be_a_kind_of(Temps)
   end
-  it "le futur de l'indicatif se conjugaison avrò avrai avrà avremo avrete avranno" do
+  it "le futur de l'indicatif se conjugue avrò avrai avrà avremo avrete avranno" do
     expect(@avere.ind.fut.to_s).to eq('avrò avrai avrà avremo avrete avranno')
   end
   it "a un mode subjonctif" do
@@ -68,13 +68,13 @@ describe "Le verbe avere" do
   it 'a un présent du subjonctif' do
     expect(@avere.sub.pres).to be_a_kind_of(Temps)
   end
-  it "la présent du subjonctif se conjugaison abbia abbia abbia abbiamo abbiate abbiano" do
+  it "la présent du subjonctif se conjugue abbia abbia abbia abbiamo abbiate abbiano" do
     expect(@avere.sub.pres.to_s).to eq('abbia abbia abbia abbiamo abbiate abbiano')
   end
   it 'a un imparfait du subjonctif' do
     expect(@avere.sub.imp).to be_a_kind_of(Temps)
   end
-  it "l'imparfait du subjonctif se conjugaison avessi avessi avesse avessimo aveste avessero" do
+  it "l'imparfait du subjonctif se conjugue avessi avessi avesse avessimo aveste avessero" do
     expect(@avere.sub.imp.to_s).to eq('avessi avessi avesse avessimo aveste avessero')
   end
   it "a un mode conditionnel" do
@@ -83,13 +83,13 @@ describe "Le verbe avere" do
   it "a un présent du conditionnel" do
     expect(@avere.cond.pres).to be_a_kind_of(Temps)
   end
-  it "le présent du conditionnel se conjugaison avrei avresti avrebbe avremmo avreste avrebbero" do
+  it "le présent du conditionnel se conjugue avrei avresti avrebbe avremmo avreste avrebbero" do
     expect(@avere.cond.pres.to_s).to eq('avrei avresti avrebbe avremmo avreste avrebbero')
   end
   it "a un mode impératif qu'on traite comme un temps" do
     expect(@avere.imp).to be_a_kind_of(Temps)
   end
-  it "l'impératif se conjugaison --- abbi abbia abbiamo abbiate abbiano" do
+  it "l'impératif se conjugue --- abbi abbia abbiamo abbiate abbiano" do
     expect(@avere.imp.to_s).to eq('--- abbi abbia abbiamo abbiate abbiano')
   end
 end

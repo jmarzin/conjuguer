@@ -9,59 +9,81 @@
 
 %table#verbe1
   %tr
-    %th
+    %th#mode
     %th PRESENT
     %th IMPARFAIT
     %th PARFAIT
     %th FUTUR
   %tr
-    %td
+    %td#gras{:rowspan => 6} INDICATIF
     %td=@verbe.ind.pres.s1
     %td=@verbe.ind.imp.s1
     %td=@verbe.ind.parf.s1
     %td=@verbe.ind.fut.s1
   %tr
-    %td
     %td=@verbe.ind.pres.s2
     %td=@verbe.ind.imp.s2
     %td=@verbe.ind.parf.s2
     %td=@verbe.ind.fut.s2
   %tr
-    %td#gras INDICATIF
     %td=@verbe.ind.pres.s3
     %td=@verbe.ind.imp.s3
     %td=@verbe.ind.parf.s3
     %td=@verbe.ind.fut.s3
   %tr
-    %td
     %td=@verbe.ind.pres.p1
     %td=@verbe.ind.imp.p1
     %td=@verbe.ind.parf.p1
     %td=@verbe.ind.fut.p1
   %tr
-    %td
     %td=@verbe.ind.pres.p2
     %td=@verbe.ind.imp.p2
     %td=@verbe.ind.parf.p2
     %td=@verbe.ind.fut.p2
   %tr
-    %td
     %td=@verbe.ind.pres.p3
     %td=@verbe.ind.imp.p3
     %td=@verbe.ind.parf.p3
     %td=@verbe.ind.fut.p3
 
-
-
 %table#verbe2
   %tr
-    %th
+    %th#mode
     %th PRESENT
     %th IMPARFAIT
     %th IMPERATIF
     %th CONDITIONNEL
   %tr
-    %td SUBJONCTIF
+    %td#gras{:rowspan => 6} SUBJONCTIF
+    %td=@verbe.sub.pres.s1
+    %td=@verbe.sub.imp.s1
+    %td=@verbe.imp.s1
+    %td=@verbe.cond.pres.s1
+  %tr
+    %td=@verbe.sub.pres.s2
+    %td=@verbe.sub.imp.s2
+    %td=@verbe.imp.s2
+    %td=@verbe.cond.pres.s2
+  %tr
+    %td=@verbe.sub.pres.s3
+    %td=@verbe.sub.imp.s3
+    %td=@verbe.imp.s3
+    %td=@verbe.cond.pres.s3
+  %tr
+    %td=@verbe.sub.pres.p1
+    %td=@verbe.sub.imp.p1
+    %td=@verbe.imp.p1
+    %td=@verbe.cond.pres.p1
+  %tr
+    %td=@verbe.sub.pres.p2
+    %td=@verbe.sub.imp.p2
+    %td=@verbe.imp.p2
+    %td=@verbe.cond.pres.p2
+  %tr
+    %td=@verbe.sub.pres.p3
+    %td=@verbe.sub.imp.p3
+    %td=@verbe.imp.p3
+    %td=@verbe.cond.pres.p3
 
 %table#verbe3
   %tr
@@ -70,7 +92,11 @@
     %th PARTICIPE PASSE
     %th PARTICIPE PRESENT
 
-
+  %tr
+    %td=@verbe.inf
+    %td=@verbe.ger
+    %td=@verbe.ppass
+    %td=@verbe.ppres
 
 = link_to 'Edit', edit_conjugaison_path(@conjugaison)
 \|

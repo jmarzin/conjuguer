@@ -1,3 +1,22 @@
 // Place all the styles related to the Conjugaisons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#gras {font-weight: bold}
+
+@for $i from 1 through 3 {
+  table#verbe#{$i} {
+    border: 1px solid black;
+    width: 50%;
+
+    td {
+      text-align: center;
+    }
+    th {
+      width: 20%;
+
+      #mode {
+        width: 10em
+      }
+    }
+  }
+}

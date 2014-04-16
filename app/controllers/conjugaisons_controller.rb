@@ -20,6 +20,7 @@ class ConjugaisonsController < ApplicationController
 
   # GET /conjugaisons/1/edit
   def edit
+    @verbe = Verbe.new(@conjugaison)
   end
 
   # POST /conjugaisons

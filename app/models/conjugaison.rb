@@ -1,4 +1,5 @@
 class Temps
+  attr_accessor :radical, :voyelle_thematique, :personnes
   def initialize(tableau)
     @radical = tableau[0]
     @voyelle_thematique = tableau[1]

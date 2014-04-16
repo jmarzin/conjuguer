@@ -12,8 +12,30 @@
   .field
     = f.label :essais
     = f.number_field :essais
-  .field
-    = f.label :detail
-    = f.text_field :detail
+
+  %table#saisie
+    %tr
+      %th Mode
+      %th Temps
+      %th Radical
+      %th Voyelle
+      %th s1
+      %th s2
+      %th s3
+      %th p1
+      %th p2
+      %th p3
+    %tr
+      %td Indicatif
+      %td Présent
+      %td=text_field_tag('ind[pres][radical]', value = @verbe.ind.pres.radical,options={size: 10})
+      %td=text_field_tag('ind[pres][voyelle_thematique]', value = @verbe.ind.pres.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[0], options={size: 10})
+      %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[1], options={size: 10})
+      %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[2], options={size: 10})
+      %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[3], options={size: 10})
+      %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[4], options={size: 10})
+      %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[5], options={size: 10})
+
   .actions
     = f.submit 'Save'
