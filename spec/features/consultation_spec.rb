@@ -24,15 +24,16 @@ describe 'Verbes' do
     end
   end
   describe 'Modification' do
-    it "le détail n'est pas accessible" do
+    it "le détail codé n'est pas accessible" do
       visit 'conjugaisons'
       click_link 'Edit'
       expect(page).to_not have_content 'Detail'
     end
-    it "le texte voyelle est visible" do
+    it "les informations du détail sont visibles" do
       visit 'conjugaisons'
       click_link 'Edit'
       expect(page).to have_content 'Voyelle'
+      expect(page).to have_content 'Gérondif Participe passé Participe présent'
     end
   end
 end

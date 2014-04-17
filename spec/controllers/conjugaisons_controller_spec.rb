@@ -156,5 +156,4 @@ describe ConjugaisonsController do
       response.should redirect_to(conjugaisons_url)
     end
   end
-
 end

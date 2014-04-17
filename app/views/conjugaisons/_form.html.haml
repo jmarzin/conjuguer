@@ -7,12 +7,13 @@
           %li= msg
 
   .field
-    = f.label :infinitif
+    = f.label :infinitif, size: 20
     = f.text_field :infinitif
   .field
     = f.label :essais
     = f.number_field :essais
 
+  %br
   %table#saisie
     %tr
       %th Mode
@@ -37,5 +38,90 @@
       %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[4], options={size: 10})
       %td=text_field_tag('ind[pres][personnes][]', value = @verbe.ind.pres.personnes[5], options={size: 10})
 
+    %tr
+      %td Indicatif
+      %td Imparfait
+      %td=text_field_tag('ind[imp][radical]', value = @verbe.ind.imp.radical,options={size: 10})
+      %td=text_field_tag('ind[imp][voyelle_thematique]', value = @verbe.ind.imp.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[imp][personnes][]', value = @verbe.ind.imp.personnes[0], options={size: 10})
+      %td=text_field_tag('ind[imp][personnes][]', value = @verbe.ind.imp.personnes[1], options={size: 10})
+      %td=text_field_tag('ind[imp][personnes][]', value = @verbe.ind.imp.personnes[2], options={size: 10})
+      %td=text_field_tag('ind[imp][personnes][]', value = @verbe.ind.imp.personnes[3], options={size: 10})
+      %td=text_field_tag('ind[imp][personnes][]', value = @verbe.ind.imp.personnes[4], options={size: 10})
+      %td=text_field_tag('ind[imp][personnes][]', value = @verbe.ind.imp.personnes[5], options={size: 10})
+    %tr
+      %td Indicatif
+      %td Parfait
+      %td=text_field_tag('ind[parf][radical]', value = @verbe.ind.parf.radical,options={size: 10})
+      %td=text_field_tag('ind[parf][voyelle_thematique]', value = @verbe.ind.parf.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[parf][personnes][]', value = @verbe.ind.parf.personnes[0], options={size: 10})
+      %td=text_field_tag('ind[parf][personnes][]', value = @verbe.ind.parf.personnes[1], options={size: 10})
+      %td=text_field_tag('ind[parf][personnes][]', value = @verbe.ind.parf.personnes[2], options={size: 10})
+      %td=text_field_tag('ind[parf][personnes][]', value = @verbe.ind.parf.personnes[3], options={size: 10})
+      %td=text_field_tag('ind[parf][personnes][]', value = @verbe.ind.parf.personnes[4], options={size: 10})
+      %td=text_field_tag('ind[parf][personnes][]', value = @verbe.ind.parf.personnes[5], options={size: 10})
+    %tr
+      %td Indicatif
+      %td Futur
+      %td=text_field_tag('ind[fut][radical]', value = @verbe.ind.fut.radical,options={size: 10})
+      %td=text_field_tag('ind[fut][voyelle_thematique]', value = @verbe.ind.fut.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[fut][personnes][]', value = @verbe.ind.fut.personnes[0], options={size: 10})
+      %td=text_field_tag('ind[fut][personnes][]', value = @verbe.ind.fut.personnes[1], options={size: 10})
+      %td=text_field_tag('ind[fut][personnes][]', value = @verbe.ind.fut.personnes[2], options={size: 10})
+      %td=text_field_tag('ind[fut][personnes][]', value = @verbe.ind.fut.personnes[3], options={size: 10})
+      %td=text_field_tag('ind[fut][personnes][]', value = @verbe.ind.fut.personnes[4], options={size: 10})
+      %td=text_field_tag('ind[fut][personnes][]', value = @verbe.ind.fut.personnes[5], options={size: 10})
+    %tr
+      %td Subjonctif
+      %td Présent
+      %td=text_field_tag('sub[pres][radical]', value = @verbe.sub.pres.radical,options={size: 10})
+      %td=text_field_tag('sub[pres][voyelle_thematique]', value = @verbe.sub.pres.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('sub[pres][personnes][]', value = @verbe.sub.pres.personnes[0], options={size: 10})
+      %td=text_field_tag('sub[pres][personnes][]', value = @verbe.sub.pres.personnes[1], options={size: 10})
+      %td=text_field_tag('sub[pres][personnes][]', value = @verbe.sub.pres.personnes[2], options={size: 10})
+      %td=text_field_tag('sub[pres][personnes][]', value = @verbe.sub.pres.personnes[3], options={size: 10})
+      %td=text_field_tag('sub[pres][personnes][]', value = @verbe.sub.pres.personnes[4], options={size: 10})
+      %td=text_field_tag('sub[pres][personnes][]', value = @verbe.sub.pres.personnes[5], options={size: 10})
+    %tr
+      %td Subjonctif
+      %td Imparfait
+      %td=text_field_tag('sub[imp][radical]', value = @verbe.sub.imp.radical,options={size: 10})
+      %td=text_field_tag('sub[imp][voyelle_thematique]', value = @verbe.sub.imp.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('sub[imp][personnes][]', value = @verbe.sub.imp.personnes[0], options={size: 10})
+      %td=text_field_tag('sub[imp][personnes][]', value = @verbe.sub.imp.personnes[1], options={size: 10})
+      %td=text_field_tag('sub[imp][personnes][]', value = @verbe.sub.imp.personnes[2], options={size: 10})
+      %td=text_field_tag('sub[imp][personnes][]', value = @verbe.sub.imp.personnes[3], options={size: 10})
+      %td=text_field_tag('sub[imp][personnes][]', value = @verbe.sub.imp.personnes[4], options={size: 10})
+      %td=text_field_tag('sub[imp][personnes][]', value = @verbe.sub.imp.personnes[5], options={size: 10})
+    %tr
+      %td{:colspan => 2} Impératif
+      %td=text_field_tag('imp[radical]', value = @verbe.imp.radical,options={size: 10})
+      %td=text_field_tag('imp[voyelle_thematique]', value = @verbe.imp.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('imp[personnes][]', value = @verbe.imp.personnes[0], options={size: 10})
+      %td=text_field_tag('imp[personnes][]', value = @verbe.imp.personnes[1], options={size: 10})
+      %td=text_field_tag('imp[personnes][]', value = @verbe.imp.personnes[2], options={size: 10})
+      %td=text_field_tag('imp[personnes][]', value = @verbe.imp.personnes[3], options={size: 10})
+      %td=text_field_tag('imp[personnes][]', value = @verbe.imp.personnes[4], options={size: 10})
+      %td=text_field_tag('imp[personnes][]', value = @verbe.imp.personnes[5], options={size: 10})
+    %tr
+      %td Conditionnel
+      %td Présent
+      %td=text_field_tag('cond[pres][radical]', value = @verbe.cond.pres.radical,options={size: 10})
+      %td=text_field_tag('cond[pres][voyelle_thematique]', value = @verbe.cond.pres.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('cond[pres][personnes][]', value = @verbe.cond.pres.personnes[0], options={size: 10})
+      %td=text_field_tag('cond[pres][personnes][]', value = @verbe.cond.pres.personnes[1], options={size: 10})
+      %td=text_field_tag('cond[pres][personnes][]', value = @verbe.cond.pres.personnes[2], options={size: 10})
+      %td=text_field_tag('cond[pres][personnes][]', value = @verbe.cond.pres.personnes[3], options={size: 10})
+      %td=text_field_tag('cond[pres][personnes][]', value = @verbe.cond.pres.personnes[4], options={size: 10})
+      %td=text_field_tag('cond[pres][personnes][]', value = @verbe.cond.pres.personnes[5], options={size: 10})
+    %tr
+      %td{:colspan => 2} Gérondif
+      %td{:colspan => 6}=text_field_tag('ger', value = @verbe.ger,options={size: 10})
+    %tr
+      %td{:colspan => 2} Participe passé
+      %td{:colspan => 6}=text_field_tag('ppass', value = @verbe.ppass, options={size: 10})
+    %tr
+      %td{colspan: 2} Participe présent
+      %td{colspan: 6}=text_field_tag('ppres', value = @verbe.ppres, options={size: 10})
   .actions
     = f.submit 'Save'

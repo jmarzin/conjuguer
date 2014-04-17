@@ -49,9 +49,13 @@ end
 
 class Verbe
   def initialize(conjugue)
-    begin
-      @conj = Marshal.load(conjugue.detail)
-    rescue
+    if conjugue.class == 'array'
+      @conj = conjugue
+    else
+      begin
+        @conj = Marshal.load(conjugue.detail)
+      rescue
+      end
     end
 #    @conj = [infinitif,'avente','avuto','avendo']
 #    @conj << Mode.new([Temps.new(['','','ho', 'hai','ha','abbiamo','avete','hanno']),\
