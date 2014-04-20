@@ -10,7 +10,10 @@ class ConjugaisonsController < ApplicationController
   # GET /conjugaisons/1
   # GET /conjugaisons/1.json
   def show
-    @verbe = Verbe.new(@conjugaison)
+    begin
+      @verbe = Verbe.new(@conjugaison)
+    rescue
+    end
   end
 
   # GET /conjugaisons/new
@@ -20,7 +23,10 @@ class ConjugaisonsController < ApplicationController
 
   # GET /conjugaisons/1/edit
   def edit
-    @verbe = Verbe.new(@conjugaison)
+    begin
+      @verbe = Verbe.new(@conjugaison)
+    rescue
+    end
   end
 
   # POST /conjugaisons
@@ -43,7 +49,7 @@ class ConjugaisonsController < ApplicationController
   # PATCH/PUT /conjugaisons/1.json
   def update
     respond_to do |format|
-      if @conjugaison.update(conjugaison_params)
+      if @conjugaison.maj(conjugaison_params, params)
         format.html { redirect_to @conjugaison, notice: 'Conjugaison was successfully updated.' }
         format.json { head :no_content }
       else

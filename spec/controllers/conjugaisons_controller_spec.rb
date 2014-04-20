@@ -98,50 +98,6 @@ describe ConjugaisonsController do
     end
   end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested conjugaison" do
-        conjugaison = Conjugaison.create! valid_attributes
-        # Assuming there are no other conjugaisons in the database, this
-        # specifies that the Conjugaison created on the previous line
-        # receives the :update_attributes message with whatever params are
-        # submitted in the request.
-        Conjugaison.any_instance.should_receive(:update).with({ "infinitif" => "MyString" })
-        put :update, {:id => conjugaison.to_param, :conjugaison => { "infinitif" => "MyString" }}, valid_session
-      end
-
-      it "assigns the requested conjugaison as @conjugaison" do
-        conjugaison = Conjugaison.create! valid_attributes
-        put :update, {:id => conjugaison.to_param, :conjugaison => valid_attributes}, valid_session
-        assigns(:conjugaison).should eq(conjugaison)
-      end
-
-      it "redirects to the conjugaison" do
-        conjugaison = Conjugaison.create! valid_attributes
-        put :update, {:id => conjugaison.to_param, :conjugaison => valid_attributes}, valid_session
-        response.should redirect_to(conjugaison)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the conjugaison as @conjugaison" do
-        conjugaison = Conjugaison.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Conjugaison.any_instance.stub(:save).and_return(false)
-        put :update, {:id => conjugaison.to_param, :conjugaison => { "infinitif" => "invalid value" }}, valid_session
-        assigns(:conjugaison).should eq(conjugaison)
-      end
-
-      it "re-renders the 'edit' template" do
-        conjugaison = Conjugaison.create! valid_attributes
-        # Trigger the behavior that occurs when invalid params are submitted
-        Conjugaison.any_instance.stub(:save).and_return(false)
-        put :update, {:id => conjugaison.to_param, :conjugaison => { "infinitif" => "invalid value" }}, valid_session
-        response.should render_template("edit")
-      end
-    end
-  end
-
   describe "DELETE destroy" do
     it "destroys the requested conjugaison" do
       conjugaison = Conjugaison.create! valid_attributes

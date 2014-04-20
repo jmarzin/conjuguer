@@ -5,6 +5,10 @@ describe "Le verbe avere" do
     Conjugaison.create(infinitif: 'avere',essais: 20, detail: IO.binread('db/avere.bin'))
     @avere = Verbe.new(Conjugaison.first)
   end
+  it 'recréer le fichier' do
+    @a = Verbe.new(1)
+    expect(@a.class).to eq(Verbe)
+  end
   it "a comme infinitif avere" do
     expect(@avere.inf).to eq("avere")
   end
@@ -56,7 +60,7 @@ describe "Le verbe avere" do
   it "le parfait de l'indicatif se conjugue ebbi avesti ebbe avemmo aveste ebbero" do
     expect(@avere.ind.parf.to_s).to eq('ebbi avesti ebbe avemmo aveste ebbero')
   end
-  it "a un futur de l'indiatif" do
+  it "a un futur de l'indicatif" do
     expect(@avere.ind.fut).to be_a_kind_of(Temps)
   end
   it "le futur de l'indicatif se conjugue avrò avrai avrà avremo avrete avranno" do
