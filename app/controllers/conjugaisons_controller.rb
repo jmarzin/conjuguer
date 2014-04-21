@@ -1,5 +1,5 @@
 class ConjugaisonsController < ApplicationController
-  before_action :set_conjugaison, only: [:show, :edit, :update, :destroy]
+  before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
 
   # GET /conjugaisons
   # GET /conjugaisons.json
@@ -18,7 +18,15 @@ class ConjugaisonsController < ApplicationController
 
   # GET /conjugaisons/new
   def new
-    @conjugaison = Conjugaison.new
+    @verbe = Verbe.new('')
+    @conjugaison = Conjugaison.new(infinitif: '', essais: 20, detail: Marshal.dump(@verbe))
+  end
+
+  # GET/conjugaison/1/copie
+  def copie
+    @copie = Conjugaison.new(infinitif: 'Copie de ' + @conjugaison.infinitif, essais: 20, detail: @conjugaison.detail)
+    @copie.save
+    redirect_to :action => "edit", :id => @copie.id
   end
 
   # GET /conjugaisons/1/edit
@@ -35,7 +43,7 @@ class ConjugaisonsController < ApplicationController
     @conjugaison = Conjugaison.new(conjugaison_params)
 
     respond_to do |format|
-      if @conjugaison.save
+      if @conjugaison.maj(conjugaison_params, params)
         format.html { redirect_to @conjugaison, notice: 'Conjugaison was successfully created.' }
         format.json { render action: 'show', status: :created, location: @conjugaison }
       else
@@ -50,7 +58,7 @@ class ConjugaisonsController < ApplicationController
   def update
     respond_to do |format|
       if @conjugaison.maj(conjugaison_params, params)
-        format.html { redirect_to @conjugaison, notice: 'Conjugaison was successfully updated.' }
+        format.html { redirect_to @conjugaison, notice: 'La conjugaison a bien été mise à jour.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

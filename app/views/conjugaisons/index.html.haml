@@ -1,4 +1,4 @@
-%h1 Listing conjugaisons
+%h1 Liste des verbes connus
 
 %table
   %tr
@@ -12,10 +12,11 @@
     %tr
       %td= conjugaison.infinitif
       %td= conjugaison.essais
-      %td= link_to 'Show', conjugaison
-      %td= link_to 'Edit', edit_conjugaison_path(conjugaison)
-      %td= link_to 'Destroy', conjugaison, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Voir', conjugaison
+      %td= link_to 'Corriger', edit_conjugaison_path(conjugaison)
+      %td= link_to 'Copier', copie_conjugaison_path(conjugaison)
+      %td= link_to 'Supprimer', conjugaison, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Conjugaison', new_conjugaison_path
+= link_to 'Nouvelle Conjugaison', new_conjugaison_path

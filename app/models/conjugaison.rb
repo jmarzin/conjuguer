@@ -6,22 +6,22 @@ class Temps
     @personnes = tableau.drop(2)
   end
   def s1
-    @radical+@voyelle_thematique+@personnes[0]
+    (personnes[0] == '---') ? @personnes[0] : @radical+@voyelle_thematique+@personnes[0]
   end
   def s2
-    @radical+@voyelle_thematique+@personnes[1]
+    (personnes[1] == '---') ? @personnes[1] : @radical+@voyelle_thematique+@personnes[1]
   end
   def s3
-    @radical+@voyelle_thematique+@personnes[2]
+    (personnes[2] == '---') ? @personnes[2] : @radical+@voyelle_thematique+@personnes[2]
   end
   def p1
-    @radical+@voyelle_thematique+@personnes[3]
+    (personnes[3] == '---') ? @personnes[3] : @radical+@voyelle_thematique+@personnes[3]
   end
   def p2
-    @radical+@voyelle_thematique+@personnes[4]
+    (personnes[4] == '---') ? @personnes[4] : @radical+@voyelle_thematique+@personnes[4]
   end
   def p3
-    @radical+@voyelle_thematique+@personnes[5]
+    (personnes[5] == '---') ? @personnes[5] : @radical+@voyelle_thematique+@personnes[5]
   end
   def to_s
     s1+' '+s2+' '+s3+' '+p1+' '+p2+' '+p3
@@ -57,16 +57,16 @@ class Verbe
     elsif conjugue.class == Array
       @conj = conjugue
     else
-      @conj = ['avere','avente','avuto','avendo']
-      @conj << Mode.new([Temps.new(['','','ho', 'hai','ha','abbiamo','avete','hanno']),\
-          Temps.new(%w(av e vo vi va vamo vate vano)),\
-          Temps.new(['','','ebbi','avesti','ebbe','avemmo','aveste','ebbero']),\
-          Temps.new(['av','','rò','rai','rà','remo','rete','ranno'])])
-      @conj << Mode.new([Temps.new(['','','abbia','abbia','abbia','abbiamo','abbiate','abbiano']),\
-          Temps.new(['av','','essi','essi','esse','essimo','este','essero'])])
-      @conj << Mode.new([Temps.new(['av','','rei','resti','rebbe','remmo','reste','rebbero'])])
-      @conj << Temps.new(['','','---','abbi','abbia','abbiamo','abbiate','abbiano'])
-      IO.write('db/avere.bin',Marshal.dump(@conj), binmode: true)
+      @conj = [conjugue,'','','']
+      @conj << Mode.new([Temps.new(Array.new(8,'')),\
+          Temps.new(Array.new(8,'')),\
+          Temps.new(Array.new(8,'')),\
+          Temps.new(Array.new(8,''))])
+      @conj << Mode.new([Temps.new(Array.new(8,'')),\
+          Temps.new(Array.new(8,''))])
+      @conj << Mode.new([Temps.new(Array.new(8,''))])
+      @conj << Temps.new(['','','---','','','','',''])
+#      IO.write('db/avere.bin',Marshal.dump(@conj), binmode: true)
 #    Conjugaison.create(infinitif: 'avere', essais: 20, detail: Marshal.dump(@conj))
     end
   end
@@ -101,6 +101,9 @@ class Verbe
   end
 end
 class Conjugaison < ActiveRecord::Base
+  validates :infinitif, presence: {message: "L'infinitif est obligatoire"}
+  validates :detail, presence: {message: "Le détail de la conjugaison est obligatoire"}
+  validates :infinitif, uniqueness: {message: "L'infinitif doit être unique"}
   def maj(conjugaison_params, params)
     t = [self.infinitif]
     t << params['ppres']

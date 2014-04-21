@@ -2,7 +2,7 @@ require_relative '../spec_helper'
 
 describe "Le verbe avere" do
   before(:each) do
-    Conjugaison.create(infinitif: 'avere',essais: 20, detail: IO.binread('db/avere.bin'))
+    FactoryGirl.create(:avere)
     @avere = Verbe.new(Conjugaison.first)
   end
   it 'recréer le fichier' do

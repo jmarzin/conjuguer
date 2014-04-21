@@ -16,35 +16,35 @@
     %th FUTUR
   %tr
     %td#gras{:rowspan => 6} INDICATIF
-    %td=@verbe.ind.pres.s1
-    %td=@verbe.ind.imp.s1
-    %td=@verbe.ind.parf.s1
-    %td=@verbe.ind.fut.s1
+    %td Io#{' '+@verbe.ind.pres.s1}
+    %td Io#{' '+@verbe.ind.imp.s1}
+    %td Io#{' '+@verbe.ind.parf.s1}
+    %td Io#{' '+@verbe.ind.fut.s1}
   %tr
-    %td=@verbe.ind.pres.s2
-    %td=@verbe.ind.imp.s2
-    %td=@verbe.ind.parf.s2
-    %td=@verbe.ind.fut.s2
+    %td Tu#{' '+@verbe.ind.pres.s2}
+    %td Tu#{' '+@verbe.ind.imp.s2}
+    %td Tu#{' '+@verbe.ind.parf.s2}
+    %td Tu#{' '+@verbe.ind.fut.s2}
   %tr
-    %td=@verbe.ind.pres.s3
-    %td=@verbe.ind.imp.s3
-    %td=@verbe.ind.parf.s3
-    %td=@verbe.ind.fut.s3
+    %td Lui/Lei#{' '+@verbe.ind.pres.s3}
+    %td Lui/Lei#{' '+@verbe.ind.imp.s3}
+    %td Lui/Lei#{' '+@verbe.ind.parf.s3}
+    %td Lui/Lei#{' '+@verbe.ind.fut.s3}
   %tr
-    %td=@verbe.ind.pres.p1
-    %td=@verbe.ind.imp.p1
-    %td=@verbe.ind.parf.p1
-    %td=@verbe.ind.fut.p1
+    %td Noi#{' '+@verbe.ind.pres.p1}
+    %td Noi#{' '+@verbe.ind.imp.p1}
+    %td Noi#{' '+@verbe.ind.parf.p1}
+    %td Noi#{' '+@verbe.ind.fut.p1}
   %tr
-    %td=@verbe.ind.pres.p2
-    %td=@verbe.ind.imp.p2
-    %td=@verbe.ind.parf.p2
-    %td=@verbe.ind.fut.p2
+    %td Voi#{' '+@verbe.ind.pres.p2}
+    %td Voi#{' '+@verbe.ind.imp.p2}
+    %td Voi#{' '+@verbe.ind.parf.p2}
+    %td Voi#{' '+@verbe.ind.fut.p2}
   %tr
-    %td=@verbe.ind.pres.p3
-    %td=@verbe.ind.imp.p3
-    %td=@verbe.ind.parf.p3
-    %td=@verbe.ind.fut.p3
+    %td Loro#{' '+@verbe.ind.pres.p3}
+    %td Loro#{' '+@verbe.ind.imp.p3}
+    %td Loro#{' '+@verbe.ind.parf.p3}
+    %td Loro#{' '+@verbe.ind.fut.p3}
 
 %table#verbe2
   %tr
@@ -55,35 +55,35 @@
     %th CONDITIONNEL
   %tr
     %td#gras{:rowspan => 6} SUBJONCTIF
-    %td=@verbe.sub.pres.s1
-    %td=@verbe.sub.imp.s1
+    %td Che io#{' '+@verbe.sub.pres.s1}
+    %td Che io#{' '+@verbe.sub.imp.s1}
     %td=@verbe.imp.s1
-    %td=@verbe.cond.pres.s1
+    %td Io#{' '+@verbe.cond.pres.s1}
   %tr
-    %td=@verbe.sub.pres.s2
-    %td=@verbe.sub.imp.s2
+    %td Che tu#{' '+@verbe.sub.pres.s2}
+    %td Che tu#{' '+@verbe.sub.imp.s2}
     %td=@verbe.imp.s2
-    %td=@verbe.cond.pres.s2
+    %td Tu#{' '+@verbe.cond.pres.s2}
   %tr
-    %td=@verbe.sub.pres.s3
-    %td=@verbe.sub.imp.s3
+    %td Che lui/lei#{' '+@verbe.sub.pres.s3}
+    %td Che lui/lei#{' '+@verbe.sub.imp.s3}
     %td=@verbe.imp.s3
-    %td=@verbe.cond.pres.s3
+    %td Lui/Lei#{' '+@verbe.cond.pres.s3}
   %tr
-    %td=@verbe.sub.pres.p1
-    %td=@verbe.sub.imp.p1
+    %td Che noi#{' '+@verbe.sub.pres.p1}
+    %td Che noi#{' '+@verbe.sub.imp.p1}
     %td=@verbe.imp.p1
-    %td=@verbe.cond.pres.p1
+    %td Noi#{' '+@verbe.cond.pres.p1}
   %tr
-    %td=@verbe.sub.pres.p2
-    %td=@verbe.sub.imp.p2
+    %td Che voi#{' '+@verbe.sub.pres.p2}
+    %td Che voi#{' '+@verbe.sub.imp.p2}
     %td=@verbe.imp.p2
-    %td=@verbe.cond.pres.p2
+    %td Voi#{' '+@verbe.cond.pres.p2}
   %tr
-    %td=@verbe.sub.pres.p3
-    %td=@verbe.sub.imp.p3
+    %td Che loro#{' '+@verbe.sub.pres.p3}
+    %td Che loro#{' '+@verbe.sub.imp.p3}
     %td=@verbe.imp.p3
-    %td=@verbe.cond.pres.p3
+    %td Loro#{' '+@verbe.cond.pres.p3}
 
 %table#verbe3
   %tr
@@ -98,6 +98,6 @@
     %td=@verbe.ppass
     %td=@verbe.ppres
 
-= link_to 'Edit', edit_conjugaison_path(@conjugaison)
+= link_to 'Corriger', edit_conjugaison_path(@conjugaison)
 \|
-= link_to 'Back', conjugaisons_path
+= link_to 'Retour', conjugaisons_path

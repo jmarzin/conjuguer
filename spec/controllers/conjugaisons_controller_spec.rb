@@ -23,7 +23,7 @@ describe ConjugaisonsController do
   # This should return the minimal set of attributes required to create a valid
   # Conjugaison. As you add validations to Conjugaison, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "infinitif" => "MyString" } }
+  let(:valid_attributes) { { "infinitif" => "MyString", "detail" => "détail" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -58,43 +58,6 @@ describe ConjugaisonsController do
       conjugaison = Conjugaison.create! valid_attributes
       get :edit, {:id => conjugaison.to_param}, valid_session
       assigns(:conjugaison).should eq(conjugaison)
-    end
-  end
-
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Conjugaison" do
-        expect {
-          post :create, {:conjugaison => valid_attributes}, valid_session
-        }.to change(Conjugaison, :count).by(1)
-      end
-
-      it "assigns a newly created conjugaison as @conjugaison" do
-        post :create, {:conjugaison => valid_attributes}, valid_session
-        assigns(:conjugaison).should be_a(Conjugaison)
-        assigns(:conjugaison).should be_persisted
-      end
-
-      it "redirects to the created conjugaison" do
-        post :create, {:conjugaison => valid_attributes}, valid_session
-        response.should redirect_to(Conjugaison.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved conjugaison as @conjugaison" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Conjugaison.any_instance.stub(:save).and_return(false)
-        post :create, {:conjugaison => { "infinitif" => "invalid value" }}, valid_session
-        assigns(:conjugaison).should be_a_new(Conjugaison)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Conjugaison.any_instance.stub(:save).and_return(false)
-        post :create, {:conjugaison => { "infinitif" => "invalid value" }}, valid_session
-        response.should render_template("new")
-      end
     end
   end
 
