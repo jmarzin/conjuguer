@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413181951) do
+ActiveRecord::Schema.define(version: 20140421174246) do
 
   create_table "conjugaisons", force: true do |t|
     t.string   "infinitif"
-    t.integer  "essais"
+    t.integer  "essais_verbe"
     t.binary   "detail"
     t.datetime "created_at"
     t.datetime "updated_at"

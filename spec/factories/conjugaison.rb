@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :conjugaison do
     infinitif 'avere'
-    essais    '20'
+    essais_verbe    20
     detail    IO.binread('db/avere.bin')
 
     trait   :avere do

@@ -11,7 +11,7 @@
   - @conjugaisons.each do |conjugaison|
     %tr
       %td= conjugaison.infinitif
-      %td= conjugaison.essais
+      %td= conjugaison.essais_verbe
       %td= link_to 'Voir', conjugaison
       %td= link_to 'Corriger', edit_conjugaison_path(conjugaison)
       %td= link_to 'Copier', copie_conjugaison_path(conjugaison)
