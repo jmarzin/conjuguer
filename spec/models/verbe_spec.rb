@@ -5,10 +5,6 @@ describe "Le verbe avere" do
     FactoryGirl.create(:avere)
     @avere = Verbe.new(Conjugaison.first)
   end
-  it 'recréer le fichier' do
-    @a = Verbe.new(1)
-    expect(@a.class).to eq(Verbe)
-  end
   it "a comme infinitif avere" do
     expect(@avere.inf).to eq("avere")
   end
