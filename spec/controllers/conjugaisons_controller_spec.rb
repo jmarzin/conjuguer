@@ -51,6 +51,10 @@ describe ConjugaisonsController do
       get :new, {}, valid_session
       assigns(:conjugaison).should be_a_new(Conjugaison)
     end
+    it "le tableau des essais est chargé" do
+      get :new, {}, valid_session
+      expect(assigns(:conjugaison).compteurs).to be_a(Array)
+    end
   end
 
   describe "GET edit" do

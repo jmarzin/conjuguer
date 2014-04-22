@@ -19,7 +19,9 @@ class ConjugaisonsController < ApplicationController
   # GET /conjugaisons/new
   def new
     @verbe = Verbe.new('')
-    @conjugaison = Conjugaison.new(infinitif: '', essais_verbe: 20, detail: Marshal.dump(@verbe))
+    @conjugaison = Conjugaison.new(infinitif: '', \
+      essais_verbe: 20, detail: Marshal.dump(@verbe),
+      compteurs: Array.new(Conjugaison::Formes.size, 20))
   end
 
   # GET/conjugaison/1/copie
