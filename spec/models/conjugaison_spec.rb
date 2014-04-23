@@ -20,4 +20,15 @@ describe Conjugaison do
   it "la fonction rang_forme('forme') renvoie le rang de la forme 'forme'" do
     expect(Conjugaison.rang_forme('ind.pres.s1')).to eq(3)
   end
+  it "les compteurs ne sont pas changés par la sauvegarde" do
+    @conjugaison = FactoryGirl.build(:conjugaison)
+    tab = @conjugaison.compteurs
+    @conjugaison.save!
+    expect(@conjugaison.compteurs).to eq(tab)
+  end
+  it "les compteurs sont initialisés s'ils n'existent pas" do
+    @conjugaison = FactoryGirl.create(:conjugaison)
+    Conjugaison.all.first.update( compteurs: '' )
+    expect(Conjugaison.all.first.compteurs.size).to eq(51)
+  end
 end

@@ -3,6 +3,7 @@ FactoryGirl.define do
     infinitif 'avere'
     essais_verbe    20
     detail    IO.binread('db/avere.bin')
+    compteurs Array.new(Conjugaison::Formes.size,20)
 
     trait   :avere do
       detail  {

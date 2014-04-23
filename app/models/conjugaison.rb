@@ -105,6 +105,10 @@ class Conjugaison < ActiveRecord::Base
   validates :detail, presence: {message: "Le détail de la conjugaison est obligatoire"}
   validates :infinitif, uniqueness: {message: "L'infinitif doit être unique"}
 
+  before_save :ser_deser_compteurs
+  after_save :ser_deser_compteurs
+  after_find :verifie_compteurs
+
   Formes = %w(ger ppass ppres
     ind.pres.s1 ind.pres.s2 ind.pres.s3 ind.pres.p1 ind.pres.p2 ind.pres.p3
     ind.imp.s1 ind.imp.s2 ind.imp.s3 ind.imp.p1 ind.imp.p2 ind.imp.p3
@@ -154,5 +158,24 @@ class Conjugaison < ActiveRecord::Base
     t << Temps.new(pres)
     conjugaison_params['detail'] = Marshal.dump(Verbe.new(t).conj)
     self.update(conjugaison_params)
+  end
+
+  protected
+  def ser_deser_compteurs
+    if self.compteurs.class == Array
+      self.compteurs = Marshal.dump(self.compteurs)
+    else
+      begin
+        self.compteurs = Marshal.restore(self.compteurs)
+      rescue
+      end
+    end
+  end
+  def verifie_compteurs
+    if self.compteurs == nil or self.compteurs == ''
+      self.compteurs = Array.new(Conjugaison::Formes.size,20)
+    else
+      ser_deser_compteurs
+    end
   end
 end

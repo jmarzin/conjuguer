@@ -20,7 +20,7 @@ class ConjugaisonsController < ApplicationController
   def new
     @verbe = Verbe.new('')
     @conjugaison = Conjugaison.new(infinitif: '', \
-      essais_verbe: 20, detail: Marshal.dump(@verbe),
+      essais_verbe: Conjugaison::Formes.size * 20, detail: Marshal.dump(@verbe),
       compteurs: Array.new(Conjugaison::Formes.size, 20))
   end
 

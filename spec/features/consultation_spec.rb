@@ -51,6 +51,11 @@ describe 'Verbes' do
       click_link 'Nouvelle Conjugaison'
       expect(page.text).to have_content 'Nouvelle conjugaison'
     end
+    it "affiche le total des compteurs" do
+      visit 'conjugaisons'
+      click_link 'Nouvelle Conjugaison'
+      expect(page).to have_field("conjugaison[essais_verbe]", with: '1020')
+    end
   end
   describe "Copie" do
     it "affiche la correction de la copie du verbe" do
