@@ -92,4 +92,7 @@ describe "Le verbe avere" do
   it "l'impératif se conjugue --- abbi abbia abbiamo abbiate abbiano" do
     expect(@avere.imp.to_s).to eq('--- abbi abbia abbiamo abbiate abbiano')
   end
+  it "une méthode permet de créer le champ d'affichage" do
+    expect(@avere.show("ind.pres.s1")).to eq('Io ho (20)')
+  end
 end

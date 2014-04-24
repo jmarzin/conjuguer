@@ -21,8 +21,8 @@ describe 'Verbes' do
         IMPERATIF CONDITIONNEL SUBJONCTIF Che io abbia Che io avessi --- Io avrei Che tu abbia
         Che tu avessi abbi Tu avresti Che lui/lei abbia Che lui/lei avesse abbia Lui/Lei avrebbe
         Che noi abbiamo Che noi avessimo abbiamo Noi avremmo Che voi abbiate Che voi aveste
-        abbiate Voi avreste Che loro abbiano Che loro avessero abbiano Loro avrebbero INFINITIF GERONDIF PARTICIPE PASSE PARTICIPE PRESENT
-        avere avendo avuto avente}
+        abbiate Voi avreste Che loro abbiano Che loro avessero abbiano Loro avrebbero GERONDIF PARTICIPE PASSE
+        avendo avuto}
     end
   end
   describe 'Modification' do
@@ -54,7 +54,7 @@ describe 'Verbes' do
     it "affiche le total des compteurs" do
       visit 'conjugaisons'
       click_link 'Nouvelle Conjugaison'
-      expect(page).to have_field("conjugaison[essais_verbe]", with: '1020')
+      expect(page).to have_field("conjugaison[essais_verbe]", with: '1000')
     end
   end
   describe "Copie" do
