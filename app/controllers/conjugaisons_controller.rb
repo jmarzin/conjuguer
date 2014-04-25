@@ -20,13 +20,17 @@ class ConjugaisonsController < ApplicationController
   def new
     @verbe = Verbe.new('')
     @conjugaison = Conjugaison.new(infinitif: '', \
-      essais_verbe: Conjugaison::Formes.size * 20, detail: Marshal.dump(@verbe),
-      compteurs: Array.new(Conjugaison::Formes.size, 20))
+      essais_verbe: Verbe::Formes.size * 20, detail: Marshal.dump(@verbe),
+      compteurs: Array.new(Verbe::Formes.size, 20))
   end
 
   # GET/conjugaison/1/copie
   def copie
-    @copie = Conjugaison.new(infinitif: 'Copie de ' + @conjugaison.infinitif, essais_verbe: 20, detail: @conjugaison.detail)
+    @copie = Conjugaison.new(\
+      infinitif: 'Copie de ' + @conjugaison.infinitif,\
+       essais_verbe: @conjugaison.essais_verbe,\
+       detail: @conjugaison.detail,\
+       compteurs: @conjugaison.compteurs)
     @copie.save
     redirect_to :action => "edit", :id => @copie.id
   end

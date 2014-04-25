@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :conjugaison do
     infinitif 'avere'
-    essais_verbe    Conjugaison::Formes.size * 20
+    essais_verbe    Verbe::Formes.size * Conjugaison::Max_essais
     detail    IO.binread('db/avere.bin')
-    compteurs Array.new(Conjugaison::Formes.size,20)
+    compteurs Array.new(Verbe::Formes.size,Conjugaison::Max_essais)
 
     trait   :avere do
       detail  {

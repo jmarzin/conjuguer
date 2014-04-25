@@ -14,15 +14,19 @@ describe 'Verbes' do
     it 'un verbe montre un tableau des temps' do
       visit 'conjugaisons'
       click_link 'Voir'
-      expect(page).to have_content %q{PRESENT IMPARFAIT PARFAIT FUTUR INDICATIF Io ho Io avevo
-        Io ebbi Io avrò Tu hai Tu avevi Tu avesti Tu avrai Lui/Lei ha Lui/Lei aveva Lui/Lei ebbe
-        Lui/Lei avrà Noi abbiamo Noi avevamo Noi avemmo Noi avremo Voi avete Voi avevate Voi aveste
-        Voi avrete Loro hanno Loro avevano Loro ebbero Loro avranno PRESENT IMPARFAIT
-        IMPERATIF CONDITIONNEL SUBJONCTIF Che io abbia Che io avessi --- Io avrei Che tu abbia
-        Che tu avessi abbi Tu avresti Che lui/lei abbia Che lui/lei avesse abbia Lui/Lei avrebbe
-        Che noi abbiamo Che noi avessimo abbiamo Noi avremmo Che voi abbiate Che voi aveste
-        abbiate Voi avreste Che loro abbiano Che loro avessero abbiano Loro avrebbero GERONDIF PARTICIPE PASSE
-        avendo avuto}
+      expect(page).to have_content %q{PRESENT IMPARFAIT PARFAIT FUTUR INDICATIF Io ho (20)
+        Io avevo (20) Io ebbi (20) Io avrò (20) Tu hai (20) Tu avevi (20) Tu avesti (20)
+        Tu avrai (20) Lui/lei ha (20) Lui/lei aveva (20) Lui/lei ebbe (20) Lui/lei avrà (20)
+        Noi abbiamo (20) Noi avevamo (20) Noi avemmo (20) Noi avremo (20) Voi avete (20)
+        Voi avevate (20) Voi aveste (20) Voi avrete (20) Loro hanno (20) Loro avevano (20)
+        Loro ebbero (20) Loro avranno (20) PRESENT IMPARFAIT IMPERATIF CONDITIONNEL
+        SUBJONCTIF Che io abbia (20) Che io avessi (20) --- (20) Io avrei (20) Che tu abbia (20)
+        Che tu avessi (20) Abbi (20) Tu avresti (20) Che lui/lei abbia (20)
+        Che lui/lei avesse (20) Abbia (20) Lui/lei avrebbe (20) Che noi abbiamo (20)
+        Che noi avessimo (20) Abbiamo (20) Noi avremmo (20) Che voi abbiate (20)
+        Che voi aveste (20) Abbiate (20) Voi avreste (20) Che loro abbiano (20)
+        Che loro avessero (20) Abbiano (20) Loro avrebbero (20) GERONDIF PARTICIPE PASSE
+        Avendo (20) Avuto (20)}
     end
   end
   describe 'Modification' do
@@ -35,10 +39,12 @@ describe 'Verbes' do
       visit 'conjugaisons'
       click_link 'Corriger'
       expect(page).to have_content 'Voyelle'
-      expect(page).to have_content 'Gérondif Participe passé Participe présent'
+      expect(page).to have_content 'Gérondif Essais Participe passé'
     end
     it "les informations ne sont pas changées si on sauve sans modif" do
-      visit 'conjugaisons/1'
+      visit '/conjugaisons/1/edit'
+      click_button 'Enregistrer'
+      visit '/conjugaisons/1'
       t1 = page.text
       click_link 'Corriger'
       click_button 'Enregistrer'
@@ -54,7 +60,8 @@ describe 'Verbes' do
     it "affiche le total des compteurs" do
       visit 'conjugaisons'
       click_link 'Nouvelle Conjugaison'
-      expect(page).to have_field("conjugaison[essais_verbe]", with: '1000')
+      expect(page).to have_field("conjugaison[essais_verbe]",\
+        with: "#{Conjugaison::Max_essais * Verbe::Formes.size}")
     end
   end
   describe "Copie" do

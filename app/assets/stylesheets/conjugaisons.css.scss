@@ -6,7 +6,7 @@
 @for $i from 1 through 3 {
   table#verbe#{$i} {
     border: 1px solid black;
-    width: 50%;
+    width: 80%;
 
     td {
       text-align: center;
