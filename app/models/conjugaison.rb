@@ -122,7 +122,8 @@ class Conjugaison < ActiveRecord::Base
       if i == Verbe::Formes.size then return false end
     end
 
-    return {forme: Verbe::Formes[i],texte: @verbe.show(Verbe::Formes[i])}
+    {forme: Verbe::Formes[i],texte: @verbe.show(Verbe::Formes[i]),\
+      attendu: eval("@verbe.#{Verbe::Formes[i]}")}
   end
 
   def self.tirage(num)

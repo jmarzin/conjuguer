@@ -27,6 +27,25 @@ class ConjugaisonsController < ApplicationController
   # GET/question
   def question
     @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
+    params[:id] = @resultat[:conjugaison].id
+    params[:attendu] = @resultat[:attendu]
+    params[:question] = Verbe.en_clair(@resultat[:forme])+@resultat[:conjugaison].infinitif+' ?'
+  end
+
+  # POST/verification
+  def verification
+    respond_to do |format|
+      if params[:reponse]
+        if params[:attendu] == params[:reponse].downcase
+          params[:message] = true
+        else
+          params[:message] = false
+        end
+        format.html { render action: 'question' }
+      else
+        format.html { redirect_to action: 'question'}
+      end
+    end
   end
 
   # GET/conjugaison/1/copie

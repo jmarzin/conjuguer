@@ -64,6 +64,9 @@ describe Conjugaison do
       (1..Conjugaison::Max_essais+5).each {@conjugaison.succes('ind.pres.s1')}
       expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to eq(1)
     end
+    it "la fonction en_clair envoie le nom de la forme en français" do
+      expect(Verbe.en_clair('ind.pres.s1')).to eq("1ère personne du singulier du présent de l'indicatif du verbe ")
+    end
   end
   context 'tests avec 2 verbes en base' do
     before(:each) do

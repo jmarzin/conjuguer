@@ -73,6 +73,12 @@ describe ConjugaisonsController do
     end
   end
 
+  describe "POST verification" do
+    it "reçoit une réponse comme paramètre" do
+      post :verification, {}
+    end
+  end
+
   describe "DELETE destroy" do
     it "destroys the requested conjugaison" do
       conjugaison = Conjugaison.create! valid_attributes

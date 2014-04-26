@@ -1,0 +1,24 @@
+=form_tag('/verification')
+
+%h1 Question
+
+
+=hidden_field_tag 'id', value = params[:id]
+=hidden_field_tag 'attendu', value = params[:attendu]
+=hidden_field_tag 'question', value = params[:question]
+
+-if params[:message] == nil
+  %br
+-elsif params[:message]
+  #bravo Bravo !
+-else
+  #erreur Erreur ! La réponse attendue est #{params[:attendu]}.
+
+%br
+=params[:question]
+=text_field_tag 'reponse', '', autofocus: true, disabled: params[:message] != nil
+
+-if params[:message] == nil
+  =button_tag 'Vérifier'
+-else
+  =button_tag 'Autre question', autofocus: true

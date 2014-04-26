@@ -72,6 +72,56 @@ class Verbe
   def compteurs
     @compteurs
   end
+
+  def self.en_clair(string)
+    case string
+      when 'ger'
+        texte = 'Gérondif '
+      when 'ppass'
+        texte = 'Participe passé '
+      else
+        case string[-2,2]
+          when 's1'
+            texte = '1ère personne du singulier '
+          when 's2'
+            texte = '2ème personne du singulier '
+          when 's3'
+            texte = '3ème personne du singulier '
+          when 'p1'
+            texte = '1ère personne du pluriel '
+          when 'p2'
+            texte = '2ème personne du pluriel '
+          when 'p3'
+            texte = '3ème personne du pluriel '
+        end
+        case string[0..2]
+          when 'imp'
+            texte += "de l'impératif "
+          else
+            /\.(.*)\./.match(string)
+            case $1
+              when 'pres'
+                texte += "du présent "
+              when 'imp'
+                texte += "de l'imparfait"
+              when 'parf'
+                texte += "du parfait "
+              when 'fut'
+                texte += "du futur "
+            end
+            case string[0..2]
+              when 'ind'
+                texte += "de l'indicatif "
+              when 'sub'
+                texte += "du subjonctif "
+              when 'con'
+                texte += "du conditionnel "
+            end
+        end
+    end
+    return texte += "du verbe "
+  end
+
   def show(string)
     debut = string[0..2]
     texte = ''
