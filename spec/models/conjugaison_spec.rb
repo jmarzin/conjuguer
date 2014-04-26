@@ -50,4 +50,21 @@ describe Conjugaison do
     @conjugaison = FactoryGirl.create(:avere)
     expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq(['ppass','Avuto (20)'])
   end
+  it "l'enregistrement d'une erreur incrémente le compteur des essais" do
+    @conjugaison = FactoryGirl.create(:avere)
+    @conjugaison.erreur('ind.pres.s1')
+    expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
+      eq(Conjugaison::Max_essais + 1)
+  end
+  it "l'enregistrement d'un succès décrémente le compteur des essais" do
+    @conjugaison = FactoryGirl.create(:avere)
+    @conjugaison.succes('ind.pres.s1')
+    expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
+      eq(Conjugaison::Max_essais - 1)
+  end
+  it "le compteur minimum est 1" do
+    @conjugaison = FactoryGirl.create(:avere)
+    (1..Conjugaison::Max_essais+5).each {@conjugaison.succes('ind.pres.s1')}
+    expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to eq(1)
+  end
 end

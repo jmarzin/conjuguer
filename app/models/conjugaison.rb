@@ -121,6 +121,14 @@ class Conjugaison < ActiveRecord::Base
     return [Verbe::Formes[i],@verbe.show(Verbe::Formes[i])]
   end
 
+  def erreur(string)
+    compteurs[Verbe.rang_forme(string)] += 1
+  end
+
+  def succes(string)
+    compteurs[Verbe.rang_forme(string)] -= 1 unless compteurs[Verbe.rang_forme(string)] == 1
+  end
+
   protected
   def ser_deser_compteurs
     if self.compteurs.class == Array
