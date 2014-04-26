@@ -109,6 +109,18 @@ class Conjugaison < ActiveRecord::Base
     self.update(conjugaison_params)
   end
 
+  def tirage(num)
+    @verbe = Verbe.new(self)
+    i=0
+    while num > @verbe.compteurs[i] do
+      num -= @verbe.compteurs[i]
+      i += 1
+      if i == Verbe::Formes.size then return false end
+    end
+
+    return [Verbe::Formes[i],@verbe.show(Verbe::Formes[i])]
+  end
+
   protected
   def ser_deser_compteurs
     if self.compteurs.class == Array

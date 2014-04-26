@@ -34,4 +34,20 @@ describe Conjugaison do
     Conjugaison.all.first.update( compteurs: '' )
     expect(Conjugaison.all.first.compteurs.size).to eq(50)
   end
+  it "le tirage de la 20ème forme donne ind.pres.s1" do
+    @conjugaison = FactoryGirl.create(:avere)
+    expect(@conjugaison.tirage(20)).to eq(['ind.pres.s1','Io ho (20)'])
+  end
+  it "le tirage de la 21ème forme donne ind.pres.s2" do
+    @conjugaison = FactoryGirl.create(:avere)
+    expect(@conjugaison.tirage(21)).to eq(['ind.pres.s2','Tu hai (20)'])
+  end
+  it "le tirage du rang égal au nombre d'essais du verbe donne faux" do
+    @conjugaison = FactoryGirl.create(:avere)
+    expect(@conjugaison.tirage(@conjugaison.essais_verbe + 1)).to be_false
+  end
+  it "le tirage du rang égal au nombre d'essais du verbe -1 donne avuto" do
+    @conjugaison = FactoryGirl.create(:avere)
+    expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq(['ppass','Avuto (20)'])
+  end
 end
