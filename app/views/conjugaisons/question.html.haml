@@ -16,7 +16,7 @@
   #erreur Erreur ! La réponse attendue est #{params[:attendu]}.
 
 %br
-=params[:question]
+=params[:forme]
 =text_field_tag 'reponse', '', autofocus: true, disabled: params[:message] != nil
 
 -if params[:message] == nil

@@ -103,7 +103,7 @@ class Verbe
               when 'pres'
                 texte += "du présent "
               when 'imp'
-                texte += "de l'imparfait"
+                texte += "de l'imparfait "
               when 'parf'
                 texte += "du parfait "
               when 'fut'

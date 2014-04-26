@@ -40,10 +40,10 @@ class ConjugaisonsController < ApplicationController
         @conjugaison = Conjugaison.find(params[:id])
         if params[:attendu] == params[:reponse].downcase
           params[:message] = true
-          @conjugaison.succes.save!
+          @conjugaison.succes(params[:forme]).save!
         else
           params[:message] = false
-          @conjugaison.echec.save!
+          @conjugaison.erreur(params[:forme]).save!
         end
 
         format.html { render action: 'question' }

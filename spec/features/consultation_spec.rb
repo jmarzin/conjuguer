@@ -71,4 +71,21 @@ describe 'Verbes' do
       expect(page).to have_field("conjugaison[infinitif]", with: 'Copie de avere')
     end
   end
+  describe "Questions" do
+    it "une erreur incrémente le compteur" do
+      visit '/question'
+      click_button 'Vérifier'
+      visit '/conjugaisons/1'
+      expect(page).to have_content('1001')
+      expect(page).to have_content('21')
+    end
+    it "une bonne réponse décrémente le compteur" do
+      visit '/question'
+      fill_in 'reponse', :with => find_by_id('attendu').value
+      click_button 'Vérifier'
+      visit '/conjugaisons/1'
+      expect(page).to have_content('999')
+      expect(page).to have_content('19')
+    end
+  end
 end
