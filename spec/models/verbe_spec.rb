@@ -95,4 +95,15 @@ describe "Le verbe avere" do
   it "une méthode permet de créer le champ d'affichage" do
     expect(@avere.show("ind.pres.s1")).to eq("Io ho (#{Conjugaison::Max_essais})")
   end
+  it "on utilise la fonction rand pour tirer au sort" do
+    min = 100
+    max = 0
+    (1..1000).each do |i|
+      j = (rand * 100).ceil
+      min = j if j < min
+      max = j if j > max
+    end
+    expect(min).to eq(1)
+    expect(max).to eq(100)
+  end
 end

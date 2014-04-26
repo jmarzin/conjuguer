@@ -109,6 +109,10 @@ class Conjugaison < ActiveRecord::Base
     self.update(conjugaison_params)
   end
 
+  def self.aleatoire
+    (rand * Conjugaison.sum("essais_verbe")).ceil
+  end
+
   def tirage(num)
     @verbe = Verbe.new(self)
     i=0
@@ -118,7 +122,16 @@ class Conjugaison < ActiveRecord::Base
       if i == Verbe::Formes.size then return false end
     end
 
-    return [Verbe::Formes[i],@verbe.show(Verbe::Formes[i])]
+    return {forme: Verbe::Formes[i],texte: @verbe.show(Verbe::Formes[i])}
+  end
+
+  def self.tirage(num)
+    @conjugaisons = Conjugaison.all
+    i = num
+    @conjugaisons.each do |c|
+      return {conjugaison: c, rang: i}.merge(c.tirage(i)) if c.essais_verbe >= i
+      i -= c.essais_verbe
+    end
   end
 
   def erreur(string)
@@ -140,6 +153,7 @@ class Conjugaison < ActiveRecord::Base
       end
     end
   end
+
   def verifie_compteurs
     if self.compteurs == nil or self.compteurs == ''
       self.compteurs = Array.new(Verbe::Formes.size,Conjugaison::Max_essais)
@@ -147,4 +161,5 @@ class Conjugaison < ActiveRecord::Base
       ser_deser_compteurs
     end
   end
+
 end

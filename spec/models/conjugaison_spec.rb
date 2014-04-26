@@ -1,70 +1,114 @@
 require 'spec_helper'
 
 describe Conjugaison do
-  it "l'infinitif ne peut pas être blanc" do
-    expect(FactoryGirl.build(:conjugaison, infinitif: '')).to have(1).errors_on(:infinitif)
+  context 'tests simples' do
+    it "l'infinitif ne peut pas être blanc" do
+     expect(FactoryGirl.build(:conjugaison, infinitif: '')).to have(1).errors_on(:infinitif)
+    end
+    it "le détail est obligatoire" do
+      expect(FactoryGirl.build(:conjugaison, detail: '')).to have(1).errors_on(:detail)
+    end
+    it "l'infinitif est unique" do
+     FactoryGirl.create(:avere)
+      expect(Conjugaison.new(infinitif: 'avere')).to have(1).errors_on(:infinitif)
+    end
+    it "une constante donne le nombre d'essais maximum" do
+      expect(Conjugaison::Max_essais.class).to eq(Fixnum)
+    end
+    it "les formes sont décrites dans un tableau" do
+      expect(Verbe::Formes).to be_a_kind_of(Array)
+    end
+    it "il y a 51 formes" do
+      expect(Verbe::Formes.size).to eq(50)
+    end
+    it "la fonction rang_forme('forme') renvoie le rang de la forme 'forme'" do
+      expect(Verbe.rang_forme('ind.pres.s1')).to eq(0)
+    end
   end
-  it "le détail est obligatoire" do
-    expect(FactoryGirl.build(:conjugaison, detail: '')).to have(1).errors_on(:detail)
+  context 'tests avec une conjugaison en base' do
+    before(:each) do
+      @conjugaison = FactoryGirl.create(:avere)
+    end
+    it "les compteurs ne sont pas changés par la sauvegarde" do
+      tab = @conjugaison.compteurs
+      @conjugaison.save!
+      expect(@conjugaison.compteurs).to eq(tab)
+    end
+    it "les compteurs sont initialisés s'ils n'existent pas" do
+      Conjugaison.all.first.update( compteurs: '' )
+      expect(Conjugaison.all.first.compteurs.size).to eq(50)
+    end
+    it "le tirage de la 20ème forme donne ind.pres.s1" do
+      expect(@conjugaison.tirage(20)).to eq({forme: 'ind.pres.s1',texte: 'Io ho (20)'})
+    end
+    it "le tirage de la 21ème forme donne ind.pres.s2" do
+      expect(@conjugaison.tirage(21)).to eq({forme: 'ind.pres.s2',texte: 'Tu hai (20)'})
+    end
+    it "le tirage du rang égal au nombre d'essais du verbe donne faux" do
+      expect(@conjugaison.tirage(@conjugaison.essais_verbe + 1)).to be_false
+    end
+    it "le tirage du rang égal au nombre d'essais du verbe -1 donne avuto" do
+      expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq({forme: 'ppass',texte: 'Avuto (20)'})
+    end
+    it "l'enregistrement d'une erreur incrémente le compteur des essais" do
+      @conjugaison.erreur('ind.pres.s1')
+      expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
+        eq(Conjugaison::Max_essais + 1)
+    end
+    it "l'enregistrement d'un succès décrémente le compteur des essais" do
+      @conjugaison.succes('ind.pres.s1')
+      expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
+        eq(Conjugaison::Max_essais - 1)
+    end
+    it "le compteur minimum est 1" do
+      (1..Conjugaison::Max_essais+5).each {@conjugaison.succes('ind.pres.s1')}
+      expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to eq(1)
+    end
   end
-  it "l'infinitif est unique" do
-    FactoryGirl.create(:avere)
-    expect(Conjugaison.new(infinitif: 'avere')).to have(1).errors_on(:infinitif)
-  end
-  it "une constante donne le nombre d'essais maximum" do
-    expect(Conjugaison::Max_essais.class).to eq(Fixnum)
-  end
-  it "les formes sont décrites dans un tableau" do
-    expect(Verbe::Formes).to be_a_kind_of(Array)
-  end
-  it "il y a 51 formes" do
-    expect(Verbe::Formes.size).to eq(50)
-  end
-  it "la fonction rang_forme('forme') renvoie le rang de la forme 'forme'" do
-    expect(Verbe.rang_forme('ind.pres.s1')).to eq(0)
-  end
-  it "les compteurs ne sont pas changés par la sauvegarde" do
-    @conjugaison = FactoryGirl.build(:conjugaison)
-    tab = @conjugaison.compteurs
-    @conjugaison.save!
-    expect(@conjugaison.compteurs).to eq(tab)
-  end
-  it "les compteurs sont initialisés s'ils n'existent pas" do
-    @conjugaison = FactoryGirl.create(:conjugaison)
-    Conjugaison.all.first.update( compteurs: '' )
-    expect(Conjugaison.all.first.compteurs.size).to eq(50)
-  end
-  it "le tirage de la 20ème forme donne ind.pres.s1" do
-    @conjugaison = FactoryGirl.create(:avere)
-    expect(@conjugaison.tirage(20)).to eq(['ind.pres.s1','Io ho (20)'])
-  end
-  it "le tirage de la 21ème forme donne ind.pres.s2" do
-    @conjugaison = FactoryGirl.create(:avere)
-    expect(@conjugaison.tirage(21)).to eq(['ind.pres.s2','Tu hai (20)'])
-  end
-  it "le tirage du rang égal au nombre d'essais du verbe donne faux" do
-    @conjugaison = FactoryGirl.create(:avere)
-    expect(@conjugaison.tirage(@conjugaison.essais_verbe + 1)).to be_false
-  end
-  it "le tirage du rang égal au nombre d'essais du verbe -1 donne avuto" do
-    @conjugaison = FactoryGirl.create(:avere)
-    expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq(['ppass','Avuto (20)'])
-  end
-  it "l'enregistrement d'une erreur incrémente le compteur des essais" do
-    @conjugaison = FactoryGirl.create(:avere)
-    @conjugaison.erreur('ind.pres.s1')
-    expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
-      eq(Conjugaison::Max_essais + 1)
-  end
-  it "l'enregistrement d'un succès décrémente le compteur des essais" do
-    @conjugaison = FactoryGirl.create(:avere)
-    @conjugaison.succes('ind.pres.s1')
-    expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
-      eq(Conjugaison::Max_essais - 1)
-  end
-  it "le compteur minimum est 1" do
-    @conjugaison = FactoryGirl.create(:avere)
-    (1..Conjugaison::Max_essais+5).each {@conjugaison.succes('ind.pres.s1')}
-    expect(@conjugaison.compteurs[Verbe.rang_forme('ind.pres.s1')]).to eq(1)
+  context 'tests avec 2 verbes en base' do
+    before(:each) do
+      @conjugaison = FactoryGirl.create(:avere)
+      @conjugaison = FactoryGirl.create(:avere, infinitif: 'copie de avere')
+    end
+    it 'le tirage général de 1000 donne le verbe avere et le rang 1000' do
+      resultat = Conjugaison.tirage(1000)
+      expect(resultat[:conjugaison].infinitif).to eq('avere')
+      expect(resultat[:rang]).to eq(1000)
+    end
+    it 'le tirage général de 1001 donne le verbe copie de avere et le rang 1' do
+      resultat = Conjugaison.tirage(1001)
+      expect(resultat[:conjugaison].infinitif).to eq('copie de avere')
+      expect(resultat[:rang]).to eq(1)
+    end
+    it 'le tirage de 1000 donne la forme ppass' do
+      resultat = Conjugaison.tirage(1000)
+      expect(resultat[:conjugaison].tirage(resultat[:rang])[:forme]).to eq('ppass')
+    end
+    it 'le tirage de 1001 donne la forme ind.pres.s1' do
+      resultat = Conjugaison.tirage(1001)
+      expect(resultat[:conjugaison].tirage(resultat[:rang])[:forme]).to eq('ind.pres.s1')
+    end
+    it 'le resultat est complet' do
+      resultat = Conjugaison.tirage(1001)
+      expect(resultat[:forme]).to eq('ind.pres.s1')
+      expect(resultat[:texte]).to eq('Io ho (20)')
+    end
+    it "la fonction aléatoire renvoie un nombre > 1 et <= nombre total d'essais" do
+      min = 10000
+      max = 0
+      @c = Conjugaison.find(1)
+      @c.essais_verbe = 10
+      @c.save!
+      @c = Conjugaison.find(2)
+      @c.essais_verbe = 20
+      @c.save!
+      (1..100).each do
+        i = Conjugaison.aleatoire
+        min = i if min > i
+        max = i if max < i
+      end
+      expect(min).to eq(1)
+      expect(max).to eq(30)
+    end
   end
 end

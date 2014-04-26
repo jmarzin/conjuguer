@@ -65,6 +65,14 @@ describe ConjugaisonsController do
     end
   end
 
+  describe "GET question" do
+    it "envoie un paramètre qui est une conjugaison" do
+      FactoryGirl.create(:avere)
+      get :question, {}, valid_session
+      expect(assigns(:resultat)).to be_a(Hash)
+    end
+  end
+
   describe "DELETE destroy" do
     it "destroys the requested conjugaison" do
       conjugaison = Conjugaison.create! valid_attributes

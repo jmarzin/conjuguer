@@ -24,6 +24,11 @@ class ConjugaisonsController < ApplicationController
       compteurs: Array.new(Verbe::Formes.size, 20))
   end
 
+  # GET/question
+  def question
+    @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
+  end
+
   # GET/conjugaison/1/copie
   def copie
     @copie = Conjugaison.new(\
