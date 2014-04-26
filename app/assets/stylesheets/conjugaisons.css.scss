@@ -2,7 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #gras {font-weight: bold}
-
+#bravo {
+  font-weight: bold;
+  color: darkgreen;
+}
+#erreur {
+  font-weight: bold;
+  color: red;
+}
 @for $i from 1 through 3 {
   table#verbe#{$i} {
     border: 1px solid black;

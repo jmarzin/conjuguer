@@ -29,6 +29,7 @@ class ConjugaisonsController < ApplicationController
     @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
     params[:id] = @resultat[:conjugaison].id
     params[:attendu] = @resultat[:attendu]
+    params[:forme] = @resultat[:forme]
     params[:question] = Verbe.en_clair(@resultat[:forme])+@resultat[:conjugaison].infinitif+' ?'
   end
 
@@ -36,11 +37,15 @@ class ConjugaisonsController < ApplicationController
   def verification
     respond_to do |format|
       if params[:reponse]
+        @conjugaison = Conjugaison.find(params[:id])
         if params[:attendu] == params[:reponse].downcase
           params[:message] = true
+          @conjugaison.succes.save!
         else
           params[:message] = false
+          @conjugaison.echec.save!
         end
+
         format.html { render action: 'question' }
       else
         format.html { redirect_to action: 'question'}

@@ -137,10 +137,14 @@ class Conjugaison < ActiveRecord::Base
 
   def erreur(string)
     compteurs[Verbe.rang_forme(string)] += 1
+    self.essais_verbe += 1
+    self
   end
 
   def succes(string)
     compteurs[Verbe.rang_forme(string)] -= 1 unless compteurs[Verbe.rang_forme(string)] == 1
+    self.essais_verbe -= 1
+    self
   end
 
   protected

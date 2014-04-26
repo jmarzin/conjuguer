@@ -39,16 +39,16 @@ describe Conjugaison do
       expect(Conjugaison.all.first.compteurs.size).to eq(50)
     end
     it "le tirage de la 20ème forme donne ind.pres.s1" do
-      expect(@conjugaison.tirage(20)).to eq({forme: 'ind.pres.s1',texte: 'Io ho (20)'})
+      expect(@conjugaison.tirage(20)).to eq({forme: 'ind.pres.s1',texte: 'Io ho (20)',attendu: 'ho'})
     end
     it "le tirage de la 21ème forme donne ind.pres.s2" do
-      expect(@conjugaison.tirage(21)).to eq({forme: 'ind.pres.s2',texte: 'Tu hai (20)'})
+      expect(@conjugaison.tirage(21)).to eq({forme: 'ind.pres.s2',texte: 'Tu hai (20)',attendu: 'hai'})
     end
     it "le tirage du rang égal au nombre d'essais du verbe donne faux" do
       expect(@conjugaison.tirage(@conjugaison.essais_verbe + 1)).to be_false
     end
     it "le tirage du rang égal au nombre d'essais du verbe -1 donne avuto" do
-      expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq({forme: 'ppass',texte: 'Avuto (20)'})
+      expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq({forme: 'ppass',texte: 'Avuto (20)',attendu: 'avuto'})
     end
     it "l'enregistrement d'une erreur incrémente le compteur des essais" do
       @conjugaison.erreur('ind.pres.s1')
