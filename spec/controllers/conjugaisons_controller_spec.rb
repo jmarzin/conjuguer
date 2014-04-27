@@ -32,7 +32,7 @@ describe ConjugaisonsController do
 
   describe "GET index" do
     it "assigns all conjugaisons as @conjugaisons" do
-      conjugaison = Conjugaison.create! valid_attributes
+      conjugaison = FactoryGirl.create(:avere)
       get :index, {}, valid_session
       assigns(:conjugaisons).should eq([conjugaison])
     end
@@ -40,7 +40,7 @@ describe ConjugaisonsController do
 
   describe "GET show" do
     it "assigns the requested conjugaison as @conjugaison" do
-      conjugaison = Conjugaison.create! valid_attributes
+      conjugaison = FactoryGirl.create(:avere)
       get :show, {:id => conjugaison.to_param}, valid_session
       assigns(:conjugaison).should eq(conjugaison)
     end
@@ -53,13 +53,13 @@ describe ConjugaisonsController do
     end
     it "le tableau des essais est chargé" do
       get :new, {}, valid_session
-      expect(assigns(:conjugaison).compteurs).to be_a(Array)
+      expect(assigns(:conjugaison).verbe.compteurs).to be_a(Array)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested conjugaison as @conjugaison" do
-      conjugaison = Conjugaison.create! valid_attributes
+      conjugaison = FactoryGirl.create(:avere)
       get :edit, {:id => conjugaison.to_param}, valid_session
       assigns(:conjugaison).should eq(conjugaison)
     end
@@ -81,14 +81,14 @@ describe ConjugaisonsController do
 
   describe "DELETE destroy" do
     it "destroys the requested conjugaison" do
-      conjugaison = Conjugaison.create! valid_attributes
+      conjugaison = FactoryGirl.create(:avere)
       expect {
         delete :destroy, {:id => conjugaison.to_param}, valid_session
       }.to change(Conjugaison, :count).by(-1)
     end
 
     it "redirects to the conjugaisons list" do
-      conjugaison = Conjugaison.create! valid_attributes
+      conjugaison = FactoryGirl.create(:avere)
       delete :destroy, {:id => conjugaison.to_param}, valid_session
       response.should redirect_to(conjugaisons_url)
     end

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Verbes' do
   before(:each) do
     FactoryGirl.create(:avere)
-    @avere = Marshal.load(Conjugaison.first.detail)
+#    @avere = Marshal.load(Conjugaison.first.detail)
   end
   describe 'Consultation' do
     it 'la liste ne comprend pas le détail' do

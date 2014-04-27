@@ -10,18 +10,12 @@ class ConjugaisonsController < ApplicationController
   # GET /conjugaisons/1
   # GET /conjugaisons/1.json
   def show
-    begin
-      @verbe = Verbe.new(@conjugaison)
-    rescue
-    end
   end
 
   # GET /conjugaisons/new
   def new
-    @verbe = Verbe.new('')
-    @conjugaison = Conjugaison.new(infinitif: '', \
-      essais_verbe: Verbe::Formes.size * 20, detail: Marshal.dump(@verbe),
-      compteurs: Array.new(Verbe::Formes.size, 20))
+    @conjugaison = Conjugaison.new(infinitif: '',\
+      essais_verbe: Verbe::Formes.size * Conjugaison::Max_essais, verbe: Verbe.new(''))
   end
 
   # GET/question
@@ -58,18 +52,13 @@ class ConjugaisonsController < ApplicationController
     @copie = Conjugaison.new(\
       infinitif: 'Copie de ' + @conjugaison.infinitif,\
        essais_verbe: @conjugaison.essais_verbe,\
-       detail: @conjugaison.detail,\
-       compteurs: @conjugaison.compteurs)
+       verbe: @conjugaison.verbe)
     @copie.save
     redirect_to :action => "edit", :id => @copie.id
   end
 
   # GET /conjugaisons/1/edit
   def edit
-    begin
-      @verbe = Verbe.new(@conjugaison)
-    rescue
-    end
   end
 
   # POST /conjugaisons

@@ -53,12 +53,12 @@ class Conjugaison < ActiveRecord::Base
   Max_essais = 20
 
   validates :infinitif, presence: {message: "L'infinitif est obligatoire"}
-  validates :detail, presence: {message: "Le détail de la conjugaison est obligatoire"}
+  validates :verbe, presence: {message: "Le détail de la conjugaison est obligatoire"}
   validates :infinitif, uniqueness: {message: "L'infinitif doit être unique"}
 
-  before_save :ser_deser_compteurs
-  after_save :ser_deser_compteurs
-  after_find :verifie_compteurs
+  before_save :ser_deser_verbe
+  after_save :ser_deser_verbe
+  after_find :ser_deser_verbe
 
   def maj(conjugaison_params, params)
     total_essais = 0
@@ -102,10 +102,8 @@ class Conjugaison < ActiveRecord::Base
     pres += params['formes'][36..41]
     t1 << Temps.new(pres)
 
-    @verbe = Verbe.new({conj: t1,compteurs: params['compteurs']})
     conjugaison_params['essais_verbe'] = total_essais
-    conjugaison_params['detail'] = Marshal.dump(@verbe.conj)
-    conjugaison_params['compteurs'] = @verbe.compteurs
+    conjugaison_params['verbe'] = Verbe.new({conj: t1,compteurs: params['compteurs']})
     self.update(conjugaison_params)
   end
 
@@ -114,16 +112,15 @@ class Conjugaison < ActiveRecord::Base
   end
 
   def tirage(num)
-    @verbe = Verbe.new(self)
     i=0
-    while num > @verbe.compteurs[i] do
-      num -= @verbe.compteurs[i]
+    while num > verbe.compteurs[i] do
+      num -= verbe.compteurs[i]
       i += 1
       if i == Verbe::Formes.size then return false end
     end
 
-    {forme: Verbe::Formes[i],texte: @verbe.show(Verbe::Formes[i]),\
-      attendu: eval("@verbe.#{Verbe::Formes[i]}")}
+    {forme: Verbe::Formes[i],texte: verbe.show(Verbe::Formes[i]),\
+      attendu: eval("verbe.#{Verbe::Formes[i]}")}
   end
 
   def self.tirage(num)
@@ -136,19 +133,19 @@ class Conjugaison < ActiveRecord::Base
   end
 
   def erreur(string)
-    compteurs[Verbe.rang_forme(string)] += 1
+    verbe.compteurs[Verbe.rang_forme(string)] += 1
     self.essais_verbe += 1
     self
   end
 
   def succes(string)
-    compteurs[Verbe.rang_forme(string)] -= 1 unless compteurs[Verbe.rang_forme(string)] == 1
+    verbe.compteurs[Verbe.rang_forme(string)] -= 1 unless verbe.compteurs[Verbe.rang_forme(string)] == 1
     self.essais_verbe -= 1
     self
   end
 
   protected
-  def ser_deser_compteurs
+  def ser_deser_verbe
     if self.compteurs.class == Array
       self.compteurs = Marshal.dump(self.compteurs)
     else
@@ -157,14 +154,22 @@ class Conjugaison < ActiveRecord::Base
       rescue
       end
     end
-  end
-
-  def verifie_compteurs
-    if self.compteurs == nil or self.compteurs == ''
-      self.compteurs = Array.new(Verbe::Formes.size,Conjugaison::Max_essais)
+    if self.verbe.class == Verbe
+      self.verbe = Marshal.dump(self.verbe)
     else
-      ser_deser_compteurs
+      begin
+        self.verbe = Marshal.restore(self.verbe)
+      rescue
+      end
     end
   end
+
+#  def verifie_compteurs
+#    if self.compteurs == nil or self.compteurs == ''
+#      self.compteurs = Array.new(Verbe::Formes.size,Conjugaison::Max_essais)
+#    else
+#      ser_deser_compteurs
+#    end
+#  end
 
 end

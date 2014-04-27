@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422204412) do
+ActiveRecord::Schema.define(version: 20140426202946) do
 
   create_table "conjugaisons", force: true do |t|
     t.string   "infinitif"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140422204412) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "compteurs"
+    t.text     "verbe"
   end
 
 end

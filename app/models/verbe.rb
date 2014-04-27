@@ -16,13 +16,7 @@ class Verbe
   end
 
   def initialize(conjugue)
-    if conjugue.class == Conjugaison
-      begin
-        @conj = Marshal.load(conjugue.detail)
-      rescue
-      end
-      @compteurs = conjugue.compteurs
-    elsif conjugue.class == Hash
+    if conjugue.class == Hash
       @conj = conjugue[:conj]
       @compteurs = conjugue[:compteurs]
     else

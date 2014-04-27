@@ -21,7 +21,7 @@
       -if personne == 's1'
         %td#gras{:rowspan => 6} INDICATIF
       -tab_temps.each do |temps|
-        %td=@verbe.show(temps+personne)
+        %td=@conjugaison.verbe.show(temps+personne)
 
 %table#verbe2
   -tab_temps=['sub.pres.','sub.imp.','imp.','cond.pres.']
@@ -36,7 +36,7 @@
       -if personne == 's1'
         %td#gras{:rowspan => 6} SUBJONCTIF
       -tab_temps.each do |temps|
-        %td=@verbe.show(temps+personne)
+        %td=@conjugaison.verbe.show(temps+personne)
 
 %table#verbe3
   %tr
@@ -44,8 +44,8 @@
     %th PARTICIPE PASSE
 
   %tr
-    %td=@verbe.show('ger')
-    %td=@verbe.show('ppass')
+    %td=@conjugaison.verbe.show('ger')
+    %td=@conjugaison.verbe.show('ppass')
 
 = link_to 'Corriger', edit_conjugaison_path(@conjugaison)
 \|

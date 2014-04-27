@@ -29,128 +29,128 @@
     %tr
       %td Indicatif
       %td Présent
-      %td=text_field_tag('ind[pres][radical]', value = @verbe.ind.pres.radical,options={size: 10})
-      %td=text_field_tag('ind[pres][voyelle_thematique]', value = @verbe.ind.pres.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[pres][radical]', value = @conjugaison.verbe.ind.pres.radical,options={size: 10})
+      %td=text_field_tag('ind[pres][voyelle_thematique]', value = @conjugaison.verbe.ind.pres.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.ind.pres.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.ind.pres.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (0..5).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td Indicatif
       %td Imparfait
-      %td=text_field_tag('ind[imp][radical]', value = @verbe.ind.imp.radical,options={size: 10})
-      %td=text_field_tag('ind[imp][voyelle_thematique]', value = @verbe.ind.imp.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[imp][radical]', value = @conjugaison.verbe.ind.imp.radical,options={size: 10})
+      %td=text_field_tag('ind[imp][voyelle_thematique]', value = @conjugaison.verbe.ind.imp.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.ind.imp.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.ind.imp.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (6..11).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td Indicatif
       %td Parfait
-      %td=text_field_tag('ind[parf][radical]', value = @verbe.ind.parf.radical,options={size: 10})
-      %td=text_field_tag('ind[parf][voyelle_thematique]', value = @verbe.ind.parf.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[parf][radical]', value = @conjugaison.verbe.ind.parf.radical,options={size: 10})
+      %td=text_field_tag('ind[parf][voyelle_thematique]', value = @conjugaison.verbe.ind.parf.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.ind.parf.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.ind.parf.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (12..17).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td Indicatif
       %td Futur
-      %td=text_field_tag('ind[fut][radical]', value = @verbe.ind.fut.radical,options={size: 10})
-      %td=text_field_tag('ind[fut][voyelle_thematique]', value = @verbe.ind.fut.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('ind[fut][radical]', value = @conjugaison.verbe.ind.fut.radical,options={size: 10})
+      %td=text_field_tag('ind[fut][voyelle_thematique]', value = @conjugaison.verbe.ind.fut.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.ind.fut.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.ind.fut.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (18..23).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td Subjonctif
       %td Présent
-      %td=text_field_tag('sub[pres][radical]', value = @verbe.sub.pres.radical,options={size: 10})
-      %td=text_field_tag('sub[pres][voyelle_thematique]', value = @verbe.sub.pres.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('sub[pres][radical]', value = @conjugaison.verbe.sub.pres.radical,options={size: 10})
+      %td=text_field_tag('sub[pres][voyelle_thematique]', value = @conjugaison.verbe.sub.pres.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.sub.pres.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.sub.pres.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (24..29).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td Subjonctif
       %td Imparfait
-      %td=text_field_tag('sub[imp][radical]', value = @verbe.sub.imp.radical,options={size: 10})
-      %td=text_field_tag('sub[imp][voyelle_thematique]', value = @verbe.sub.imp.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('sub[imp][radical]', value = @conjugaison.verbe.sub.imp.radical,options={size: 10})
+      %td=text_field_tag('sub[imp][voyelle_thematique]', value = @conjugaison.verbe.sub.imp.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.sub.imp.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.sub.imp.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (30..35).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td{:colspan => 2} Impératif
-      %td=text_field_tag('imp[radical]', value = @verbe.imp.radical,options={size: 10})
-      %td=text_field_tag('imp[voyelle_thematique]', value = @verbe.imp.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('imp[radical]', value = @conjugaison.verbe.imp.radical,options={size: 10})
+      %td=text_field_tag('imp[voyelle_thematique]', value = @conjugaison.verbe.imp.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.imp.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.imp.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (36..41).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td Conditionnel
       %td Présent
-      %td=text_field_tag('cond[pres][radical]', value = @verbe.cond.pres.radical,options={size: 10})
-      %td=text_field_tag('cond[pres][voyelle_thematique]', value = @verbe.cond.pres.voyelle_thematique, options={size: 1})
+      %td=text_field_tag('cond[pres][radical]', value = @conjugaison.verbe.cond.pres.radical,options={size: 10})
+      %td=text_field_tag('cond[pres][voyelle_thematique]', value = @conjugaison.verbe.cond.pres.voyelle_thematique, options={size: 1})
       - (0..5).each do |i|
-        %td=text_field_tag('formes[]', value = @verbe.cond.pres.personnes[i], options={size: 10})
+        %td=text_field_tag('formes[]', value = @conjugaison.verbe.cond.pres.personnes[i], options={size: 10})
     %tr
       %td Essais
       %td
       %td
       %td
       - (42..47).each do |i|
-        %td=text_field_tag('compteurs[]', value = @verbe.compteurs[i], options={size: 2})
+        %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[i], options={size: 2})
     %tr
       %td{:colspan => 2} Gérondif
-      %td{:colspan => 6}=text_field_tag('formes[]', value = @verbe.ger,options={size: 10})
+      %td{:colspan => 6}=text_field_tag('formes[]', value = @conjugaison.verbe.ger,options={size: 10})
     %tr
       %td Essais
       %td
-      %td=text_field_tag('compteurs[]', value = @verbe.compteurs[48], options={size: 2})
+      %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[48], options={size: 2})
     %tr
       %td{:colspan => 2} Participe passé
-      %td{:colspan => 6}=text_field_tag('formes[]', value = @verbe.ppass, options={size: 10})
+      %td{:colspan => 6}=text_field_tag('formes[]', value = @conjugaison.verbe.ppass, options={size: 10})
     %tr
       %td Essais
       %td
-      %td=text_field_tag('compteurs[]', value = @verbe.compteurs[49], options={size: 2})
+      %td=text_field_tag('compteurs[]', value = @conjugaison.verbe.compteurs[49], options={size: 2})
 
   .actions
     = f.submit 'Enregistrer'
