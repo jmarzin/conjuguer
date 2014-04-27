@@ -2,6 +2,10 @@
 
 %h1 Question
 
+%p
+  =Conjugaison.duree(Time.at(session[:debut]))+' '
+  \
+  =Conjugaison.stats(session[:bonnes_reponses],session[:mauvaises_reponses])
 
 =hidden_field_tag 'id', value = params[:id]
 =hidden_field_tag 'infinitif', value = params[:infinitif]
@@ -14,8 +18,9 @@
 -elsif params[:message]
   #bravo Bravo !
 -else
-  #erreur Erreur ! La réponse attendue est #{params[:attendu]}.
-
+  #erreur Erreur ! La réponse attendue est
+  #attendu=params[:attendu]
+  %br
 %br
 =params[:forme]+' '+params[:infinitif]
 =text_field_tag 'reponse', '', autofocus: true, disabled: params[:message] != nil

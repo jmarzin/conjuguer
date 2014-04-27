@@ -20,7 +20,7 @@ gem 'haml-rails', '~> 0.5.3'
 #gem 'country_select', '~> 1.3.1'
 
 # Utiliser Devise pour l'identification
-#gem 'devise', '~> 3.2.4'
+gem 'devise', '~> 3.2.4'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

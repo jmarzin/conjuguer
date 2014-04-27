@@ -7,8 +7,14 @@
   color: darkgreen;
 }
 #erreur {
+  display: inline;
   font-weight: bold;
   color: red;
+}
+#attendu {
+  display: inline;
+  font-weight: bold;
+  color: darkred;
 }
 @for $i from 1 through 3 {
   table#verbe#{$i} {

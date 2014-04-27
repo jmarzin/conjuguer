@@ -13,10 +13,11 @@
       %td= conjugaison.infinitif
       %td= conjugaison.essais_verbe
       %td= link_to 'Voir', conjugaison
-      %td= link_to 'Corriger', edit_conjugaison_path(conjugaison)
-      %td= link_to 'Copier', copie_conjugaison_path(conjugaison)
-      %td= link_to 'Supprimer', conjugaison, :method => :delete, :data => { :confirm => 'Êtes-vous sûr ?' }
+      -if user_signed_in? and current_user[:email] == 'jacques.marzin@free.fr'
+        %td= link_to 'Corriger', edit_conjugaison_path(conjugaison)
+        %td= link_to 'Copier', copie_conjugaison_path(conjugaison)
+        %td= link_to 'Supprimer', conjugaison, :method => :delete, :data => { :confirm => 'Êtes-vous sûr ?' }
 
 %br
-
-= link_to 'Nouvelle Conjugaison', new_conjugaison_path
+-if user_signed_in? and current_user[:email] == 'jacques.marzin@free.fr'
+  = link_to 'Nouvelle Conjugaison', new_conjugaison_path

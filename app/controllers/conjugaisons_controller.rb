@@ -1,6 +1,6 @@
 class ConjugaisonsController < ApplicationController
   before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
-
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :copie, :question]
   # GET /conjugaisons
   # GET /conjugaisons.json
   def index
@@ -20,6 +20,10 @@ class ConjugaisonsController < ApplicationController
 
   # GET/question
   def question
+    if not session.has_key?(:debut)
+      session[:debut] = Time.now.to_i
+      session[:bonnes_reponses], session[:mauvaises_reponses] = 0,0
+    end
     @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
     params[:id] = @resultat[:conjugaison].id
     params[:infinitif] = @resultat[:conjugaison].infinitif
@@ -35,9 +39,11 @@ class ConjugaisonsController < ApplicationController
         @conjugaison = Conjugaison.find(params[:id])
         if params[:attendu] == params[:reponse].downcase
           params[:message] = true
+          session[:bonnes_reponses] += 1
           @conjugaison.succes(params[:forme]).save!
         else
           params[:message] = false
+          session[:mauvaises_reponses] += 1
           @conjugaison.erreur(params[:forme]).save!
         end
 

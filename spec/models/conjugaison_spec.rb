@@ -2,6 +2,15 @@ require 'spec_helper'
 
 describe Conjugaison do
   context 'tests simples' do
+    it "la durée du test est restituée en clair" do
+      expect(Conjugaison.duree(Time.now - 183)).to match(/\d* min \d* sec/)
+    end
+    it "le taux de réussite n'est pas calculé s'il n'y a pas de questions" do
+      expect(Conjugaison.stats(0,0)).to eq ('')
+    end
+    it "le taux de réussite est calculé s'il y a des questions" do
+      expect(Conjugaison.stats(50,50)).to eq ('100 questions, 50 % de réussite')
+    end
     it "l'infinitif ne peut pas être blanc" do
      expect(FactoryGirl.build(:conjugaison, infinitif: '')).to have(1).errors_on(:infinitif)
     end

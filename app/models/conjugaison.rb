@@ -144,6 +144,34 @@ class Conjugaison < ActiveRecord::Base
     self
   end
 
+  def self.duree(heure_debut)
+    duree = Time.at(Time.now - heure_debut)
+    texte = ''
+    if duree.hour > 1
+      texte += "#{duree.hour - 1} h "
+    end
+    if duree.min > 0
+      texte += "#{duree.min} min "
+    end
+    if duree.sec > 0
+      texte += "#{duree.sec} sec"
+    end
+    texte
+  end
+
+  def self.stats(bonnes, mauvaises)
+    texte = ''
+    if bonnes+mauvaises > 0
+      if bonnes + mauvaises > 1
+        texte += "#{bonnes + mauvaises} questions, "
+      else
+        texte += "1 question, "
+      end
+      texte += "#{(bonnes*100/(bonnes + mauvaises)).ceil} % de réussite"
+    end
+    texte
+  end
+
   protected
   def ser_deser_verbe
     if self.verbe.class == Verbe
