@@ -30,14 +30,10 @@ describe Conjugaison do
       @conjugaison = FactoryGirl.create(:avere)
     end
     it "les compteurs ne sont pas changés par la sauvegarde" do
-      tab = @conjugaison.compteurs
+      tab = @conjugaison.verbe.compteurs
       @conjugaison.save!
-      expect(@conjugaison.compteurs).to eq(tab)
+      expect(@conjugaison.verbe.compteurs).to eq(tab)
     end
-#    it "les compteurs sont initialisés s'ils n'existent pas" do
-#      Conjugaison.all.first.update( compteurs: '' )
-#      expect(Conjugaison.all.first.compteurs.size).to eq(50)
-#    end
     it "le tirage de la 20ème forme donne ind.pres.s1" do
       expect(@conjugaison.tirage(20)).to eq({forme: 'ind.pres.s1',texte: 'Io ho (20)',attendu: 'ho'})
     end

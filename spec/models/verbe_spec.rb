@@ -4,9 +4,9 @@ describe "Le verbe avere" do
   before(:each) do
     @avere = FactoryGirl.create(:avere)
   end
-  it "sauve le verbe avere" do
-    expect(IO.binwrite('db/avere.bin',Marshal.dump(@avere.verbe))).to be_true
-  end
+#  it "sauve le verbe avere" do
+#    expect(IO.binwrite('db/avere.bin',Marshal.dump(@avere.verbe))).to be_true
+#  end
   it "a comme infinitif avere" do
     expect(@avere.verbe.inf).to eq("avere")
   end

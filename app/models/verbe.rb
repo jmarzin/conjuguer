@@ -30,8 +30,6 @@ class Verbe
       @conj << Mode.new([Temps.new(Array.new(8,''))])
       @conj << Temps.new(['','','---','','','','',''])
       @compteurs = Array.new(Verbe::Formes.size,Conjugaison::Max_essais)
-#      IO.write('db/avere.bin',Marshal.dump(@conj), binmode: true)
-#    Conjugaison.create(infinitif: 'avere', essais: 20, detail: Marshal.dump(@conj))
     end
   end
 

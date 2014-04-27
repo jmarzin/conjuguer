@@ -146,14 +146,6 @@ class Conjugaison < ActiveRecord::Base
 
   protected
   def ser_deser_verbe
-    if self.compteurs.class == Array
-      self.compteurs = Marshal.dump(self.compteurs)
-    else
-      begin
-        self.compteurs = Marshal.restore(self.compteurs)
-      rescue
-      end
-    end
     if self.verbe.class == Verbe
       self.verbe = Marshal.dump(self.verbe)
     else
@@ -163,13 +155,4 @@ class Conjugaison < ActiveRecord::Base
       end
     end
   end
-
-#  def verifie_compteurs
-#    if self.compteurs == nil or self.compteurs == ''
-#      self.compteurs = Array.new(Verbe::Formes.size,Conjugaison::Max_essais)
-#    else
-#      ser_deser_compteurs
-#    end
-#  end
-
 end

@@ -22,6 +22,7 @@ class ConjugaisonsController < ApplicationController
   def question
     @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
     params[:id] = @resultat[:conjugaison].id
+    params[:infinitif] = @resultat[:conjugaison].infinitif
     params[:attendu] = @resultat[:attendu]
     params[:forme] = @resultat[:forme]
     params[:question] = Verbe.en_clair(@resultat[:forme])+@resultat[:conjugaison].infinitif+' ?'

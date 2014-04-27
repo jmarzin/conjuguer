@@ -4,6 +4,7 @@
 
 
 =hidden_field_tag 'id', value = params[:id]
+=hidden_field_tag 'infinitif', value = params[:infinitif]
 =hidden_field_tag 'attendu', value = params[:attendu]
 =hidden_field_tag 'question', value = params[:question]
 =hidden_field_tag 'forme', value = params[:forme]
@@ -16,7 +17,7 @@
   #erreur Erreur ! La réponse attendue est #{params[:attendu]}.
 
 %br
-=params[:forme]
+=params[:forme]+' '+params[:infinitif]
 =text_field_tag 'reponse', '', autofocus: true, disabled: params[:message] != nil
 
 -if params[:message] == nil
