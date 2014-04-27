@@ -1,6 +1,8 @@
 class ConjugaisonsController < ApplicationController
   before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :copie, :question]
+  if Rails.env.production?
+    before_action :authenticate_user!, only: [:edit, :update, :destroy, :copie, :question]
+  end
   # GET /conjugaisons
   # GET /conjugaisons.json
   def index

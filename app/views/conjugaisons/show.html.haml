@@ -46,7 +46,6 @@
   %tr
     %td=@conjugaison.verbe.show('ger')
     %td=@conjugaison.verbe.show('ppass')
--if user_signed_in? and current_user[:email] == 'jacques.marzin@free.fr'
-  = link_to 'Corriger', edit_conjugaison_path(@conjugaison)
-  \|
+= link_to 'Corriger', edit_conjugaison_path(@conjugaison)
+\|
 = link_to 'Retour', conjugaisons_path
