@@ -79,6 +79,13 @@ describe ConjugaisonsController do
     end
   end
 
+  describe "GET aligne" do
+    it "renvoie vers l'index" do
+      get :aligne
+      response.should redirect_to(conjugaisons_url)
+    end
+  end
+
   describe "DELETE destroy" do
     it "destroys the requested conjugaison" do
       conjugaison = FactoryGirl.create(:avere)

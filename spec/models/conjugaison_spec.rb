@@ -98,8 +98,7 @@ describe Conjugaison do
     end
     it 'le resultat est complet' do
       resultat = Conjugaison.tirage(1001)
-      expect(resultat[:forme]).to eq('ind.pres.s1')
-      expect(resultat[:texte]).to eq('Io ho (20)')
+      expect(resultat[:forme]+resultat[:texte]).to eq('ind.pres.s1Io ho (20)')
     end
     it "la fonction aléatoire renvoie un nombre > 1 et <= nombre total d'essais" do
       min = 10000
@@ -115,8 +114,18 @@ describe Conjugaison do
         min = i if min > i
         max = i if max < i
       end
-      expect(min).to eq(1)
-      expect(max).to eq(30)
+      expect(min*100+max).to eq(130)
+    end
+    it "la fonction aligne_avere reproduit sur les tous les verbes les compteurs de avere" do
+      @avere=Conjugaison.where(infinitif: 'avere').take
+      tot = 0
+      @avere.verbe.compteurs.each_index { |i| @avere.verbe.compteurs[i]=i+1;tot += i+1 }
+      @avere.essais_verbe = tot
+      @avere.save!
+      Conjugaison.aligne('avere')
+      @copie=Conjugaison.where(infinitif: 'copie de avere').take
+      expect([@copie.verbe.compteurs,@copie.essais_verbe]).to\
+       eq([@avere.verbe.compteurs,@avere.essais_verbe])
     end
   end
 end

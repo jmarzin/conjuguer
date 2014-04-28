@@ -181,6 +181,22 @@ class Conjugaison < ActiveRecord::Base
     return true
   end
 
+  def self.aligne(matrice)
+    @matrice = Conjugaison.where(infinitif: matrice).take
+    Conjugaison.all.each do |conj|
+      if conj.infinitif != matrice
+        conj.essais_verbe = 0
+        conj.verbe.compteurs.each_index do |i|
+          if conj.verbe.compteurs[i] > 0
+            conj.verbe.compteurs[i] = @matrice.verbe.compteurs[i]
+            conj.essais_verbe += conj.verbe.compteurs[i]
+          end
+        end
+      end
+      conj.save!
+    end
+  end
+
   protected
   def ser_deser_verbe
     if self.verbe.class == Verbe

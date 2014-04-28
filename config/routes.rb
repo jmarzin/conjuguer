@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/question', to: 'conjugaisons#question', as: 'question_conjugaison'
   post '/verification', to: 'conjugaisons#verification', as: 'verification_conjugaison'
   get '/sauve', to: 'conjugaisons#sauve', as: 'sauve_conjugaison'
+  get '/aligne', to: 'conjugaisons#aligne', as: 'aligne_conjugaison'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

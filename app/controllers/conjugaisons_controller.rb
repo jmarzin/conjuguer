@@ -74,6 +74,12 @@ class ConjugaisonsController < ApplicationController
     redirect_to :action => "index"
   end
 
+  #GET/conjugaisons/aligne
+  def aligne
+    Conjugaison.aligne('avere')
+    redirect_to :action => "index"
+  end
+
   # GET /conjugaisons/1/edit
   def edit
   end
