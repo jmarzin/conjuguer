@@ -66,6 +66,14 @@ class ConjugaisonsController < ApplicationController
     redirect_to :action => "edit", :id => @copie.id
   end
 
+  # GET/conjugaisons/sauve
+  def sauve
+    if not Rails.env.production?
+      Conjugaison.sauve
+    end
+    redirect_to :action => "index"
+  end
+
   # GET /conjugaisons/1/edit
   def edit
   end

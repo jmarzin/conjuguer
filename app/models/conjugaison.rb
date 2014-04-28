@@ -172,6 +172,15 @@ class Conjugaison < ActiveRecord::Base
     texte
   end
 
+  def self.sauve
+    liste = File.new('db/verbes/liste_verbes.txt',mode='w')
+    Conjugaison.all.each do |c|
+      IO.write(liste,c.infinitif+"\n"+c.essais_verbe.to_s+"\n",liste.size)
+      IO.binwrite('db/verbes/'+c.infinitif+'.bin',Marshal.dump(c.verbe))
+    end
+    return true
+  end
+
   protected
   def ser_deser_verbe
     if self.verbe.class == Verbe
