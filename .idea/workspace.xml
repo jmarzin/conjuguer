@@ -2,47 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aebce0fb-f71b-4f58-aee6-46754811a980" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/coverage/.last_run.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20140421174246_rename_column_essais.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20140422204412_add_compteurs_to_conjugaisons.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20140426202946_add_verbe_to_conjugaison.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20140427073933_supprime_detail_et_compteurs_de_conjugaisons.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20140427162028_devise_create_users.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20140430194005_add_index_id_to_conjugaisons.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/shared/_links.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/andare.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/mailer/confirmation_instructions.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/credere.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/dare.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/locales/devise.en.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/dire.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/dovere.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/passwords/edit.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/essere.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/fare.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/finire.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/lavorare.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/liste_verbes.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/confirmations/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/passwords/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/unlocks/new.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/potere.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/mailer/reset_password_instructions.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/sapere.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/servire.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/stare.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/temere.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/udire.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/devise/mailer/unlock_instructions.html.erb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/uscire.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/factories/users.rb" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/venire.bin" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/verbes/volere.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="conjuguer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,16 +55,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="database_cleaner.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/support/database_cleaner.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="conjugaison_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/models/conjugaison_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -155,11 +125,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="620">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.06185567" vertical-offset="0" max-vertical-offset="1512">
+              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -195,7 +175,6 @@
         <option value="$PROJECT_DIR$/spec/models/verbe_2_spec.rb" />
         <option value="$PROJECT_DIR$/spec/models/verbe_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/verbe.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/spec/models/conjugaison_spec.rb" />
         <option value="$PROJECT_DIR$/spec/features/consultation_spec.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
@@ -203,6 +182,7 @@
         <option value="$PROJECT_DIR$/app/models/conjugaison.rb" />
         <option value="$PROJECT_DIR$/app/controllers/conjugaisons_controller.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -365,6 +345,10 @@
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyActiveModuleSdkConfigurable" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="RSpec.All specs in spec: conjuguer">
     <configuration default="false" name="All specs in spec: conjuguer" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
@@ -754,7 +738,11 @@
       <created>1398894097083</created>
       <updated>1398894097083</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="mercredi">
+      <created>1398894413162</created>
+      <updated>1398894413163</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1019,13 +1007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1476">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="112" max-vertical-offset="954">
@@ -1196,6 +1177,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="620">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06185567" vertical-offset="0" max-vertical-offset="1512">
+          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
           <folding />
         </state>
       </provider>
