@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- Copie de temere
+- ''
+- voluto
+- volendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - voglio
+    - vuoi
+    - vuole
+    - vogliamo
+    - volete
+    - vogliono
+  - !ruby/object:Temps
+    radical: vol
+    voyelle_thematique: e
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: vol
+    voyelle_thematique: ''
+    personnes:
+    - li
+    - esti
+    - le
+    - emmo
+    - este
+    - lero
+  - !ruby/object:Temps
+    radical: vor
+    voyelle_thematique: ''
+    personnes:
+    - rò
+    - rai
+    - rà
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: vogl
+    voyelle_thematique: ''
+    personnes:
+    - ia
+    - ia
+    - ia
+    - iamo
+    - iate
+    - iano
+  - !ruby/object:Temps
+    radical: vol
+    voyelle_thematique: e
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: vor
+    voyelle_thematique: ''
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: vogl
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - i
+  - ia
+  - iamo
+  - ete
+  - iano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

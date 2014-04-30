@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- finire
+- ''
+- restito
+- restendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: fin
+    voyelle_thematique: ''
+    personnes:
+    - ia
+    - isci
+    - isce
+    - iamo
+    - ite
+    - iscono
+  - !ruby/object:Temps
+    radical: fin
+    voyelle_thematique: i
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: fin
+    voyelle_thematique: ''
+    personnes:
+    - ii
+    - isti
+    - "ì"
+    - immo
+    - iste
+    - irono
+  - !ruby/object:Temps
+    radical: fin
+    voyelle_thematique: i
+    personnes:
+    - rò
+    - rai
+    - rà
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: fin
+    voyelle_thematique: ''
+    personnes:
+    - isca
+    - isca
+    - isca
+    - iamo
+    - iate
+    - iscano
+  - !ruby/object:Temps
+    radical: fin
+    voyelle_thematique: i
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: fin
+    voyelle_thematique: i
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: fin
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - isci
+  - isca
+  - iamo
+  - ite
+  - iscano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

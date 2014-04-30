@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- lavorare
+- ''
+- lavorato
+- lavorando
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: lavor
+    voyelle_thematique: ''
+    personnes:
+    - o
+    - i
+    - a
+    - iamo
+    - ate
+    - ano
+  - !ruby/object:Temps
+    radical: lavor
+    voyelle_thematique: a
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: lavor
+    voyelle_thematique: ''
+    personnes:
+    - ai
+    - asti
+    - "ò"
+    - ammo
+    - aste
+    - arono
+  - !ruby/object:Temps
+    radical: lavor
+    voyelle_thematique: e
+    personnes:
+    - rò
+    - rai
+    - rà
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: lavor
+    voyelle_thematique: ''
+    personnes:
+    - i
+    - i
+    - i
+    - iamo
+    - iate
+    - ino
+  - !ruby/object:Temps
+    radical: lavor
+    voyelle_thematique: a
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: lavor
+    voyelle_thematique: e
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: lavor
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - a
+  - i
+  - iamo
+  - ate
+  - ino
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

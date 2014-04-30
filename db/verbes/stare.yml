@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- stare
+- ''
+- stato
+- stando
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: st
+    voyelle_thematique: ''
+    personnes:
+    - o
+    - ai
+    - a
+    - iamo
+    - ate
+    - anno
+  - !ruby/object:Temps
+    radical: st
+    voyelle_thematique: a
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: ste
+    voyelle_thematique: ''
+    personnes:
+    - tti
+    - sti
+    - tte
+    - emmo
+    - este
+    - ttero
+  - !ruby/object:Temps
+    radical: st
+    voyelle_thematique: a
+    personnes:
+    - rò
+    - rai
+    - rà
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: st
+    voyelle_thematique: ''
+    personnes:
+    - ia
+    - ia
+    - ia
+    - iamo
+    - iate
+    - iano
+  - !ruby/object:Temps
+    radical: st
+    voyelle_thematique: e
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: st
+    voyelle_thematique: a
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: st
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - a
+  - ia
+  - iamo
+  - ate
+  - iano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- Copie de servire
+- ''
+- venuto
+- venendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - vengo
+    - vieni
+    - viene
+    - veniamo
+    - venite
+    - vengono
+  - !ruby/object:Temps
+    radical: ven
+    voyelle_thematique: i
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - venni
+    - venisti
+    - venne
+    - venimmo
+    - veniste
+    - vennero
+  - !ruby/object:Temps
+    radical: ver
+    voyelle_thematique: ''
+    personnes:
+    - rò
+    - rai
+    - ra
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - venga
+    - venga
+    - venga
+    - veniamo
+    - veniate
+    - vengano
+  - !ruby/object:Temps
+    radical: ven
+    voyelle_thematique: i
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ver
+    voyelle_thematique: ''
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: ''
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - vieni
+  - venga
+  - veniamo
+  - venite
+  - vengano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

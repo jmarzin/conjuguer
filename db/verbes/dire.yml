@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- Copie de servire
+- ''
+- detto
+- dicendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - dico
+    - dici
+    - dice
+    - diciamo
+    - dite
+    - dicono
+  - !ruby/object:Temps
+    radical: dic
+    voyelle_thematique: e
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - dissi
+    - dicesti
+    - disse
+    - dicemmo
+    - diceste
+    - dissero
+  - !ruby/object:Temps
+    radical: d
+    voyelle_thematique: i
+    personnes:
+    - rò
+    - rai
+    - ra
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: dic
+    voyelle_thematique: ''
+    personnes:
+    - a
+    - a
+    - a
+    - iamo
+    - iate
+    - ano
+  - !ruby/object:Temps
+    radical: dic
+    voyelle_thematique: e
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: d
+    voyelle_thematique: i
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: ''
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - di'
+  - dica
+  - diciamo
+  - dite
+  - dicano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

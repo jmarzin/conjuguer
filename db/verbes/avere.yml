@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- avere
+- ''
+- avuto
+- avendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - ho
+    - hai
+    - ha
+    - abbiamo
+    - avete
+    - hanno
+  - !ruby/object:Temps
+    radical: av
+    voyelle_thematique: e
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - ebbi
+    - avesti
+    - ebbe
+    - avemmo
+    - aveste
+    - ebbero
+  - !ruby/object:Temps
+    radical: av
+    voyelle_thematique: ''
+    personnes:
+    - rò
+    - rai
+    - rà
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - abbia
+    - abbia
+    - abbia
+    - abbiamo
+    - abbiate
+    - abbiano
+  - !ruby/object:Temps
+    radical: av
+    voyelle_thematique: ''
+    personnes:
+    - essi
+    - essi
+    - esse
+    - essimo
+    - este
+    - essero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: av
+    voyelle_thematique: ''
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: ''
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - abbi
+  - abbia
+  - abbiamo
+  - abbiate
+  - abbiano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- Copie de temere
+- ''
+- stato
+- essendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - sono
+    - sei
+    - "è"
+    - siamo
+    - siete
+    - sono
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - ero
+    - eri
+    - era
+    - eravamo
+    - eravate
+    - erano
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - fui
+    - fosti
+    - fu
+    - fummo
+    - foste
+    - furono
+  - !ruby/object:Temps
+    radical: sa
+    voyelle_thematique: ''
+    personnes:
+    - rò
+    - rai
+    - rà
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: si
+    voyelle_thematique: ''
+    personnes:
+    - a
+    - a
+    - a
+    - amo
+    - ate
+    - ano
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - fossi
+    - fossi
+    - fosse
+    - fossimo
+    - foste
+    - fossero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: sa
+    voyelle_thematique: ''
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: si
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - i
+  - a
+  - amo
+  - ate
+  - ano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

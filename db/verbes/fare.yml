@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- fare
+- ''
+- fatto
+- facendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - faccio
+    - fai
+    - fa
+    - facciamo
+    - fate
+    - fanno
+  - !ruby/object:Temps
+    radical: fac
+    voyelle_thematique: e
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: fec
+    voyelle_thematique: ''
+    personnes:
+    - i
+    - esti
+    - e
+    - emmo
+    - este
+    - ero
+  - !ruby/object:Temps
+    radical: f
+    voyelle_thematique: a
+    personnes:
+    - rò
+    - rai
+    - rà
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: facci
+    voyelle_thematique: ''
+    personnes:
+    - a
+    - a
+    - a
+    - amo
+    - ate
+    - ano
+  - !ruby/object:Temps
+    radical: fac
+    voyelle_thematique: e
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: f
+    voyelle_thematique: a
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: ''
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - fa'
+  - faccia
+  - facciamo
+  - fate
+  - facciano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20

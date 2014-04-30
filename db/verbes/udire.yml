@@ -1,0 +1,143 @@
+--- !ruby/object:Verbe
+conj:
+- Copie de servire
+- ''
+- udito
+- udendo
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - odio
+    - odi
+    - ode
+    - udiamo
+    - udite
+    - odono
+  - !ruby/object:Temps
+    radical: ud
+    voyelle_thematique: i
+    personnes:
+    - vo
+    - vi
+    - va
+    - vamo
+    - vate
+    - vano
+  - !ruby/object:Temps
+    radical: ud
+    voyelle_thematique: ''
+    personnes:
+    - ii
+    - isti
+    - "ì"
+    - immo
+    - iste
+    - irono
+  - !ruby/object:Temps
+    radical: ud
+    voyelle_thematique: ''
+    personnes:
+    - rò
+    - rai
+    - ra
+    - remo
+    - rete
+    - ranno
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ''
+    voyelle_thematique: ''
+    personnes:
+    - oda
+    - oda
+    - oda
+    - udiamo
+    - udiate
+    - odano
+  - !ruby/object:Temps
+    radical: ud
+    voyelle_thematique: i
+    personnes:
+    - ssi
+    - ssi
+    - sse
+    - ssimo
+    - ste
+    - ssero
+- !ruby/object:Mode
+  mode:
+  - !ruby/object:Temps
+    radical: ud
+    voyelle_thematique: ''
+    personnes:
+    - rei
+    - resti
+    - rebbe
+    - remmo
+    - reste
+    - rebbero
+- !ruby/object:Temps
+  radical: ''
+  voyelle_thematique: ''
+  personnes:
+  - "---"
+  - odi
+  - oda
+  - udiamo
+  - udite
+  - odano
+compteurs:
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 1
+- 1
+- 1
+- 1
+- 1
+- 1
+- 20
+- 20
+- 20
+- 20
+- 20
+- 20
+- 10
+- 10
+- 10
+- 10
+- 10
+- 10
+- 5
+- 5
+- 5
+- 5
+- 5
+- 5
+- 0
+- 20
+- 20
+- 20
+- 20
+- 20
+- 15
+- 15
+- 15
+- 15
+- 15
+- 15
+- 20
+- 20
