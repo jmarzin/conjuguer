@@ -5,4 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Conjugaison.create(infinitif: 'avere', essais: 20, detail: IO.binread('db/avere.bin'))
+#Dir.foreach('db/verbes') do |f|
+liste = ['avere','lavorare','temere','credere','servire','finire','essere','venire','dovere','potere',\
+  'volere','sapere','stare','andare','dare','fare','dire','udire','uscire']
+liste.each do |f|
+  @c = Conjugaison.create(infinitif: f, verbe: YAML.load(IO.read('db/verbes/'+f+'.yml')))
+  @c.essais_verbe = 0
+  @c.verbe.compteurs.each {|e| @c.essais_verbe += e}
+  @c.save!
+end

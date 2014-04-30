@@ -124,7 +124,7 @@ class Conjugaison < ActiveRecord::Base
   end
 
   def self.tirage(num)
-    @conjugaisons = Conjugaison.all
+    @conjugaisons = Conjugaison.order(:id)
     i = num
     @conjugaisons.each do |c|
       return {conjugaison: c, rang: i}.merge(c.tirage(i)) if c.essais_verbe >= i
@@ -174,9 +174,9 @@ class Conjugaison < ActiveRecord::Base
 
   def self.sauve
     liste = File.new('db/verbes/liste_verbes.txt',mode='w')
-    Conjugaison.all.each do |c|
+    Conjugaison.order(:id).each do |c|
       IO.write(liste,c.infinitif+"\n"+c.essais_verbe.to_s+"\n",liste.size)
-      IO.binwrite('db/verbes/'+c.infinitif+'.bin',Marshal.dump(c.verbe))
+      IO.write('db/verbes/'+c.infinitif+'.yml',YAML.dump(c.verbe))
     end
     return true
   end
@@ -200,10 +200,10 @@ class Conjugaison < ActiveRecord::Base
   protected
   def ser_deser_verbe
     if self.verbe.class == Verbe
-      self.verbe = Marshal.dump(self.verbe)
+      self.verbe = YAML.dump(self.verbe)
     else
       begin
-        self.verbe = Marshal.restore(self.verbe)
+        self.verbe = YAML.load(self.verbe)
       rescue
       end
     end

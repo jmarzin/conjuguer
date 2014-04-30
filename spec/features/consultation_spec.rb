@@ -41,9 +41,11 @@ describe 'Verbes' do
       expect(page).to have_content 'Gérondif Essais Participe passé'
     end
     it "les informations ne sont pas changées si on sauve sans modif" do
-      visit '/conjugaisons/1/edit'
+      visit '/conjugaisons'
+      click_link 'Corriger'
       click_button 'Enregistrer'
-      visit '/conjugaisons/1'
+      visit '/conjugaisons/'
+      click_link 'Voir'
       t1 = page.text
       click_link 'Corriger'
       click_button 'Enregistrer'
@@ -74,7 +76,8 @@ describe 'Verbes' do
     it "une erreur incrémente le compteur" do
       visit '/question'
       click_button 'Vérifier'
-      visit '/conjugaisons/1'
+      visit '/conjugaisons'
+      click_link 'Voir'
       expect(page).to have_content('1001')
       expect(page).to have_content('21')
     end
@@ -82,7 +85,8 @@ describe 'Verbes' do
       visit '/question'
       fill_in 'reponse', :with => find_by_id('attendu').value
       click_button 'Vérifier'
-      visit '/conjugaisons/1'
+      visit '/conjugaisons'
+      click_link 'Voir'
       expect(page).to have_content('999')
       expect(page).to have_content('19')
     end

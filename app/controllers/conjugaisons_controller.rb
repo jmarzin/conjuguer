@@ -6,7 +6,7 @@ class ConjugaisonsController < ApplicationController
   # GET /conjugaisons
   # GET /conjugaisons.json
   def index
-    @conjugaisons = Conjugaison.all
+    @conjugaisons = Conjugaison.order(:id)
   end
 
   # GET /conjugaisons/1

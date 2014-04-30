@@ -103,10 +103,10 @@ describe Conjugaison do
     it "la fonction aléatoire renvoie un nombre > 1 et <= nombre total d'essais" do
       min = 10000
       max = 0
-      @c = Conjugaison.find(1)
+      @c = Conjugaison.all.first
       @c.essais_verbe = 10
       @c.save!
-      @c = Conjugaison.find(2)
+      @c = Conjugaison.all.last
       @c.essais_verbe = 20
       @c.save!
       (1..100).each do

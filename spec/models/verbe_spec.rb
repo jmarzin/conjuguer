@@ -2,7 +2,7 @@ require_relative '../spec_helper'
 
 describe "Le verbe avere" do
   before(:each) do
-    @avere = FactoryGirl.create(:avere)
+    @avere = FactoryGirl.build(:avere)
   end
 #  it "sauve le verbe avere" do
 #    expect(IO.binwrite('db/avere.bin',Marshal.dump(@avere.verbe))).to be_true

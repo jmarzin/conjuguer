@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427162028) do
+ActiveRecord::Schema.define(version: 20140430194005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140427162028) do
     t.datetime "updated_at"
     t.text     "verbe"
   end
+
+  add_index "conjugaisons", ["id"], name: "index_conjugaisons_on_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
