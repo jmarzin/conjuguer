@@ -1,8 +1,8 @@
 class ConjugaisonsController < ApplicationController
   before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
   if not Rails.env.test?
-    before_action :authenticate_user!, only: [:edit, :update, :destroy, :copie, :question]
-    before_action :verifie_utilisateur, only: [:edit, :update, :destroy, :copie, :question]
+    before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :copie, :question]
+    before_action :verifie_utilisateur, only: [:new, :edit, :update, :destroy, :copie, :question]
   end
 
   # GET /conjugaisons
