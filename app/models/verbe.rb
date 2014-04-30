@@ -1,4 +1,4 @@
-class Verbe
+Module Verbe
 
   Formes = %w(
     ind.pres.s1 ind.pres.s2 ind.pres.s3 ind.pres.p1 ind.pres.p2 ind.pres.p3
