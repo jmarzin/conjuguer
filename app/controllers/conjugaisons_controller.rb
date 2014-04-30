@@ -1,8 +1,10 @@
 class ConjugaisonsController < ApplicationController
   before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
-  if Rails.env.production?
+  if not Rails.env.test?
     before_action :authenticate_user!, only: [:edit, :update, :destroy, :copie, :question]
+    before_action :verifie_utilisateur, only: [:edit, :update, :destroy, :copie, :question]
   end
+
   # GET /conjugaisons
   # GET /conjugaisons.json
   def index
@@ -132,6 +134,12 @@ class ConjugaisonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conjugaison_params
-      params.require(:conjugaison).permit(:infinitif, :essais, :detail)
+      params.require(:conjugaison).permit(:infinitif, :essais_verbe, :verbe)
+    end
+
+    def verifie_utilisateur
+      if current_user.email != 'jacques.marzin@free.fr'
+        redirect_to :action => "index"
+      end
     end
 end

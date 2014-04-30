@@ -3,14 +3,18 @@
   <component name="DataSourceManagerImpl" format="xml" hash="3753981065">
     <data-source source="LOCAL" name="Rails conjuguer: development" uuid="9a20e0ea-ec23-40e6-8cfd-b4a62dd0a3a0">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:conjuguer_development</jdbc-url>
+      <user-name>conjuguer</user-name>
+      <user-password>df9fdf9bdfc0dfdfdfc6dfc3dfcfdf98</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails conjuguer: test" uuid="1f3fe37e-c542-4007-9b84-822d6017a9b1">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:conjuguer_test</jdbc-url>
+      <user-name>conjuguer</user-name>
+      <user-password>df9fdf9bdfc0dfdfdfc6dfc3dfcfdf98</user-password>
       <libraries />
     </data-source>
   </component>
