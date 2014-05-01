@@ -2,7 +2,9 @@
 
 FactoryGirl.define do
   factory :vocabulaire do
-    francais "MyString"
-    italien "MyString"
+    mot_directeur 'mot'
+    francais 'texte français'
+    compteur Vocabulaire::Max_essais
+    italien 'texte italien'
   end
 end

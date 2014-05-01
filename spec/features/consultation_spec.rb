@@ -74,7 +74,7 @@ describe 'Verbes' do
   end
   describe "Questions" do
     it "une erreur incrémente le compteur" do
-      visit '/question'
+      visit '/questions/conjugaison'
       click_button 'Vérifier'
       visit '/conjugaisons'
       click_link 'Voir'
@@ -82,7 +82,7 @@ describe 'Verbes' do
       expect(page).to have_content('21')
     end
     it "une bonne réponse décrémente le compteur" do
-      visit '/question'
+      visit '/questions/conjugaison'
       fill_in 'reponse', :with => find_by_id('attendu').value
       click_button 'Vérifier'
       visit '/conjugaisons'

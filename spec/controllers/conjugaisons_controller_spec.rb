@@ -65,20 +65,6 @@ describe ConjugaisonsController do
     end
   end
 
-  describe "GET question" do
-    it "envoie un paramètre qui est une conjugaison" do
-      FactoryGirl.create(:avere)
-      get :question, {}, valid_session
-      expect(assigns(:resultat)).to be_a(Hash)
-    end
-  end
-
-  describe "POST verification" do
-    it "reçoit une réponse comme paramètre" do
-      post :verification, {}
-    end
-  end
-
   describe "GET aligne" do
     it "renvoie vers l'index" do
       get :aligne

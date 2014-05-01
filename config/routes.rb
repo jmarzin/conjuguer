@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+
+  get 'questions/conjugaison'
+  post 'questions/verification'
+  get 'questions/vocabulaire'
+
   resources :vocabulaires
 
   devise_for :users
   resources :conjugaisons
   get '/conjugaisons/:id/copie', to: 'conjugaisons#copie', as: 'copie_conjugaison'
-  get '/question', to: 'conjugaisons#question', as: 'question_conjugaison'
-  post '/verification', to: 'conjugaisons#verification', as: 'verification_conjugaison'
+#  TODO supprimer get '/question', to: 'conjugaisons#question', as: 'question_conjugaison'
+#  TODO supprimer post '/verification', to: 'conjugaisons#verification', as: 'verification_conjugaison'
   get '/sauve', to: 'conjugaisons#sauve', as: 'sauve_conjugaison'
   get '/aligne', to: 'conjugaisons#aligne', as: 'aligne_conjugaison'
 

@@ -1,12 +1,18 @@
 %p#notice= notice
 
 %p
+  %b Mot_directeur:
+  = @vocabulaire.mot_directeur
+%p
   %b Francais:
   = @vocabulaire.francais
+%p
+  %b Compteur:
+  = @vocabulaire.compteur
 %p
   %b Italien:
   = @vocabulaire.italien
 
-= link_to 'Edit', edit_vocabulaire_path(@vocabulaire)
+= link_to 'Corriger', edit_vocabulaire_path(@vocabulaire)
 \|
-= link_to 'Back', vocabulaires_path
+= link_to 'Retour', vocabulaires_path

@@ -1,7 +1,8 @@
-%h1 Listing vocabulaires
+%h1 Liste des mots ou expression
 
 %table
   %tr
+    %th Mot directeur
     %th Francais
     %th Italien
     %th
@@ -10,12 +11,13 @@
 
   - @vocabulaires.each do |vocabulaire|
     %tr
+      %td= vocabulaire.mot_directeur
       %td= vocabulaire.francais
-      %td= vocabulaire.italien
-      %td= link_to 'Show', vocabulaire
-      %td= link_to 'Edit', edit_vocabulaire_path(vocabulaire)
-      %td= link_to 'Destroy', vocabulaire, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= vocabulaire.compteur
+      %td= link_to 'Voir', vocabulaire
+      %td= link_to 'Corriger', edit_vocabulaire_path(vocabulaire)
+      %td= link_to 'Supprimer', vocabulaire, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Vocabulaire', new_vocabulaire_path
+= link_to 'Nouveau mot ou expression', new_vocabulaire_path

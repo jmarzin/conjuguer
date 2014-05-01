@@ -4,7 +4,7 @@ class VocabulairesController < ApplicationController
   # GET /vocabulaires
   # GET /vocabulaires.json
   def index
-    @vocabulaires = Vocabulaire.all
+    @vocabulaires = Vocabulaire.order(:mot_directeur)
   end
 
   # GET /vocabulaires/1

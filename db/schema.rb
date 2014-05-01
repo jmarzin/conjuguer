@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501105008) do
+ActiveRecord::Schema.define(version: 20140501123744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,9 +50,10 @@ ActiveRecord::Schema.define(version: 20140501105008) do
     t.integer  "compteur"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mot_directeur"
   end
 
   add_index "vocabulaires", ["compteur"], name: "index_vocabulaires_on_compteur", using: :btree
-  add_index "vocabulaires", ["francais"], name: "index_vocabulaires_on_francais", using: :btree
+  add_index "vocabulaires", ["mot_directeur"], name: "index_vocabulaires_on_mot_directeur", using: :btree
 
 end

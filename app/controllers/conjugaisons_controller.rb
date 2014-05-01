@@ -1,3 +1,4 @@
+# TODO enlever les actions question et verification
 class ConjugaisonsController < ApplicationController
   before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
   if not Rails.env.test?
@@ -22,41 +23,6 @@ class ConjugaisonsController < ApplicationController
       essais_verbe: Verbe::Formes.size * Conjugaison::Max_essais, verbe: Verbe.new(''))
   end
 
-  # GET/question
-  def question
-    if not session.has_key?(:debut)
-      session[:debut] = Time.now.to_i
-      session[:bonnes_reponses], session[:mauvaises_reponses] = 0,0
-    end
-    @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
-    params[:id] = @resultat[:conjugaison].id
-    params[:infinitif] = @resultat[:conjugaison].infinitif
-    params[:attendu] = @resultat[:attendu]
-    params[:forme] = @resultat[:forme]
-    params[:question] = Verbe.en_clair(@resultat[:forme])+@resultat[:conjugaison].infinitif+' ?'
-  end
-
-  # POST/verification
-  def verification
-    respond_to do |format|
-      if params[:reponse]
-        @conjugaison = Conjugaison.find(params[:id])
-        if params[:attendu] == params[:reponse].downcase.strip
-          params[:message] = true
-          session[:bonnes_reponses] += 1
-          @conjugaison.succes(params[:forme]).save!
-        else
-          params[:message] = false
-          session[:mauvaises_reponses] += 1
-          @conjugaison.erreur(params[:forme]).save!
-        end
-
-        format.html { render action: 'question' }
-      else
-        format.html { redirect_to action: 'question'}
-      end
-    end
-  end
 
   # GET/conjugaison/1/copie
   def copie
