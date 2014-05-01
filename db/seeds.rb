@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-include Verbe
+
+
 liste = ['avere','lavorare','temere','credere','servire','finire','essere','venire','dovere','potere',\
   'volere','sapere','stare','andare','dare','fare','dire','udire','uscire']
 liste.each do |f|

@@ -56,9 +56,9 @@ class Conjugaison < ActiveRecord::Base
   validates :verbe, presence: {message: "Le détail de la conjugaison est obligatoire"}
   validates :infinitif, uniqueness: {message: "L'infinitif doit être unique"}
 
-  before_save :ser_deser_verbe
-  after_save :ser_deser_verbe
-  after_find :ser_deser_verbe
+  before_save :ser_verbe
+  after_save :deser_verbe
+  after_find :deser_verbe
 
   def maj(conjugaison_params, params)
     total_essais = 0
@@ -198,14 +198,15 @@ class Conjugaison < ActiveRecord::Base
   end
 
   protected
-  def ser_deser_verbe
+  def ser_verbe
     if self.verbe.class == Verbe
       self.verbe = YAML.dump(self.verbe)
-    else
-      begin
-        self.verbe = YAML.load(self.verbe)
-      rescue
-      end
+    end
+  end
+  def deser_verbe
+    begin
+      self.verbe = YAML.load(self.verbe)
+    rescue
     end
   end
 end
