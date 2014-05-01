@@ -1,0 +1,26 @@
+require 'spec_helper'
+
+describe QuestionsController do
+
+  describe "GET 'conjugaison'" do
+    it "returns http success" do
+      FactoryGirl.create(:avere)
+      get :conjugaison
+      expect(assigns(:resultat)).to be_a(Hash)
+    end
+  end
+
+  describe "GET 'vocabulaire'" do
+    it "returns http success" do
+      get 'vocabulaire'
+      response.should be_success
+    end
+  end
+
+  describe "POST verification" do
+    it "reçoit une réponse comme paramètre" do
+      post :verification, {}
+    end
+  end
+
+end
