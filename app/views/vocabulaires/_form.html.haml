@@ -1,0 +1,16 @@
+= form_for @vocabulaire do |f|
+  - if @vocabulaire.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@vocabulaire.errors.count, "error")} prohibited this vocabulaire from being saved:"
+      %ul
+        - @vocabulaire.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :francais
+    = f.text_field :francais
+  .field
+    = f.label :italien
+    = f.text_field :italien
+  .actions
+    = f.submit 'Save'

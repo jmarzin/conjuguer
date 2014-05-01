@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Francais:
+  = @vocabulaire.francais
+%p
+  %b Italien:
+  = @vocabulaire.italien
+
+= link_to 'Edit', edit_vocabulaire_path(@vocabulaire)
+\|
+= link_to 'Back', vocabulaires_path

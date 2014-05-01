@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :vocabulaires
+
   devise_for :users
   resources :conjugaisons
   get '/conjugaisons/:id/copie', to: 'conjugaisons#copie', as: 'copie_conjugaison'

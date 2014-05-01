@@ -1,0 +1,21 @@
+%h1 Listing vocabulaires
+
+%table
+  %tr
+    %th Francais
+    %th Italien
+    %th
+    %th
+    %th
+
+  - @vocabulaires.each do |vocabulaire|
+    %tr
+      %td= vocabulaire.francais
+      %td= vocabulaire.italien
+      %td= link_to 'Show', vocabulaire
+      %td= link_to 'Edit', edit_vocabulaire_path(vocabulaire)
+      %td= link_to 'Destroy', vocabulaire, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Vocabulaire', new_vocabulaire_path
