@@ -22,8 +22,8 @@
   #attendu=params[:attendu]
   %br
 %br
-=params[:forme]+' '+params[:infinitif]
-=text_field_tag 'reponse', '', autofocus: true, disabled: params[:message] != nil
+%h1=params[:forme]+' '+params[:infinitif]
+%h1=text_field_tag 'reponse', '', autofocus: true, disabled: params[:message] != nil
 
 -if params[:message] == nil
   =button_tag 'Vérifier'
