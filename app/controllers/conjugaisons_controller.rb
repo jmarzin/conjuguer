@@ -41,7 +41,7 @@ class ConjugaisonsController < ApplicationController
     respond_to do |format|
       if params[:reponse]
         @conjugaison = Conjugaison.find(params[:id])
-        if params[:attendu] == params[:reponse].downcase
+        if params[:attendu] == params[:reponse].downcase.strip
           params[:message] = true
           session[:bonnes_reponses] += 1
           @conjugaison.succes(params[:forme]).save!

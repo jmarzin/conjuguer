@@ -22,7 +22,7 @@
   #attendu=params[:attendu]
   %br
 %br
-%h1=params[:forme]+' '+params[:infinitif]
+%h1=Verbe.en_clair(params[:forme])+' '+params[:infinitif]
 %h1=text_field_tag 'reponse', '', autofocus: true, disabled: params[:message] != nil
 
 -if params[:message] == nil

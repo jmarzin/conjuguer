@@ -70,7 +70,7 @@ describe Conjugaison do
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to eq(1)
     end
     it "la fonction en_clair envoie le nom de la forme en français" do
-      expect(Verbe.en_clair('ind.pres.s1')).to eq("1ère personne du singulier du présent de l'indicatif du verbe ")
+      expect(Verbe.en_clair('ind.pres.s1')).to eq("1ère p. sing. prés. indic. verbe ")
     end
   end
   context 'tests avec 2 verbes en base' do

@@ -74,44 +74,44 @@ class Verbe
       else
         case string[-2,2]
           when 's1'
-            texte = '1ère personne du singulier '
+            texte = '1ère p. sing. '
           when 's2'
-            texte = '2ème personne du singulier '
+            texte = '2ème p. sing. '
           when 's3'
-            texte = '3ème personne du singulier '
+            texte = '3ème p. sing. '
           when 'p1'
-            texte = '1ère personne du pluriel '
+            texte = '1ère p. plur. '
           when 'p2'
-            texte = '2ème personne du pluriel '
+            texte = '2ème p. plur. '
           when 'p3'
-            texte = '3ème personne du pluriel '
+            texte = '3ème p. plur. '
         end
         case string[0..2]
           when 'imp'
-            texte += "de l'impératif "
+            texte += "impér. "
           else
             /\.(.*)\./.match(string)
             case $1
               when 'pres'
-                texte += "du présent "
+                texte += "prés. "
               when 'imp'
-                texte += "de l'imparfait "
+                texte += "imparf. "
               when 'parf'
-                texte += "du parfait "
+                texte += "parf. "
               when 'fut'
-                texte += "du futur "
+                texte += "fut. "
             end
             case string[0..2]
               when 'ind'
-                texte += "de l'indicatif "
+                texte += "indic. "
               when 'sub'
-                texte += "du subjonctif "
+                texte += "subj. "
               when 'con'
-                texte += "du conditionnel "
+                texte += "cond. "
             end
         end
     end
-    return texte += "du verbe "
+    return texte += "verbe "
   end
 
   def show(string)
