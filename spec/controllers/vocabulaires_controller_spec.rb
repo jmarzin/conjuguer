@@ -23,7 +23,7 @@ describe VocabulairesController do
   # This should return the minimal set of attributes required to create a valid
   # Vocabulaire. As you add validations to Vocabulaire, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "francais" => "MyString" } }
+  let(:valid_attributes) { { mot_directeur: 'avere', francais: 'avoir', compteur: 20, italien: 'avere' } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -32,7 +32,7 @@ describe VocabulairesController do
 
   describe "GET index" do
     it "assigns all vocabulaires as @vocabulaires" do
-      vocabulaire = Vocabulaire.create! valid_attributes
+      vocabulaire = FactoryGirl.create(:vocabulaire)
       get :index, {}, valid_session
       assigns(:vocabulaires).should eq([vocabulaire])
     end
@@ -40,7 +40,7 @@ describe VocabulairesController do
 
   describe "GET show" do
     it "assigns the requested vocabulaire as @vocabulaire" do
-      vocabulaire = Vocabulaire.create! valid_attributes
+      vocabulaire = FactoryGirl.create(:vocabulaire)
       get :show, {:id => vocabulaire.to_param}, valid_session
       assigns(:vocabulaire).should eq(vocabulaire)
     end
@@ -55,7 +55,7 @@ describe VocabulairesController do
 
   describe "GET edit" do
     it "assigns the requested vocabulaire as @vocabulaire" do
-      vocabulaire = Vocabulaire.create! valid_attributes
+      vocabulaire = FactoryGirl.create(:vocabulaire)
       get :edit, {:id => vocabulaire.to_param}, valid_session
       assigns(:vocabulaire).should eq(vocabulaire)
     end
@@ -101,7 +101,7 @@ describe VocabulairesController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested vocabulaire" do
-        vocabulaire = Vocabulaire.create! valid_attributes
+        vocabulaire = FactoryGirl.create(:vocabulaire)
         # Assuming there are no other vocabulaires in the database, this
         # specifies that the Vocabulaire created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -111,13 +111,13 @@ describe VocabulairesController do
       end
 
       it "assigns the requested vocabulaire as @vocabulaire" do
-        vocabulaire = Vocabulaire.create! valid_attributes
+        vocabulaire = FactoryGirl.create(:vocabulaire)
         put :update, {:id => vocabulaire.to_param, :vocabulaire => valid_attributes}, valid_session
         assigns(:vocabulaire).should eq(vocabulaire)
       end
 
       it "redirects to the vocabulaire" do
-        vocabulaire = Vocabulaire.create! valid_attributes
+        vocabulaire = FactoryGirl.create(:vocabulaire)
         put :update, {:id => vocabulaire.to_param, :vocabulaire => valid_attributes}, valid_session
         response.should redirect_to(vocabulaire)
       end
@@ -125,7 +125,7 @@ describe VocabulairesController do
 
     describe "with invalid params" do
       it "assigns the vocabulaire as @vocabulaire" do
-        vocabulaire = Vocabulaire.create! valid_attributes
+        vocabulaire = FactoryGirl.create(:vocabulaire)
         # Trigger the behavior that occurs when invalid params are submitted
         Vocabulaire.any_instance.stub(:save).and_return(false)
         put :update, {:id => vocabulaire.to_param, :vocabulaire => { "francais" => "invalid value" }}, valid_session
@@ -133,7 +133,7 @@ describe VocabulairesController do
       end
 
       it "re-renders the 'edit' template" do
-        vocabulaire = Vocabulaire.create! valid_attributes
+        vocabulaire = FactoryGirl.create(:vocabulaire)
         # Trigger the behavior that occurs when invalid params are submitted
         Vocabulaire.any_instance.stub(:save).and_return(false)
         put :update, {:id => vocabulaire.to_param, :vocabulaire => { "francais" => "invalid value" }}, valid_session
@@ -144,14 +144,14 @@ describe VocabulairesController do
 
   describe "DELETE destroy" do
     it "destroys the requested vocabulaire" do
-      vocabulaire = Vocabulaire.create! valid_attributes
+      vocabulaire = FactoryGirl.create(:vocabulaire)
       expect {
         delete :destroy, {:id => vocabulaire.to_param}, valid_session
       }.to change(Vocabulaire, :count).by(-1)
     end
 
     it "redirects to the vocabulaires list" do
-      vocabulaire = Vocabulaire.create! valid_attributes
+      vocabulaire = FactoryGirl.create(:vocabulaire)
       delete :destroy, {:id => vocabulaire.to_param}, valid_session
       response.should redirect_to(vocabulaires_url)
     end

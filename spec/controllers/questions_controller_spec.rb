@@ -12,6 +12,7 @@ describe QuestionsController do
 
   describe "GET 'vocabulaire'" do
     it "returns http success" do
+      FactoryGirl.create(:vocabulaire)
       get 'vocabulaire'
       response.should be_success
     end

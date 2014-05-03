@@ -4,6 +4,7 @@
   %tr
     %th Mot directeur
     %th Francais
+    %th Compteur
     %th Italien
     %th
     %th
@@ -14,6 +15,7 @@
       %td= vocabulaire.mot_directeur
       %td= vocabulaire.francais
       %td= vocabulaire.compteur
+      %td= vocabulaire.italien
       %td= link_to 'Voir', vocabulaire
       %td= link_to 'Corriger', edit_vocabulaire_path(vocabulaire)
       %td= link_to 'Supprimer', vocabulaire, :method => :delete, :data => { :confirm => 'Are you sure?' }

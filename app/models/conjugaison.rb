@@ -130,6 +130,7 @@ class Conjugaison < ActiveRecord::Base
       return {conjugaison: c, rang: i}.merge(c.tirage(i)) if c.essais_verbe >= i
       i -= c.essais_verbe
     end
+    return false
   end
 
   def erreur(string)

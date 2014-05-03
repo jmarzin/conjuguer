@@ -5,6 +5,7 @@
       %ul
         - @vocabulaire.errors.full_messages.each do |msg|
           %li= msg
+  %br
   .field
     = f.label :mot_directeur
     = f.text_field :mot_directeur
@@ -17,5 +18,6 @@
   .field
     = f.label :italien
     = f.text_field :italien
+
   .actions
     = f.submit 'Enregistrer'

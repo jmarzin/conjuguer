@@ -1,4 +1,3 @@
-# TODO enlever les actions question et verification
 class ConjugaisonsController < ApplicationController
   before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
   if not Rails.env.test?
