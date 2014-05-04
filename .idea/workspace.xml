@@ -817,7 +817,11 @@
       <created>1399232600530</created>
       <updated>1399232600530</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="dimanche">
+      <created>1399232614858</created>
+      <updated>1399232614858</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -904,7 +908,8 @@
     <MESSAGE value="mercredi" />
     <MESSAGE value="jeudi" />
     <MESSAGE value="samedi" />
-    <option name="LAST_COMMIT_MESSAGE" value="samedi" />
+    <MESSAGE value="dimanche" />
+    <option name="LAST_COMMIT_MESSAGE" value="dimanche" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
