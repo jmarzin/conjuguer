@@ -56,17 +56,17 @@ describe Conjugaison do
       expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq({forme: 'ppass',texte: 'Avuto (20)',attendu: 'avuto'})
     end
     it "l'enregistrement d'une erreur incrémente le compteur des essais" do
-      @conjugaison.erreur('ind.pres.s1')
+      @conjugaison.score(false,'ind.pres.s1')
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
         eq(Conjugaison::Max_essais + 1)
     end
     it "l'enregistrement d'un succès décrémente le compteur des essais" do
-      @conjugaison.succes('ind.pres.s1')
+      @conjugaison.score(true,'ind.pres.s1')
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
         eq(Conjugaison::Max_essais - 1)
     end
     it "le compteur minimum est 1" do
-      (1..Conjugaison::Max_essais+5).each {@conjugaison.succes('ind.pres.s1')}
+      (1..Conjugaison::Max_essais+5).each {@conjugaison.score(true,'ind.pres.s1')}
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to eq(1)
     end
     it "la fonction en_clair envoie le nom de la forme en français" do

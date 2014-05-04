@@ -20,7 +20,7 @@ describe QuestionsController do
 
   describe "POST verification" do
     it "reçoit une réponse comme paramètre" do
-      post :verification, {}
+      post :verification, {session: {type: 'conjugaison'}}
     end
   end
 

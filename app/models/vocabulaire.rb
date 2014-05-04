@@ -2,7 +2,7 @@ class Vocabulaire < ActiveRecord::Base
 
   Max_essais = 20
   Succes = -1
-  Erreur = +1
+  Echec = +1
 
   validates :mot_directeur, presence: {message: 'Le mot directeur est obligatoire'}
   validates :francais, presence: {message: 'Le mot ou expression en français est obligatoire'}
@@ -24,12 +24,19 @@ class Vocabulaire < ActiveRecord::Base
     end
     return false
   end
-  def succes
-    self.compteur += Vocabulaire::Succes
+
+  def score(ok,inutile)
+    if ok
+      inc = Vocabulaire::Succes
+    else
+      inc = Vocabulaire::Echec
+    end
+    if self.compteur + inc >= 1
+      self.compteur += inc
+    else
+      self.compteur = 1
+    end
     self
   end
-  def erreur
-    self.compteur += Vocabulaire::Erreur
-    self
-  end
+
 end

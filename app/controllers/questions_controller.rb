@@ -32,41 +32,24 @@ class QuestionsController < ApplicationController
 
   # POST/verification
   def verification
-    if session[:type] == 'conjugaison'
-      respond_to do |format|
-        if params[:reponse]
-          @conjugaison = Conjugaison.find(params[:id])
-          if params[:attendu] == params[:reponse].downcase.strip
-            params[:message] = true
-            session[:bonnes_reponses] += 1
-            @conjugaison.succes(params[:forme]).save!
-          else
-            params[:message] = false
-            session[:mauvaises_reponses] += 1
-            @conjugaison.erreur(params[:forme]).save!
-          end
-          format.html { render action: 'conjugaison' }
+    respond_to do |format|
+      if params[:reponse]
+        if session[:type] == 'conjugaison'
+          @objet = Conjugaison.find(params[:id])
         else
-          format.html { redirect_to action: 'conjugaison'}
+          @objet = Vocabulaire.find(params[:id])
         end
-      end
-    else
-      respond_to do |format|
-        if params[:reponse]
-          @mot = Vocabulaire.find(params[:id])
-          if params[:attendu] == params[:reponse].downcase.strip
-            params[:message] = true
-            session[:bonnes_reponses] += 1
-            @mot.succes.save!
-          else
-            params[:message] = false
-            session[:mauvaises_reponses] += 1
-            @mot.erreur.save!
-          end
-          format.html {render action: 'vocabulaire'}
+        params[:message] = (params[:attendu] == params[:reponse].downcase.strip)
+        if params[:message]
+          session[:bonnes_reponses] += 1
         else
-          format.html {redirect_to action: 'vocabulaire'}
+          session[:mauvaises_reponses] += 1
         end
+        @objet.score(params[:message],params[:forme]).save!
+        format.html { render action: session[:type] }
+      else
+        session[:type] = 'conjugaison' unless session[:type]
+        format.html { redirect_to action: session[:type] }
       end
     end
   end
