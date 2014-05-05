@@ -36,9 +36,45 @@ liste = [\
 ['pàttino','le patin',20,'il pàttino'],
 ['pattino','le pédalo',20,'il pattino'],
 ['cuculo','le coucou',20,'il cuculo'],
-['microbi','les microbes',20,'i mìcrobi']
+['microbi','les microbes',20,'i mìcrobi'],
+['legatorìa','la boutique de relieur',20,'la legatorìa'],
+['gloria','la gloire',20,'la gloria'],
+['sinfonìa','la symphonie',20,'la sinfonìa'],
+['copia',"l'abondance",20,'la copia'],
+['Tunisìa','la Tunisie',20,'la Tunisìa'],
+['Libia','la Lybie',20,'la Libia'],
+['Ungherìa','la Hongrie',20,'la Ungherìa'],
+['Germania',"l'Allemagne",20,'la Germania'],
+['tabaccherìa','le bureau de tabac',20,'la tabaccherìa'],
+['ortografìa',"l'ortographe",20,"l'ortografìa"],
+['geometrìa','la géométrie',20,'la geometrìa'],
+['poesìa','la poésie',20,'la poesìa'],
+['caramella','le bonbon',20,'la caramella'],
+['canticchiare','chantonner',20,'canticchiare'],
+['scàtola','la boîte',20,'la scàtola'],
+['càndido','ingénu',20,'càndido'],
+['candidamente','ingénument',20,'candidamente'],
+['finale','final',20,'finale'],
+['finalmente','finalement',20,'finalmente'],
+['città','la ville',20,'la città'],
+['virtù','la vertu',20,'la virtù'],
+['così','ainsi',20,'così'],
+['perché','pourquoi, parce que',20,'perché'],
+['gilè','le gilet',20,'il gilè'],
+['da','de, depuis',20,'da'],
+['dì','le jour',20,'il dì'],
+['di','de',20,'di'],
+['e','et',20,'e'],
+['là','là',20,'là'],
+['la','la',20,'la'],
+['lì','là',20,'lì'],
+['né','ni',20,'né'],
+['sì','oui, certes',20,'sì'],
+['si','se (pronominal)',20,'si'],
+['sé','soi',20,'sé'],
+['se','si (conjonction)',20,'se']
 ]
-# 15
+# 17
 liste.each do |m|
   @m = Vocabulaire.create(mot_directeur: m[0], francais: m[1], compteur: m[2], italien: m[3])
   @m.save

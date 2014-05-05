@@ -135,6 +135,17 @@ class Conjugaison < ActiveRecord::Base
     return false
   end
 
+  def self.accepte?(reponse, attendu)
+    return if reponse == ''
+    reponses = reponse.downcase.strip.split('/')
+    attendus = attendu.downcase.strip.split('/')
+    resultat = true
+    reponses.each do |rep|
+      resultat = resultat && attendus.include?(rep)
+    end
+    resultat
+  end
+
   def score(ok,string)
     if ok
       inc = Conjugaison::Succes

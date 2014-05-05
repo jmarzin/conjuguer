@@ -46,4 +46,16 @@ describe Vocabulaire do
       expect(Vocabulaire.tirage(81)).to be_false
     end
   end
+#  context 'Tenue à la charge' do
+#    it "on peut tirer 1 parmi 3000 en moins d'une seconde" do
+#      (1..3000).each do
+#        FactoryGirl.create(:vocabulaire, mot_directeur: 'mot_directeur', francais: 'texte en français à traduire',\
+#          italien: 'texte traduit en italien', compteur: 20)
+#      end
+#      deb = Time.now
+#      Vocabulaire.tirage(195500)
+#      fin = Time.now
+#      expect((fin-deb)<1).to be_true
+#    end
+#  end
 end

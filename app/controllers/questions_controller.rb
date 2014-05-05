@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
         else
           @objet = Vocabulaire.find(params[:id])
         end
-        params[:message] = (params[:attendu] == params[:reponse].downcase.strip)
+        params[:message] = Conjugaison.accepte?(params[:reponse],params[:attendu])
         if params[:message]
           session[:bonnes_reponses] += 1
         else

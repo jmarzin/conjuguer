@@ -1,6 +1,20 @@
 require 'spec_helper'
 
 describe Conjugaison do
+  context 'la fonction accepte? indique si la réponse est acceptable' do
+    it "cas d'une réponse simple et d'une réponse attendue simple" do
+      expect(Conjugaison.accepte?('avere','avere')).to be_true
+    end
+    it "cas d'une réponse simple juste et d'une réponse attendue multiple" do
+      expect(Conjugaison.accepte?('avere','avere/essere')).to be_true
+    end
+    it "cas d'une réponse simple fausse et d'une réponse attentue multiple" do
+      expect(Conjugaison.accepte?('avere','essere/dare')).to be_false
+    end
+    it "cas d'une réponse multiple juste et d'une réponse attendue multiple" do
+      expect(Conjugaison.accepte?('avere/essere','essere/avere')).to be_true
+    end
+  end
   context 'tests simples' do
     it "la durée du test est restituée en clair" do
       expect(Conjugaison.duree(Time.now - 183)).to match(/\d* min \d* sec/)
