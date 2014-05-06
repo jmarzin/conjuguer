@@ -95,7 +95,7 @@ describe "Le verbe avere" do
     expect(@avere.verbe.imp.to_s).to eq('--- abbi abbia abbiamo abbiate abbiano')
   end
   it "une méthode permet de créer le champ d'affichage" do
-    expect(@avere.verbe.show("ind.pres.s1")).to eq("Io ho (#{Conjugaison::Max_essais})")
+    expect(@avere.verbe.show("ind.pres.s1")).to eq("Io ho (#{Conjugaison::MAX_ESSAIS})")
   end
   it "on utilise la fonction rand pour tirer au sort" do
     min = 100

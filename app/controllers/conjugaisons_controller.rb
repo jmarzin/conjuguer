@@ -1,8 +1,8 @@
 class ConjugaisonsController < ApplicationController
   before_action :set_conjugaison, only: [:show, :edit, :update, :destroy, :copie]
-  if not Rails.env.test?
-    before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :copie, :question]
-    before_action :verifie_utilisateur, only: [:new, :edit, :update, :destroy, :copie, :question]
+  unless Rails.env.test?
+    before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :copie]
+    before_action :verifie_utilisateur, only: [:new, :edit, :update, :destroy, :copie]
   end
 
   # GET /conjugaisons
@@ -19,7 +19,7 @@ class ConjugaisonsController < ApplicationController
   # GET /conjugaisons/new
   def new
     @conjugaison = Conjugaison.new(infinitif: '',\
-      essais_verbe: Verbe::Formes.size * Conjugaison::Max_essais, verbe: Verbe.new(''))
+      essais_verbe: Verbe::FORMES.size * Conjugaison::MAX_ESSAIS, verbe: Verbe.new(''))
   end
 
 
@@ -30,21 +30,21 @@ class ConjugaisonsController < ApplicationController
        essais_verbe: @conjugaison.essais_verbe,\
        verbe: @conjugaison.verbe)
     @copie.save
-    redirect_to :action => "edit", :id => @copie.id
+    redirect_to :action => 'edit', :id => @copie.id
   end
 
   # GET/conjugaisons/sauve
   def sauve
-    if not Rails.env.production?
+    unless Rails.env.production?
       Conjugaison.sauve
     end
-    redirect_to :action => "index"
+    redirect_to :action => 'index'
   end
 
   #GET/conjugaisons/aligne
   def aligne
     Conjugaison.aligne('avere')
-    redirect_to :action => "index"
+    redirect_to :action => 'index'
   end
 
   # GET /conjugaisons/1/edit
@@ -103,8 +103,8 @@ class ConjugaisonsController < ApplicationController
     end
 
     def verifie_utilisateur
-      if current_user.email != 'jacques.marzin@free.fr'
-        redirect_to :action => "index"
+      unless current_user.email == 'jacques.marzin@free.fr'
+        redirect_to :action => 'index'
       end
     end
 

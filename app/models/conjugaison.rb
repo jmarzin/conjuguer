@@ -1,58 +1,74 @@
 class Temps
+
   attr_accessor :radical, :voyelle_thematique, :personnes
+
   def initialize(tableau)
     @radical = tableau[0]
     @voyelle_thematique = tableau[1]
     @personnes = tableau.drop(2)
   end
+
   def s1
     (personnes[0] == '---') ? @personnes[0] : @radical+@voyelle_thematique+@personnes[0]
   end
+
   def s2
     (personnes[1] == '---') ? @personnes[1] : @radical+@voyelle_thematique+@personnes[1]
   end
+
   def s3
     (personnes[2] == '---') ? @personnes[2] : @radical+@voyelle_thematique+@personnes[2]
   end
+
   def p1
     (personnes[3] == '---') ? @personnes[3] : @radical+@voyelle_thematique+@personnes[3]
   end
+
   def p2
     (personnes[4] == '---') ? @personnes[4] : @radical+@voyelle_thematique+@personnes[4]
   end
+
   def p3
     (personnes[5] == '---') ? @personnes[5] : @radical+@voyelle_thematique+@personnes[5]
   end
+
   def to_s
     s1+' '+s2+' '+s3+' '+p1+' '+p2+' '+p3
   end
+
 end
 
 class Mode
+
   def initialize(tableau)
     @mode = []
     tableau.each {|el| @mode << el}
   end
+
   def pres
     @mode[0]
   end
+
   def imp
     @mode[1]
   end
+
   def parf
     @mode[2]
   end
+
   def fut
     @mode[3]
   end
+
 end
 
 
 class Conjugaison < ActiveRecord::Base
 
-  Max_essais = 20
-  Succes = -1
-  Echec = +1
+  MAX_ESSAIS = 20
+  SUCCES = -1
+  ECHEC = +1
 
   validates :infinitif, presence: {message: "L'infinitif est obligatoire"}
   validates :verbe, presence: {message: "Le détail de la conjugaison est obligatoire"}
@@ -118,11 +134,10 @@ class Conjugaison < ActiveRecord::Base
     while num > verbe.compteurs[i] do
       num -= verbe.compteurs[i]
       i += 1
-      if i == Verbe::Formes.size then return false end
+      return false if i == Verbe::FORMES.size
     end
-
-    {forme: Verbe::Formes[i],texte: verbe.show(Verbe::Formes[i]),\
-      attendu: eval("verbe.#{Verbe::Formes[i]}")}
+    {forme: Verbe::FORMES[i],texte: verbe.show(Verbe::FORMES[i]),\
+      attendu: eval("verbe.#{Verbe::FORMES[i]}")}
   end
 
   def self.tirage(num)
@@ -148,9 +163,9 @@ class Conjugaison < ActiveRecord::Base
 
   def score(ok,string)
     if ok
-      inc = Conjugaison::Succes
+      inc = Conjugaison::SUCCES
     else
-      inc = Conjugaison::Echec
+      inc = Conjugaison::ECHEC
     end
     if verbe.compteurs[Verbe.rang_forme(string)] + inc >= 1
       verbe.compteurs[Verbe.rang_forme(string)] += inc
@@ -216,15 +231,18 @@ class Conjugaison < ActiveRecord::Base
   end
 
   protected
+
   def ser_verbe
     if self.verbe.class == Verbe
       self.verbe = YAML.dump(self.verbe)
     end
   end
+
   def deser_verbe
     begin
       self.verbe = YAML.load(self.verbe)
     rescue
     end
   end
+
 end

@@ -1,3 +1,4 @@
+-@vocabulaire.compteur = Vocabulaire::MAX_ESSAIS unless @vocabulaire.compteur
 = form_for @vocabulaire do |f|
   - if @vocabulaire.errors.any?
     #error_explanation
@@ -8,7 +9,7 @@
   %br
   .field
     = f.label :mot_directeur
-    = f.text_field :mot_directeur
+    = f.text_field :mot_directeur, autofocus: true
   .field
     = f.label :francais
     = f.text_field :francais

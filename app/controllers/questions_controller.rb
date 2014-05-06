@@ -1,12 +1,12 @@
 class QuestionsController < ApplicationController
-  if not Rails.env.test?
+  unless Rails.env.test?
     before_action :authenticate_user!
     before_action :verifie_utilisateur
   end
   # GET/question
   def conjugaison
     session[:type] = 'conjugaison'
-    if not session.has_key?(:debut)
+    unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
       session[:bonnes_reponses], session[:mauvaises_reponses] = 0,0
     end
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
 
   def vocabulaire
     session[:type] = 'vocabulaire'
-    if not session.has_key?(:debut)
+    unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
       session[:bonnes_reponses],session[:mauvaises_reponses] = 0,0
     end
@@ -56,8 +56,8 @@ class QuestionsController < ApplicationController
 
   private
   def verifie_utilisateur
-    if current_user.email != 'jacques.marzin@free.fr'
-      redirect_to :action => 'index'
+    unless current_user.email == 'jacques.marzin@free.fr'
+      redirect_to 'conjugaisons'
     end
   end
 

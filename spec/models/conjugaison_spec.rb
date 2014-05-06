@@ -36,13 +36,13 @@ describe Conjugaison do
       expect(Conjugaison.new(infinitif: 'avere')).to have(1).errors_on(:infinitif)
     end
     it "une constante donne le nombre d'essais maximum" do
-      expect(Conjugaison::Max_essais.class).to eq(Fixnum)
+      expect(Conjugaison::MAX_ESSAIS.class).to eq(Fixnum)
     end
     it "les formes sont décrites dans un tableau" do
-      expect(Verbe::Formes).to be_a_kind_of(Array)
+      expect(Verbe::FORMES).to be_a_kind_of(Array)
     end
     it "il y a 51 formes" do
-      expect(Verbe::Formes.size).to eq(50)
+      expect(Verbe::FORMES.size).to eq(50)
     end
     it "la fonction rang_forme('forme') renvoie le rang de la forme 'forme'" do
       expect(Verbe.rang_forme('ind.pres.s1')).to eq(0)
@@ -72,15 +72,15 @@ describe Conjugaison do
     it "l'enregistrement d'une erreur incrémente le compteur des essais" do
       @conjugaison.score(false,'ind.pres.s1')
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
-        eq(Conjugaison::Max_essais + 1)
+        eq(Conjugaison::MAX_ESSAIS + 1)
     end
     it "l'enregistrement d'un succès décrémente le compteur des essais" do
       @conjugaison.score(true,'ind.pres.s1')
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
-        eq(Conjugaison::Max_essais - 1)
+        eq(Conjugaison::MAX_ESSAIS - 1)
     end
     it "le compteur minimum est 1" do
-      (1..Conjugaison::Max_essais+5).each {@conjugaison.score(true,'ind.pres.s1')}
+      (1..Conjugaison::MAX_ESSAIS+5).each {@conjugaison.score(true,'ind.pres.s1')}
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to eq(1)
     end
     it "la fonction en_clair envoie le nom de la forme en français" do

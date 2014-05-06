@@ -62,7 +62,7 @@ describe 'Verbes' do
       visit 'conjugaisons'
       click_link 'Nouvelle Conjugaison'
       expect(page).to have_field("conjugaison[essais_verbe]",\
-        with: "#{Conjugaison::Max_essais * Verbe::Formes.size}")
+        with: "#{Conjugaison::MAX_ESSAIS * Verbe::FORMES.size}")
     end
   end
   describe "Copie" do

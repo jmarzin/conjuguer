@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Vocabulaire do
   context 'cas simples' do
     it "Le nombre maximum initial d'essais est un entier" do
-      expect(Vocabulaire::Max_essais).to be_a(Integer)
+      expect(Vocabulaire::MAX_ESSAIS).to be_a(Integer)
     end
     it 'Le mot_directeur est obligatoire' do
       expect(FactoryGirl.build(:vocabulaire, mot_directeur: '')).to have(1).errors_on(:mot_directeur)

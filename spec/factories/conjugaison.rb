@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :conjugaison do
     infinitif 'avere'
-    essais_verbe    Verbe::Formes.size * Conjugaison::Max_essais
+    essais_verbe    Verbe::FORMES.size * Conjugaison::MAX_ESSAIS
 
     trait   :avere do
 
@@ -15,7 +15,7 @@ FactoryGirl.define do
           Temps.new(['av','','essi','essi','esse','essimo','este','essero'])])
         @conj << Mode.new([Temps.new(['av','','rei','resti','rebbe','remmo','reste','rebbero'])])
         @conj << Temps.new(['','','---','abbi','abbia','abbiamo','abbiate','abbiano'])
-        Verbe.new({conj: @conj, compteurs: Array.new(Verbe::Formes.size,Conjugaison::Max_essais)})
+        Verbe.new({conj: @conj, compteurs: Array.new(Verbe::FORMES.size,Conjugaison::MAX_ESSAIS)})
       }
     end
     factory :avere,    traits: [:avere]

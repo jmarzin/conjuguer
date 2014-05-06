@@ -1,6 +1,6 @@
 class Verbe
 
-  Formes = %w(
+  FORMES = %w(
     ind.pres.s1 ind.pres.s2 ind.pres.s3 ind.pres.p1 ind.pres.p2 ind.pres.p3
     ind.imp.s1 ind.imp.s2 ind.imp.s3 ind.imp.p1 ind.imp.p2 ind.imp.p3
     ind.parf.s1 ind.parf.s2 ind.parf.s3 ind.parf.p1 ind.parf.p2 ind.parf.p3
@@ -12,7 +12,7 @@ class Verbe
     ger ppass)
 
   def self.rang_forme(string)
-    Verbe::Formes.find_index(string)
+    Verbe::FORMES.find_index(string)
   end
 
   def initialize(conjugue)
@@ -29,7 +29,7 @@ class Verbe
           Temps.new(Array.new(8,''))])
       @conj << Mode.new([Temps.new(Array.new(8,''))])
       @conj << Temps.new(['','','---','','','','',''])
-      @compteurs = Array.new(Verbe::Formes.size,Conjugaison::Max_essais)
+      @compteurs = Array.new(Verbe::FORMES.size,Conjugaison::MAX_ESSAIS)
     end
   end
 
@@ -40,27 +40,35 @@ class Verbe
   def inf
     @conj[0]
   end
+
   def ppres
     @conj[1]
   end
+
   def ppass
     @conj[2]
   end
+
   def ger
     @conj[3]
   end
+
   def ind
     @conj[4]
   end
+
   def sub
     @conj[5]
   end
+
   def cond
     @conj[6]
   end
+
   def imp
     @conj[7]
   end
+
   def compteurs
     @compteurs
   end
@@ -83,41 +91,41 @@ class Verbe
             texte = '1ère p. plur. '
           when 'p2'
             texte = '2ème p. plur. '
-          when 'p3'
+          else 'p3'
             texte = '3ème p. plur. '
         end
         case string[0..2]
           when 'imp'
-            texte += "impér. "
+            texte += 'impér. '
           else
             /\.(.*)\./.match(string)
             case $1
               when 'pres'
-                texte += "prés. "
+                texte += 'prés. '
               when 'imp'
-                texte += "imparf. "
+                texte += 'imparf. '
               when 'parf'
-                texte += "parf. "
-              when 'fut'
-                texte += "fut. "
+                texte += 'parf. '
+              else
+                texte += 'fut. '
             end
             case string[0..2]
               when 'ind'
-                texte += "indic. "
+                texte += 'indic. '
               when 'sub'
-                texte += "subj. "
-              when 'con'
-                texte += "cond. "
+                texte += 'subj. '
+              else
+                texte += 'cond. '
             end
         end
     end
-    return texte += "verbe "
+    return texte += 'verbe '
   end
 
   def show(string)
     debut = string[0..2]
     texte = ''
-    if ['imp','ger','ppa'].include?(debut)
+    if %w(imp ger ppa).include?(debut)
     else
       if debut == 'sub'
         texte = 'che '
@@ -133,7 +141,7 @@ class Verbe
           texte += 'noi '
         when 'p2'
           texte += 'voi '
-        when 'p3'
+        else
           texte += 'loro '
       end
     end
