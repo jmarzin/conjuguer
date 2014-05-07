@@ -1,5 +1,7 @@
 class Vocabulaire < ActiveRecord::Base
 
+  paginates_per 20
+
   MAX_ESSAIS = 20
   SUCCES = -1
   ECHEC = +1
