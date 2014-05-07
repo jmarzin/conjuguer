@@ -18,10 +18,10 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'haml-rails', '~> 0.5.3'
 
 # Utiliser Kaminari pour la pagination
-#gem 'kaminari', '~> 0.15.1'
+gem 'kaminari', '~> 0.15.1'
 
 # Utiliser simple_form pour les vues
-#gem 'simple_form', '~> 3.0.1'
+gem 'simple_form', '~> 3.0.1'
 #gem 'country_select', '~> 1.3.1'
 
 # Utiliser Devise pour l'identification

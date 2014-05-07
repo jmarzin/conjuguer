@@ -1,5 +1,10 @@
 class VocabulairesController < ApplicationController
+
   before_action :set_vocabulaire, only: [:show, :edit, :update, :destroy]
+  unless Rails.env.test?
+    before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+    before_action :verifie_utilisateur, only: [:new, :edit, :update, :destroy]
+  end
 
   # GET /vocabulaires
   # GET /vocabulaires.json
@@ -71,4 +76,11 @@ class VocabulairesController < ApplicationController
     def vocabulaire_params
       params.require(:vocabulaire).permit(:mot_directeur, :compteur, :francais, :italien)
     end
+
+    def verifie_utilisateur
+      unless current_user.email == 'jacques.marzin@free.fr'
+        redirect_to :action => 'index'
+      end
+    end
+
 end
