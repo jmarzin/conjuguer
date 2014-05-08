@@ -2,23 +2,36 @@
 
 %table
   %tr
-    %th Mot directeur
-    %th Francais
-    %th Compteur
-    %th Italien
-    %th
-    %th
-    %th
+    - (1..2).each_with_index do |i|
+      %th Mot directeur
+      %th Francais
+      %th Compteur
+      %th Italien
+      %th
+      %th
+      %th
+      -if i == 1
+        %th#separateur
 
-  - @vocabulaires.each do |vocabulaire|
+  - liste = Vocabulaire.deux_colonnes(@vocabulaires)
+  - liste.each do |item|
     %tr
-      %td= vocabulaire.mot_directeur
-      %td= vocabulaire.francais
-      %td= vocabulaire.compteur
-      %td= vocabulaire.italien
-      %td= link_to 'Voir', vocabulaire
-      %td= link_to 'Corriger', edit_vocabulaire_path(vocabulaire)
-      %td= link_to 'Supprimer', vocabulaire, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= item[:gauche].mot_directeur
+      %td= item[:gauche].francais
+      %td= item[:gauche].compteur
+      %td= item[:gauche].italien
+      %td= link_to 'Voir', item[:gauche]
+      %td= link_to 'Corriger', edit_vocabulaire_path(item[:gauche])
+      %td= link_to 'Supprimer', item[:gauche], :method => :delete, :data => { :confirm => 'Are you sure?' }
+      -if item.has_key?(:droite)
+        %td#separateur
+        %td= item[:droite].mot_directeur
+        %td= item[:droite].francais
+        %td= item[:droite].compteur
+        %td= item[:droite].italien
+        %td= link_to 'Voir', item[:droite]
+        %td= link_to 'Corriger', edit_vocabulaire_path(item[:droite])
+        %td= link_to 'Supprimer', item[:droite], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 = paginate @vocabulaires

@@ -1,6 +1,6 @@
 class Vocabulaire < ActiveRecord::Base
 
-  paginates_per 20
+  paginates_per 40
 
   MAX_ESSAIS = 20
   SUCCES = -1
@@ -13,6 +13,20 @@ class Vocabulaire < ActiveRecord::Base
 
   def self.aleatoire
     (rand * Vocabulaire.sum('compteur')).ceil
+  end
+
+  def self.deux_colonnes(vocabulaires)
+    i = 0
+    liste = []
+    vocabulaires.each do |v|
+      if i< Vocabulaire.default_per_page/2
+        liste[i] = {gauche: v}
+      else
+        liste[i-Vocabulaire.default_per_page/2][:droite] = v
+      end
+      i += 1
+    end
+    liste
   end
 
   def self.tirage(num)
