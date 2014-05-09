@@ -46,6 +46,7 @@ class Vocabulaire < ActiveRecord::Base
       inc = Vocabulaire::SUCCES
     else
       inc = Vocabulaire::ECHEC
+      Erreur.create(code: 'V', ref: id)
     end
     if self.compteur + inc >= 1
       self.compteur += inc
