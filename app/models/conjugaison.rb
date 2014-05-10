@@ -151,7 +151,7 @@ class Conjugaison < ActiveRecord::Base
   end
 
   def self.accepte?(reponse, attendu)
-    return if reponse == ''
+    return false if reponse == ''
     reponses = reponse.downcase.strip.split('/')
     attendus = attendu.downcase.strip.split('/')
     resultat = true

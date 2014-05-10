@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'questions/conjugaison'
   post 'questions/verification'
   get 'questions/vocabulaire'
+  get 'questions', to: 'questions#lance', as: 'lance_questions'
 
   resources :vocabulaires
 

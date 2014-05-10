@@ -3,7 +3,18 @@ class QuestionsController < ApplicationController
     before_action :authenticate_user!
     before_action :verifie_utilisateur
   end
-  # GET/question
+
+  # GET/questions/lance
+  def lance
+    session[:revision] = true
+    if rand.round == 0
+      redirect_to action: 'conjugaison'
+    else
+      redirect_to action: 'vocabulaire'
+    end
+  end
+
+  # GET/questions/conjugaison
   def conjugaison
     session[:type] = 'conjugaison'
     unless session.has_key?(:debut)
@@ -18,6 +29,7 @@ class QuestionsController < ApplicationController
     params[:question] = Verbe.en_clair(@resultat[:forme])+@resultat[:conjugaison].infinitif+' ?'
   end
 
+  #GET/questions/vocabulaire
   def vocabulaire
     session[:type] = 'vocabulaire'
     unless session.has_key?(:debut)
@@ -30,26 +42,29 @@ class QuestionsController < ApplicationController
     params[:attendu] = @resultat.italien
   end
 
-  # POST/verification
+  # POST/questions/verification
   def verification
-    respond_to do |format|
-      if params[:reponse]
-        if session[:type] == 'conjugaison'
-          @objet = Conjugaison.find(params[:id])
-        else
-          @objet = Vocabulaire.find(params[:id])
-        end
-        params[:message] = Conjugaison.accepte?(params[:reponse],params[:attendu])
-        if params[:message]
-          session[:bonnes_reponses] += 1
-        else
-          session[:mauvaises_reponses] += 1
-        end
-        @objet.score(params[:message],params[:forme]).save!
-        format.html { render action: session[:type] }
+
+    if params[:reponse]
+      if session[:type] == 'conjugaison'
+        @objet = Conjugaison.find(params[:id])
+      else
+        @objet = Vocabulaire.find(params[:id])
+      end
+      params[:message] = Conjugaison.accepte?(params[:reponse],params[:attendu])
+      if params[:message]
+        session[:bonnes_reponses] += 1
+      else
+        session[:mauvaises_reponses] += 1
+      end
+      @objet.score(params[:message],params[:forme]).save!
+      render action: session[:type]
+    else
+      if session[:revision] then
+        redirect_to action: 'lance'
       else
         session[:type] = 'conjugaison' unless session[:type]
-        format.html { redirect_to action: session[:type] }
+        redirect_to action: session[:type]
       end
     end
   end
