@@ -7,21 +7,35 @@ class QuestionsController < ApplicationController
   # GET/questions/lance
   def lance
     session[:revision] = true
-    if rand.round == 0
-      redirect_to action: 'conjugaison'
+    @erreur = Erreur.where(created_at: Time.new('2014','05','01')..Time.now.zero_heure).first
+    if @erreur
+      session[:id]=@erreur.ref
+      session[:type]=@erreur.code
+      session[:forme]=@erreur.code
+      @erreur.destroy
+      redirect_to action: session[:type]
     else
-      redirect_to action: 'vocabulaire'
+      if (rand*4).ceil > 3
+       redirect_to action: 'conjugaison'
+      else
+        redirect_to action: 'vocabulaire'
+      end
     end
   end
 
   # GET/questions/conjugaison
   def conjugaison
     session[:type] = 'conjugaison'
+    if session[:id]
+      @resultat = Conjugaison.question(session[:id], session[:forme])
+      session[:id]=nil
+    else
+      @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
+    end
     unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
       session[:bonnes_reponses], session[:mauvaises_reponses] = 0,0
     end
-    @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
     params[:id] = @resultat[:conjugaison].id
     params[:infinitif] = @resultat[:conjugaison].infinitif
     params[:attendu] = @resultat[:attendu]
@@ -32,11 +46,16 @@ class QuestionsController < ApplicationController
   #GET/questions/vocabulaire
   def vocabulaire
     session[:type] = 'vocabulaire'
+    if session[:id]
+      @resultat = Vocabulaire.question(session[:id])
+      session[:id]=nil
+    else
+      @resultat = Vocabulaire.tirage(Vocabulaire.aleatoire)
+    end
     unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
       session[:bonnes_reponses],session[:mauvaises_reponses] = 0,0
     end
-    @resultat = Vocabulaire.tirage(Vocabulaire.aleatoire)
     params[:id] = @resultat.id
     params[:question] = @resultat.francais
     params[:attendu] = @resultat.italien

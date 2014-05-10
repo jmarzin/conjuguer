@@ -29,6 +29,10 @@ class Vocabulaire < ActiveRecord::Base
     liste
   end
 
+  def self.question(id)
+    @vocabulaire = Vocabulaire.find(id)
+  end
+
   def self.tirage(num)
     @dico = Vocabulaire.order(:mot_directeur, :francais)
     @dico.each do |mot|
@@ -46,7 +50,7 @@ class Vocabulaire < ActiveRecord::Base
       inc = Vocabulaire::SUCCES
     else
       inc = Vocabulaire::ECHEC
-      Erreur.create(code: 'V', ref: id)
+      Erreur.create(code: 'vocabulaire', ref: id)
     end
     if self.compteur + inc >= 1
       self.compteur += inc

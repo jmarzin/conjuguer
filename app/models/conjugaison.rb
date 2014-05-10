@@ -129,6 +129,12 @@ class Conjugaison < ActiveRecord::Base
     (rand * Conjugaison.sum("essais_verbe")).ceil
   end
 
+  def self.question(id, forme)
+    @conjugaison = Conjugaison.find(id)
+    {forme: forme, texte: verbe.show(forme), attendu: eval("@conjugaison.#{forme}"),\
+      conjugaison: @conjugaison, rang: Verbe::FORMES.find_index(forme)+1}
+  end
+
   def tirage(num)
     i=0
     while num > verbe.compteurs[i] do
@@ -161,18 +167,18 @@ class Conjugaison < ActiveRecord::Base
     resultat
   end
 
-  def score(ok,string)
+  def score(ok,forme)
     if ok
       inc = Conjugaison::SUCCES
     else
       inc = Conjugaison::ECHEC
-      Erreur.create(code: 'C',ref: id)
+      Erreur.create(code: 'conjugaison',ref: id, forme: forme)
     end
-    if verbe.compteurs[Verbe.rang_forme(string)] + inc >= 1
-      verbe.compteurs[Verbe.rang_forme(string)] += inc
+    if verbe.compteurs[Verbe.rang_forme(forme)] + inc >= 1
+      verbe.compteurs[Verbe.rang_forme(forme)] += inc
       self.essais_verbe += inc
     else
-      verbe.compteurs[Verbe.rang_forme(string)] = 1
+      verbe.compteurs[Verbe.rang_forme(forme)] = 1
       self.essais_verbe += 1 + inc
     end
     self

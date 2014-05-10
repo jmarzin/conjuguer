@@ -10,7 +10,7 @@ describe Erreur do
       expect(Erreur.count).to eq(1)
     end
     it "l'erreur enregristrer comprend le code C et l'id de la conjugaison" do
-      expect([Erreur.first.code, Erreur.first.ref]).to eq(['C',@conjugaison.id])
+      expect([Erreur.first.code, Erreur.first.ref]).to eq(['conjugaison',@conjugaison.id])
     end
   end
   context 'Vocabulaire' do
@@ -22,7 +22,7 @@ describe Erreur do
       expect(Erreur.count).to eq(1)
     end
     it "l'erreur enregristrer comprend le code V et l'id du mot ou de l'expression" do
-      expect([Erreur.first.code, Erreur.first.ref]).to eq(['V',@vocabulaire.id])
+      expect([Erreur.first.code, Erreur.first.ref]).to eq(['vocabulaire',@vocabulaire.id])
     end
   end
 end
