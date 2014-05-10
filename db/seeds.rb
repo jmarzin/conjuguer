@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#Conjugaison.destroy_all
-#Vocabulaire.destroy_all
-#Erreur.destroy_all
+Conjugaison.destroy_all
+Vocabulaire.destroy_all
+Erreur.destroy_all
 
 #liste = ['avere','lavorare','temere','credere','servire','finire','essere','venire','dovere','potere',\
 #  'volere','sapere','stare','andare','dare','fare','dire','udire','uscire']
