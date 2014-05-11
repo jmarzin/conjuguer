@@ -180,7 +180,6 @@ class Conjugaison < ActiveRecord::Base
     if (verbe.compteurs[Verbe.rang_forme(forme)] * facteur).round >= 1
       verbe.compteurs[Verbe.rang_forme(forme)] = \
         (verbe.compteurs[Verbe.rang_forme(forme)]* facteur).round
-      self.essais_verbe += verbe.compteurs[Verbe.rang_forme(forme)]
     else
       verbe.compteurs[Verbe.rang_forme(forme)] = 1
     end

@@ -80,7 +80,7 @@ class QuestionsController < ApplicationController
       else
         session[:mauvaises_reponses] += 1
       end
-      @objet.score(params[:message],params[:forme]).save!
+      @objet.score(params[:message],params[:forme]).save
       render action: session[:type]
     else
       if session[:revision] then

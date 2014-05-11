@@ -13,19 +13,19 @@ describe 'Verbes' do
     it 'un verbe montre un tableau des temps' do
       visit 'conjugaisons'
       click_link 'Voir'
-      expect(page).to have_content %q{PRESENT IMPARFAIT PARFAIT FUTUR INDICATIF Io ho (20)
-        Io avevo (20) Io ebbi (20) Io avrò (20) Tu hai (20) Tu avevi (20) Tu avesti (20)
-        Tu avrai (20) Lui/lei ha (20) Lui/lei aveva (20) Lui/lei ebbe (20) Lui/lei avrà (20)
-        Noi abbiamo (20) Noi avevamo (20) Noi avemmo (20) Noi avremo (20) Voi avete (20)
-        Voi avevate (20) Voi aveste (20) Voi avrete (20) Loro hanno (20) Loro avevano (20)
-        Loro ebbero (20) Loro avranno (20) PRESENT IMPARFAIT IMPERATIF CONDITIONNEL
-        SUBJONCTIF Che io abbia (20) Che io avessi (20) --- (20) Io avrei (20) Che tu abbia (20)
-        Che tu avessi (20) Abbi (20) Tu avresti (20) Che lui/lei abbia (20)
-        Che lui/lei avesse (20) Abbia (20) Lui/lei avrebbe (20) Che noi abbiamo (20)
-        Che noi avessimo (20) Abbiamo (20) Noi avremmo (20) Che voi abbiate (20)
-        Che voi aveste (20) Abbiate (20) Voi avreste (20) Che loro abbiano (20)
-        Che loro avessero (20) Abbiano (20) Loro avrebbero (20) GERONDIF PARTICIPE PASSE
-        Avendo (20) Avuto (20)}
+      expect(page).to have_content %q{PRESENT IMPARFAIT PARFAIT FUTUR INDICATIF Io ho (16)
+        Io avevo (16) Io ebbi (16) Io avrò (16) Tu hai (16) Tu avevi (16) Tu avesti (16)
+        Tu avrai (16) Lui/lei ha (16) Lui/lei aveva (16) Lui/lei ebbe (16) Lui/lei avrà (16)
+        Noi abbiamo (16) Noi avevamo (16) Noi avemmo (16) Noi avremo (16) Voi avete (16)
+        Voi avevate (16) Voi aveste (16) Voi avrete (16) Loro hanno (16) Loro avevano (16)
+        Loro ebbero (16) Loro avranno (16) PRESENT IMPARFAIT IMPERATIF CONDITIONNEL
+        SUBJONCTIF Che io abbia (16) Che io avessi (16) --- (16) Io avrei (16) Che tu abbia (16)
+        Che tu avessi (16) Abbi (16) Tu avresti (16) Che lui/lei abbia (16)
+        Che lui/lei avesse (16) Abbia (16) Lui/lei avrebbe (16) Che noi abbiamo (16)
+        Che noi avessimo (16) Abbiamo (16) Noi avremmo (16) Che voi abbiate (16)
+        Che voi aveste (16) Abbiate (16) Voi avreste (16) Che loro abbiano (16)
+        Che loro avessero (16) Abbiano (16) Loro avrebbero (16) GERONDIF PARTICIPE PASSE
+        Avendo (16) Avuto (16)}
     end
   end
   describe 'Modification' do
@@ -46,10 +46,11 @@ describe 'Verbes' do
       click_button 'Enregistrer'
       visit '/conjugaisons/'
       click_link 'Voir'
-      t1 = page.text
+      /Révision des conjugaisons(.*)/.match(page.text)
+      t1 = $1
       click_link 'Corriger'
       click_button 'Enregistrer'
-      expect(page.text).to eq('La conjugaison a bien été mise à jour. '+t1)
+      expect(page.text).to include(t1)
     end
   end
   describe "Création" do
@@ -78,8 +79,8 @@ describe 'Verbes' do
       click_button 'Vérifier'
       visit '/conjugaisons'
       click_link 'Voir'
-      expect(page).to have_content('1001')
-      expect(page).to have_content('21')
+      expect(page).to have_content('848')
+      expect(page).to have_content('32')
     end
     it "une bonne réponse décrémente le compteur" do
       visit '/questions/conjugaison'
@@ -87,8 +88,8 @@ describe 'Verbes' do
       click_button 'Vérifier'
       visit '/conjugaisons'
       click_link 'Voir'
-      expect(page).to have_content('999')
-      expect(page).to have_content('19')
+      expect(page).to have_content('800')
+      expect(page).to have_content('8')
     end
   end
 end
