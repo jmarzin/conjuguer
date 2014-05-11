@@ -20,6 +20,7 @@
 -else
   #erreur Erreur ! La réponse attendue est
   #attendu=params[:attendu]
+  =text_field_tag 'ecrire', '', autofocus: true
   %br
 %br
 %h1=Verbe.en_clair(params[:forme])+' '+params[:infinitif]
