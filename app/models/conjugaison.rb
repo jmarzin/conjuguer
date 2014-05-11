@@ -174,7 +174,7 @@ class Conjugaison < ActiveRecord::Base
       inc = Conjugaison::SUCCES
     else
       inc = Conjugaison::ECHEC
-      Erreur.create(code: 'conjugaison',ref: id, forme: forme)
+      Erreur.create(code: 'conjugaison',ref: id, forme: forme) unless Erreur.where(ref: id, forme: forme).first
     end
     if verbe.compteurs[Verbe.rang_forme(forme)] + inc >= 1
       verbe.compteurs[Verbe.rang_forme(forme)] += inc

@@ -7,7 +7,11 @@ class QuestionsController < ApplicationController
   # GET/questions/lance
   def lance
     session[:revision] = true
-    @erreur = Erreur.where(created_at: Time.new('2014','05','01')..Time.now.zero_heure).first
+    if session[:debut]
+      @erreur = Erreur.where("created_at < ?", Time.at(session[:debut])).first
+    else
+      @erreur = Erreur.first
+    end
     if @erreur
       session[:id]=@erreur.ref
       session[:type]=@erreur.code

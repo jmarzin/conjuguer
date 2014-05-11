@@ -50,7 +50,7 @@ class Vocabulaire < ActiveRecord::Base
       inc = Vocabulaire::SUCCES
     else
       inc = Vocabulaire::ECHEC
-      Erreur.create(code: 'vocabulaire', ref: id)
+      Erreur.create(code: 'vocabulaire', ref: id) unless Erreur.where(ref: id).first
     end
     if self.compteur + inc >= 1
       self.compteur += inc

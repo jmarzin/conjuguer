@@ -17,18 +17,18 @@
   - liste.each do |item|
     %tr
       %td= item[:gauche].mot_directeur
-      %td= item[:gauche].francais
+      %td= item[:gauche].francais[0..24]
       %td= item[:gauche].compteur
-      %td= item[:gauche].italien
+      %td= item[:gauche].italien[0..24]
       %td= link_to 'Voir', item[:gauche]
       %td= link_to 'Corriger', edit_vocabulaire_path(item[:gauche])
       %td= link_to 'Supprimer', item[:gauche], :method => :delete, :data => { :confirm => 'Are you sure?' }
       -if item.has_key?(:droite)
         %td#separateur
         %td= item[:droite].mot_directeur
-        %td= item[:droite].francais
+        %td= item[:droite].francais[0..24]
         %td= item[:droite].compteur
-        %td= item[:droite].italien
+        %td= item[:droite].italien[0..24]
         %td= link_to 'Voir', item[:droite]
         %td= link_to 'Corriger', edit_vocabulaire_path(item[:droite])
         %td= link_to 'Supprimer', item[:droite], :method => :delete, :data => { :confirm => 'Are you sure?' }
