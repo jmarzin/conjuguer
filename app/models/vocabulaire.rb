@@ -2,9 +2,9 @@ class Vocabulaire < ActiveRecord::Base
 
   paginates_per 40
 
-  MAX_ESSAIS = 20
-  SUCCES = -1
-  ECHEC = +1
+  MAX_ESSAIS = 16
+  SUCCES = 0.5
+  ECHEC = 2
 
   validates :mot_directeur, presence: {message: 'Le mot directeur est obligatoire'}
   validates :francais, presence: {message: 'Le mot ou expression en français est obligatoire'}
@@ -47,13 +47,13 @@ class Vocabulaire < ActiveRecord::Base
 
   def score(ok,inutile)
     if ok
-      inc = Vocabulaire::SUCCES
+      facteur = Vocabulaire::SUCCES
     else
-      inc = Vocabulaire::ECHEC
+      facteur = Vocabulaire::ECHEC
       Erreur.create(code: 'vocabulaire', ref: id) unless Erreur.where(ref: id).first
     end
-    if self.compteur + inc >= 1
-      self.compteur += inc
+    if (self.compteur * facteur).round >= 1
+      self.compteur = (self.compteur * facteur).round
     else
       self.compteur = 1
     end

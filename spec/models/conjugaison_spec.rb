@@ -58,26 +58,26 @@ describe Conjugaison do
       expect(@conjugaison.verbe.compteurs).to eq(tab)
     end
     it "le tirage de la 20ème forme donne ind.pres.s1" do
-      expect(@conjugaison.tirage(20)).to eq({forme: 'ind.pres.s1',texte: 'Io ho (20)',attendu: 'ho'})
+      expect(@conjugaison.tirage(16)).to eq({forme: 'ind.pres.s1',texte: 'Io ho (16)',attendu: 'ho'})
     end
     it "le tirage de la 21ème forme donne ind.pres.s2" do
-      expect(@conjugaison.tirage(21)).to eq({forme: 'ind.pres.s2',texte: 'Tu hai (20)',attendu: 'hai'})
+      expect(@conjugaison.tirage(17)).to eq({forme: 'ind.pres.s2',texte: 'Tu hai (16)',attendu: 'hai'})
     end
     it "le tirage du rang égal au nombre d'essais du verbe donne faux" do
       expect(@conjugaison.tirage(@conjugaison.essais_verbe + 1)).to be_false
     end
     it "le tirage du rang égal au nombre d'essais du verbe -1 donne avuto" do
-      expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq({forme: 'ppass',texte: 'Avuto (20)',attendu: 'avuto'})
+      expect(@conjugaison.tirage(@conjugaison.essais_verbe)).to eq({forme: 'ppass',texte: 'Avuto (16)',attendu: 'avuto'})
     end
     it "l'enregistrement d'une erreur incrémente le compteur des essais" do
       @conjugaison.score(false,'ind.pres.s1')
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
-        eq(Conjugaison::MAX_ESSAIS + 1)
+        eq(Conjugaison::MAX_ESSAIS*2)
     end
     it "l'enregistrement d'un succès décrémente le compteur des essais" do
       @conjugaison.score(true,'ind.pres.s1')
       expect(@conjugaison.verbe.compteurs[Verbe.rang_forme('ind.pres.s1')]).to\
-        eq(Conjugaison::MAX_ESSAIS - 1)
+        eq(Conjugaison::MAX_ESSAIS/2)
     end
     it "le compteur minimum est 1" do
       (1..Conjugaison::MAX_ESSAIS+5).each {@conjugaison.score(true,'ind.pres.s1')}
@@ -93,26 +93,26 @@ describe Conjugaison do
       @conjugaison = FactoryGirl.create(:avere, infinitif: 'copie de avere')
     end
     it 'le tirage général de 1000 donne le verbe avere et le rang 1000' do
-      resultat = Conjugaison.tirage(1000)
+      resultat = Conjugaison.tirage(800)
       expect(resultat[:conjugaison].infinitif).to eq('avere')
-      expect(resultat[:rang]).to eq(1000)
+      expect(resultat[:rang]).to eq(800)
     end
     it 'le tirage général de 1001 donne le verbe copie de avere et le rang 1' do
-      resultat = Conjugaison.tirage(1001)
+      resultat = Conjugaison.tirage(801)
       expect(resultat[:conjugaison].infinitif).to eq('copie de avere')
       expect(resultat[:rang]).to eq(1)
     end
     it 'le tirage de 1000 donne la forme ppass' do
-      resultat = Conjugaison.tirage(1000)
+      resultat = Conjugaison.tirage(800)
       expect(resultat[:conjugaison].tirage(resultat[:rang])[:forme]).to eq('ppass')
     end
     it 'le tirage de 1001 donne la forme ind.pres.s1' do
-      resultat = Conjugaison.tirage(1001)
+      resultat = Conjugaison.tirage(801)
       expect(resultat[:conjugaison].tirage(resultat[:rang])[:forme]).to eq('ind.pres.s1')
     end
     it 'le resultat est complet' do
-      resultat = Conjugaison.tirage(1001)
-      expect(resultat[:forme]+resultat[:texte]).to eq('ind.pres.s1Io ho (20)')
+      resultat = Conjugaison.tirage(801)
+      expect(resultat[:forme]+resultat[:texte]).to eq('ind.pres.s1Io ho (16)')
     end
     it "la fonction aléatoire renvoie un nombre > 1 et <= nombre total d'essais" do
       min = 10000

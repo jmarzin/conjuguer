@@ -66,9 +66,9 @@ end
 
 class Conjugaison < ActiveRecord::Base
 
-  MAX_ESSAIS = 20
-  SUCCES = -1
-  ECHEC = +1
+  MAX_ESSAIS = 16
+  SUCCES = 0.5
+  ECHEC = 2
 
   validates :infinitif, presence: {message: "L'infinitif est obligatoire"}
   validates :verbe, presence: {message: "Le détail de la conjugaison est obligatoire"}
@@ -171,18 +171,20 @@ class Conjugaison < ActiveRecord::Base
 
   def score(ok,forme)
     if ok
-      inc = Conjugaison::SUCCES
+      facteur = Conjugaison::SUCCES
     else
-      inc = Conjugaison::ECHEC
+      facteur = Conjugaison::ECHEC
       Erreur.create(code: 'conjugaison',ref: id, forme: forme) unless Erreur.where(ref: id, forme: forme).first
     end
-    if verbe.compteurs[Verbe.rang_forme(forme)] + inc >= 1
-      verbe.compteurs[Verbe.rang_forme(forme)] += inc
-      self.essais_verbe += inc
+    self.essais_verbe -= verbe.compteurs[Verbe.rang_forme(forme)]
+    if (verbe.compteurs[Verbe.rang_forme(forme)] * facteur).round >= 1
+      verbe.compteurs[Verbe.rang_forme(forme)] = \
+        (verbe.compteurs[Verbe.rang_forme(forme)]* facteur).round
+      self.essais_verbe += verbe.compteurs[Verbe.rang_forme(forme)]
     else
       verbe.compteurs[Verbe.rang_forme(forme)] = 1
-      self.essais_verbe += 1 + inc
     end
+    self.essais_verbe += verbe.compteurs[Verbe.rang_forme(forme)]
     self
   end
 
