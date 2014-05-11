@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
     if @erreur
       session[:id]=@erreur.ref
       session[:type]=@erreur.code
-      session[:forme]=@erreur.code
+      session[:forme]=@erreur.forme
       @erreur.destroy
       redirect_to action: session[:type]
     else

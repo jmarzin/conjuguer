@@ -131,8 +131,10 @@ class Conjugaison < ActiveRecord::Base
 
   def self.question(id, forme)
     @conjugaison = Conjugaison.find(id)
-    {forme: forme, texte: verbe.show(forme), attendu: eval("@conjugaison.#{forme}"),\
-      conjugaison: @conjugaison, rang: Verbe::FORMES.find_index(forme)+1}
+    { forme: forme, texte: @conjugaison.verbe.show(forme),\
+      attendu: eval("@conjugaison.verbe.#{forme}"),\
+      conjugaison: @conjugaison,\
+      rang: Verbe::FORMES.find_index(forme)+1}
   end
 
   def tirage(num)
