@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'parametres/edit'
+  post 'parametres/update'
+
   get 'questions/conjugaison'
   post 'questions/verification'
   get 'questions/vocabulaire'

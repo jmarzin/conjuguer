@@ -79,7 +79,7 @@ describe 'Verbes' do
       click_button 'Vérifier'
       visit '/conjugaisons'
       click_link 'Voir'
-      expect(page).to have_content('848')
+      expect(page).to have_content('816')
       expect(page).to have_content('32')
     end
     it "une bonne réponse décrémente le compteur" do
@@ -88,7 +88,7 @@ describe 'Verbes' do
       click_button 'Vérifier'
       visit '/conjugaisons'
       click_link 'Voir'
-      expect(page).to have_content('800')
+      expect(page).to have_content('792')
       expect(page).to have_content('8')
     end
   end

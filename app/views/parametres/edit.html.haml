@@ -1,0 +1,24 @@
+=form_tag('update')
+%h1 Modification des paramètres de révision
+%p
+
+%h2 Vocabulaire
+
+Compteur
+=number_field_tag('vocabulaire_compteur_min',value = session[:parametres][:voc_compteur_min])
+Date de création
+=date_field_tag('vocabulaire_date_min',value = session[:parametres][:voc_date_min])
+=Vocabulaire.where("created_at >= ? and compteur >= ?",session[:parametres][:voc_date_min],session[:parametres][:voc_compteur_min]).count
+
+%br
+
+%h2 Conjugaison
+
+Compteur
+=number_field_tag('conjugaison_compteur_min',value = session[:parametres][:conj_compteur_min])
+Date de création
+=date_field_tag('conjugaison_date_min',value = session[:parametres][:conj_date_min])
+=Conjugaison.where("created_at >= ? and essais_verbe >= ?",session[:parametres][:conj_date_min],session[:parametres][:conj_compteur_min]).count
+
+%br
+=button_tag 'Enregistrer'
