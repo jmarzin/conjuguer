@@ -21,8 +21,7 @@ describe QuestionsController do
   describe "GET 'lance'" do
     it "returns http succes" do
       get :lance
-      expect(response).to redirect_to(questions_conjugaison_path).or \
-        redirect_to(questions_vocabulaire_path)
+      expect(response).to redirect_to(questions_conjugaison_path)
     end
   end
   describe "POST verification" do

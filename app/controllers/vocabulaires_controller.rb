@@ -1,6 +1,7 @@
 class VocabulairesController < ApplicationController
 
   before_action :set_vocabulaire, only: [:show, :edit, :update, :destroy]
+  before_action :set_session, only: [:index]
   unless Rails.env.test?
     before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
     before_action :verifie_utilisateur, only: [:new, :edit, :update, :destroy]
@@ -68,6 +69,14 @@ class VocabulairesController < ApplicationController
   end
 
   private
+
+    def set_session
+      session[:voc_compteur_min] ||= 0
+      session[:voc_date_min] ||= Vocabulaire.minimum('created_at').to_s
+      session[:conj_compteur_min] ||= 0
+      session[:conj_date_min] ||= Vocabulaire.minimum('created_at').to_s
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_vocabulaire
       @vocabulaire = Vocabulaire.find(params[:id])

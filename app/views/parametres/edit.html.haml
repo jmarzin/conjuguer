@@ -5,20 +5,31 @@
 %h2 Vocabulaire
 
 Compteur
-=number_field_tag('vocabulaire_compteur_min',value = session[:parametres][:voc_compteur_min])
+=number_field_tag('voc_compteur_min',value = @voc_compteur_min)
 Date de création
-=date_field_tag('vocabulaire_date_min',value = session[:parametres][:voc_date_min])
-=Vocabulaire.where("created_at >= ? and compteur >= ?",session[:parametres][:voc_date_min],session[:parametres][:voc_compteur_min]).count
-
+= select_date Date.parse(@voc_date_min), prefix: :voc_date_min
+=hidden_field_tag 'voc_nb', value = @voc_nb
+Nombre =
+-if @voc_nb == 0
+  #erreur=@voc_nb
+-else
+  =@voc_nb
 %br
 
 %h2 Conjugaison
 
 Compteur
-=number_field_tag('conjugaison_compteur_min',value = session[:parametres][:conj_compteur_min])
+=number_field_tag('conj_compteur_min',value = @conj_compteur_min)
 Date de création
-=date_field_tag('conjugaison_date_min',value = session[:parametres][:conj_date_min])
-=Conjugaison.where("created_at >= ? and essais_verbe >= ?",session[:parametres][:conj_date_min],session[:parametres][:conj_compteur_min]).count
-
+= select_date Date.parse(@conj_date_min), prefix: :conj_date_min
+=hidden_field_tag 'conj_nb', value = @conj_nb
+Nombre =
+-if @conj_nb == 0
+  #erreur=@conj_nb
+-else
+  =@conj_nb
+%br
+%br
+#erreur=@avert
 %br
 =button_tag 'Enregistrer'

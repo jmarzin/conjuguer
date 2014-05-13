@@ -46,7 +46,7 @@ describe 'Verbes' do
       click_button 'Enregistrer'
       visit '/conjugaisons/'
       click_link 'Voir'
-      /Révision des conjugaisons(.*)/.match(page.text)
+      /Paramétrage(.*)/.match(page.text)
       t1 = $1
       click_link 'Corriger'
       click_button 'Enregistrer'
