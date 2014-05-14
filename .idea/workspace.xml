@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aebce0fb-f71b-4f58-aee6-46754811a980" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/conjugaison.rb" afterPath="$PROJECT_DIR$/app/models/conjugaison.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/conjugaison_spec.rb" afterPath="$PROJECT_DIR$/spec/models/conjugaison_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/conjugaisons_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/conjugaisons_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/conjuguer.iml" afterPath="$PROJECT_DIR$/.idea/conjuguer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/parametres_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/parametres_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/questions_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/questions_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/vocabulaire.rb" afterPath="$PROJECT_DIR$/app/models/vocabulaire.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/vocabulaire_spec.rb" afterPath="$PROJECT_DIR$/spec/models/vocabulaire_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/vocabulaires_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/vocabulaires_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="conjuguer.iws" />
@@ -32,7 +23,7 @@
     <SUITE FILE_PATH="coverage/conjuguer@Run_spec__conjugaisons_controller_spec___conjuguer.coverage" NAME="Run spec 'conjugaisons_controller_spec': conjuguer Coverage Results" MODIFIED="1400096970999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
     <SUITE FILE_PATH="coverage/conjuguer@db_seed__conjuguer.coverage" NAME="db:seed: conjuguer Coverage Results" MODIFIED="1399746117010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
     <SUITE FILE_PATH="coverage/conjuguer@db_create_all__conjuguer.coverage" NAME="db:create:all: conjuguer Coverage Results" MODIFIED="1398884292624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
-    <SUITE FILE_PATH="coverage/conjuguer@Development__conjuguer.coverage" NAME="Development: conjuguer Coverage Results" MODIFIED="1400094903479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
+    <SUITE FILE_PATH="coverage/conjuguer@Development__conjuguer.coverage" NAME="Development: conjuguer Coverage Results" MODIFIED="1400097401109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
     <SUITE FILE_PATH="coverage/conjuguer@Run_spec__erreur_spec___conjuguer.coverage" NAME="Run spec 'erreur_spec': conjuguer Coverage Results" MODIFIED="1400097029189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
     <SUITE FILE_PATH="coverage/conjuguer@Run_spec__questions_controller_spec___conjuguer.coverage" NAME="Run spec 'questions_controller_spec': conjuguer Coverage Results" MODIFIED="1400097313985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
     <SUITE FILE_PATH="coverage/conjuguer@Run_spec__parametres_controller_spec___conjuguer.coverage" NAME="Run spec 'parametres_controller_spec': conjuguer Coverage Results" MODIFIED="1400096977097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="conjuguer" />
@@ -516,7 +507,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RunManager" selected="RSpec.Run spec 'questions_controller_spec': conjuguer">
+  <component name="RunManager" selected="Rails.Development: conjuguer">
     <configuration default="false" name="Run spec 'user_spec': conjuguer" type="RSpecRunConfigurationType" factoryName="RSpec" temporary="true">
       <predefined_log_file id="RUBY_RSPEC" enabled="true" />
       <module name="conjuguer" />
@@ -1121,7 +1112,11 @@
       <created>1400018500656</created>
       <updated>1400018500657</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="mercredi">
+      <created>1400097381289</created>
+      <updated>1400097381289</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1148,22 +1143,22 @@
     <frame x="64" y="-4" width="1303" height="773" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.4996016" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940239" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.412749" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.412749" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39851853" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5003984" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33925927" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33925927" sideWeight="0.4996016" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.4996016" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.4996016" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988048" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1209,12 +1204,12 @@
     </option>
     <MESSAGE value="jeudi" />
     <MESSAGE value="lundi" />
-    <MESSAGE value="mercredi" />
     <MESSAGE value="vendredi" />
     <MESSAGE value="samedi" />
     <MESSAGE value="dimanche" />
     <MESSAGE value="mardi" />
-    <option name="LAST_COMMIT_MESSAGE" value="mardi" />
+    <MESSAGE value="mercredi" />
+    <option name="LAST_COMMIT_MESSAGE" value="mercredi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
