@@ -9,6 +9,7 @@
 Conjugaison.destroy_all
 Vocabulaire.destroy_all
 Erreur.destroy_all
+v=Verbe.new('avere')
 
 #liste = ['avere','lavorare','temere','credere','servire','finire','essere','venire','dovere','potere',\
 #  'volere','sapere','stare','andare','dare','fare','dire','udire','uscire']
