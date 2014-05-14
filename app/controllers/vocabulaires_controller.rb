@@ -11,7 +11,8 @@ class VocabulairesController < ApplicationController
   # GET /vocabulaires.json
   def index
     session[:page] = (params[:page] ||= session[:page])
-    @vocabulaires = Vocabulaire.order(:mot_directeur).page params[:page]
+    @vocabulaires = Vocabulaire.where("created_at >= ? and compteur >= ?",\
+      session[:voc_date_min],session[:voc_compteur_min]).order(:mot_directeur).page params[:page]
   end
 
   # GET /vocabulaires/1
@@ -73,8 +74,8 @@ class VocabulairesController < ApplicationController
     def set_session
       session[:voc_compteur_min] ||= 0
       session[:voc_date_min] ||= Vocabulaire.minimum('created_at').to_s
-      session[:conj_compteur_min] ||= 0
-      session[:conj_date_min] ||= Vocabulaire.minimum('created_at').to_s
+#      session[:conj_compteur_min] ||= 0
+#      session[:conj_date_min] ||= Conjugaison.minimum('created_at').to_s
     end
 
     # Use callbacks to share common setup or constraints between actions.

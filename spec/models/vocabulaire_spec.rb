@@ -29,21 +29,21 @@ describe Vocabulaire do
       FactoryGirl.create(:vocabulaire, mot_directeur: 'avant les autres')
     end
     it 'Le tirage du 16ème donne avant les autres' do
-      expect(Vocabulaire.tirage(16).mot_directeur).to eq('avant les autres')
+      expect(Vocabulaire.tirage(16,0,'2010-01-01').mot_directeur).to eq('avant les autres')
     end
     it 'Le tirage du 17ème donne mot 1 et 1' do
-      @mot = Vocabulaire.tirage(17)
+      @mot = Vocabulaire.tirage(17,0,'2010-01-01')
       expect([@mot.mot_directeur,@mot.francais]).to eq(['mot 1','1'])
     end
     it 'Le tirage du 33ème donne mot 1 et 3' do
-      @mot = Vocabulaire.tirage(33)
+      @mot = Vocabulaire.tirage(33,0,'2010-01-01')
       expect([@mot.mot_directeur,@mot.francais]).to eq(['mot 1','3'])
     end
     it 'Le tirage du 49ème donne mot 2' do
-      expect(Vocabulaire.tirage(49).mot_directeur).to eq('mot 2')
+      expect(Vocabulaire.tirage(49,0,'2010-01-01').mot_directeur).to eq('mot 2')
     end
     it 'Le tirage du 65ème donne false' do
-      expect(Vocabulaire.tirage(65)).to be_false
+      expect(Vocabulaire.tirage(65,0,'2010-01-01')).to be_false
     end
   end
   # context 'Tenue à la charge' do

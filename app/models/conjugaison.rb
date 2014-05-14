@@ -125,8 +125,9 @@ class Conjugaison < ActiveRecord::Base
     self.update(conjugaison_params)
   end
 
-  def self.aleatoire
-    (rand * Conjugaison.sum("essais_verbe")).ceil
+  def self.aleatoire(compteur_min,date_min)
+    (rand * Conjugaison.where("created_at >= ? and essais_verbe >= ?",\
+      date_min,compteur_min).sum("essais_verbe")).ceil
   end
 
   def self.question(id, forme)
@@ -148,8 +149,9 @@ class Conjugaison < ActiveRecord::Base
       attendu: eval("verbe.#{Verbe::FORMES[i]}")}
   end
 
-  def self.tirage(num)
-    @conjugaisons = Conjugaison.order(:id)
+  def self.tirage(num,compteur_min,date_min)
+    @conjugaisons = Conjugaison.where("created_at >= ? and essais_verbe >= ?",\
+      date_min,compteur_min).order(:id)
     i = num
     @conjugaisons.each do |c|
       return {conjugaison: c, rang: i}.merge(c.tirage(i)) if c.essais_verbe >= i

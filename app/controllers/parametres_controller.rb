@@ -42,6 +42,6 @@ class ParametresController < ApplicationController
       session[:voc_compteur_min] ||= 0
       session[:voc_date_min] ||= Vocabulaire.minimum('created_at').to_s
       session[:conj_compteur_min] ||= 0
-      session[:conj_date_min] ||= Vocabulaire.minimum('created_at').to_s
+      session[:conj_date_min] ||= Conjugaison.minimum('created_at').to_s
     end
 end

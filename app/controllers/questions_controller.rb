@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
   unless Rails.env.test?
     before_action :authenticate_user!
     before_action :verifie_utilisateur
-    before_action :set_session, only: [:lance,:conjugaison,:vocabulaire]
   end
+  before_action :set_session, only: [:lance,:conjugaison,:vocabulaire]
 
   # GET/questions/lance
   def lance
@@ -35,7 +35,8 @@ class QuestionsController < ApplicationController
       @resultat = Conjugaison.question(session[:id], session[:forme])
       session[:id]=nil
     else
-      @resultat = Conjugaison.tirage(Conjugaison.aleatoire)
+      @resultat = Conjugaison.tirage(Conjugaison.aleatoire(session[:conj_compteur_min],\
+        session[:conj_date_min]),session[:conj_compteur_min],session[:conj_date_min])
     end
     unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
@@ -55,7 +56,8 @@ class QuestionsController < ApplicationController
       @resultat = Vocabulaire.question(session[:id])
       session[:id]=nil
     else
-      @resultat = Vocabulaire.tirage(Vocabulaire.aleatoire)
+      @resultat = Vocabulaire.tirage(Vocabulaire.aleatoire(session[:voc_compteur_min],\
+        session[:voc_date_min]),session[:voc_compteur_min],session[:voc_date_min])
     end
     unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
@@ -104,7 +106,7 @@ class QuestionsController < ApplicationController
     session[:voc_compteur_min] ||= 0
     session[:voc_date_min] ||= Vocabulaire.minimum('created_at').to_s
     session[:conj_compteur_min] ||= 0
-    session[:conj_date_min] ||= Vocabulaire.minimum('created_at').to_s
+    session[:conj_date_min] ||= Conjugaison.minimum('created_at').to_s
   end
 
 end

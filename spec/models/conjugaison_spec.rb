@@ -92,26 +92,26 @@ describe Conjugaison do
       @conjugaison = FactoryGirl.create(:avere)
       @conjugaison = FactoryGirl.create(:avere, infinitif: 'copie de avere')
     end
-    it 'le tirage général de 1000 donne le verbe avere et le rang 1000' do
-      resultat = Conjugaison.tirage(800)
+    it 'le tirage général de 800 donne le verbe avere et le rang 800' do
+      resultat = Conjugaison.tirage(800,0,'2010-01-01')
       expect(resultat[:conjugaison].infinitif).to eq('avere')
       expect(resultat[:rang]).to eq(800)
     end
-    it 'le tirage général de 1001 donne le verbe copie de avere et le rang 1' do
-      resultat = Conjugaison.tirage(801)
+    it 'le tirage général de 801 donne le verbe copie de avere et le rang 1' do
+      resultat = Conjugaison.tirage(801,0,'2010-01-01')
       expect(resultat[:conjugaison].infinitif).to eq('copie de avere')
       expect(resultat[:rang]).to eq(1)
     end
-    it 'le tirage de 1000 donne la forme ppass' do
-      resultat = Conjugaison.tirage(800)
+    it 'le tirage de 800 donne la forme ppass' do
+      resultat = Conjugaison.tirage(800,0,'2010-01-01')
       expect(resultat[:conjugaison].tirage(resultat[:rang])[:forme]).to eq('ppass')
     end
-    it 'le tirage de 1001 donne la forme ind.pres.s1' do
-      resultat = Conjugaison.tirage(801)
+    it 'le tirage de 801 donne la forme ind.pres.s1' do
+      resultat = Conjugaison.tirage(801,0,'2010-01-01')
       expect(resultat[:conjugaison].tirage(resultat[:rang])[:forme]).to eq('ind.pres.s1')
     end
     it 'le resultat est complet' do
-      resultat = Conjugaison.tirage(801)
+      resultat = Conjugaison.tirage(801,0,'2010-01-01')
       expect(resultat[:forme]+resultat[:texte]).to eq('ind.pres.s1Io ho (16)')
     end
     it "la fonction aléatoire renvoie un nombre > 1 et <= nombre total d'essais" do
@@ -124,7 +124,7 @@ describe Conjugaison do
       @c.essais_verbe = 20
       @c.save!
       (1..100).each do
-        i = Conjugaison.aleatoire
+        i = Conjugaison.aleatoire(0,'2010-01-01')
         min = i if min > i
         max = i if max < i
       end

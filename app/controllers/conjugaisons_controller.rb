@@ -9,7 +9,8 @@ class ConjugaisonsController < ApplicationController
   # GET /conjugaisons
   # GET /conjugaisons.json
   def index
-    @conjugaisons = Conjugaison.order(:id)
+    @conjugaisons = Conjugaison.where("created_at >= ? and essais_verbe >= ?",\
+      session[:conj_date_min],session[:conj_compteur_min]).order(:id)
   end
 
   # GET /conjugaisons/1
@@ -94,10 +95,10 @@ class ConjugaisonsController < ApplicationController
 
   private
     def set_session
-      session[:voc_compteur_min] ||= 0
-      session[:voc_date_min] ||= Vocabulaire.minimum('created_at').to_s
+#      session[:voc_compteur_min] ||= 0
+#      session[:voc_date_min] ||= Vocabulaire.minimum('created_at').to_s
       session[:conj_compteur_min] ||= 0
-      session[:conj_date_min] ||= Vocabulaire.minimum('created_at').to_s
+      session[:conj_date_min] ||= Conjugaison.minimum('created_at').to_s
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_conjugaison

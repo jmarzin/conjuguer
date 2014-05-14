@@ -11,8 +11,9 @@ class Vocabulaire < ActiveRecord::Base
   validates :italien, presence: {message: 'La traduction italienne est obligatoire'}
   validates :compteur, numericality: { greater_than: 0, message: 'Le compteur doit être un entier positif' }
 
-  def self.aleatoire
-    (rand * Vocabulaire.sum('compteur')).ceil
+  def self.aleatoire(compteur_min, date_min)
+    (rand * Vocabulaire.where("created_at >= ? and compteur >= ?",\
+      date_min,compteur_min).sum('compteur')).ceil
   end
 
   def self.deux_colonnes(vocabulaires)
@@ -33,8 +34,9 @@ class Vocabulaire < ActiveRecord::Base
     @vocabulaire = Vocabulaire.find(id)
   end
 
-  def self.tirage(num)
-    @dico = Vocabulaire.order(:mot_directeur, :francais)
+  def self.tirage(num,compteur_min, date_min)
+    @dico = Vocabulaire.where("created_at >= ? and compteur >= ?",\
+      date_min,compteur_min).order(:mot_directeur, :francais)
     @dico.each do |mot|
       if mot.compteur >= num
         return mot
