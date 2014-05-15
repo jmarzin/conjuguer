@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   get 'questions', to: 'questions#lance', as: 'lance_questions'
 
   resources :vocabulaires
+  get 'vocabulaire/sauve', to: 'vocabulaires#sauve', as: 'sauve_vocabulaire'
 
   devise_for :users
   resources :conjugaisons
   get '/conjugaisons/:id/copie', to: 'conjugaisons#copie', as: 'copie_conjugaison'
-  get '/sauve', to: 'conjugaisons#sauve', as: 'sauve_conjugaison'
-  get '/aligne', to: 'conjugaisons#aligne', as: 'aligne_conjugaison'
+  get 'conjugaisons/sauve', to: 'conjugaisons#sauve', as: 'sauve_conjugaison'
+  get 'conjugaisons/aligne', to: 'conjugaisons#aligne', as: 'aligne_conjugaison'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

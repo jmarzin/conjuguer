@@ -33,6 +33,7 @@ class ParametresController < ApplicationController
       session[:voc_date_min] = params[:voc_date_min][:year]+'-'+params[:voc_date_min][:month]+'-'+params[:voc_date_min][:day]
       session[:conj_compteur_min] = params[:conj_compteur_min]
       session[:conj_date_min] = params[:conj_date_min][:year]+'-'+params[:conj_date_min][:month]+'-'+params[:conj_date_min][:day]
+      session[:page]=nil
     end
     render action: 'edit'
   end

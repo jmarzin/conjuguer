@@ -62,4 +62,13 @@ class Vocabulaire < ActiveRecord::Base
     self
   end
 
+  def self.sauve
+#['papier','les papiers (état civil)',8,'i documenti']
+    liste = File.new('db/mots/liste_mots.txt',mode='w')
+    Vocabulaire.all.order(:mot_directeur).each do |v|
+      IO.write(liste,\
+        "[\""+v.mot_directeur.to_str+"\",\""+v.francais+"\",8,\""+v.italien+"\"],\n",liste.size)
+    end
+  end
+
 end

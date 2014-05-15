@@ -69,6 +69,15 @@ class VocabulairesController < ApplicationController
     end
   end
 
+  # GET/vocabulaires/sauve
+  def sauve
+    unless Rails.env.production?
+      Vocabulaire.sauve
+    end
+    redirect_to :action => 'index'
+  end
+
+
   private
 
     def set_session
