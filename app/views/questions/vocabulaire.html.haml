@@ -1,6 +1,10 @@
 =form_tag('verification')
 
-%h1 Question de vocabulaire
+-if session[:erreur]
+  %h1 Question de vocabulaire : erreurs récentes
+-else
+  %h1 Question de vocabulaire au hasard
+
 
 %p
   =Conjugaison.duree(Time.at(session[:debut]))+' '

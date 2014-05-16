@@ -1,7 +1,9 @@
 %header#page_header
-  =link_to 'Vocabulaire', vocabulaires_path \
-  =link_to 'Conjugaison', conjugaisons_path \
-  =link_to 'Révision', lance_questions_path \
-  =link_to 'Révision du vocabulaire', questions_vocabulaire_path \
-  =link_to 'Révision des conjugaisons', questions_conjugaison_path \
-  =link_to 'Paramétrage', parametres_edit_path
+  %table
+    %th=link_to 'Vocabulaire', vocabulaires_path \
+    %th=link_to 'Conjugaison', conjugaisons_path \
+    %th=link_to 'Révision', lance_questions_path \
+    %th=link_to 'Révision du vocabulaire', questions_vocabulaire_path \
+    %th=link_to 'Révision des conjugaisons', questions_conjugaison_path \
+    %th=link_to 'Paramétrage', parametres_edit_path
+  %hr

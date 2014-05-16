@@ -14,12 +14,14 @@ class QuestionsController < ApplicationController
       @erreur = Erreur.first
     end
     if @erreur
+      session[:erreur]=true
       session[:id]=@erreur.ref
       session[:type]=@erreur.code
       session[:forme]=@erreur.forme
       @erreur.destroy
       redirect_to action: session[:type]
     else
+      session[:erreur]=false
       if (rand*4).ceil > 3
        redirect_to action: 'conjugaison'
       else
@@ -37,6 +39,10 @@ class QuestionsController < ApplicationController
     else
       @resultat = Conjugaison.tirage(Conjugaison.aleatoire(session[:conj_compteur_min],\
         session[:conj_date_min]),session[:conj_compteur_min],session[:conj_date_min])
+      unless @resultat
+        redirect_to parametres_edit_path
+        return
+      end
     end
     unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
@@ -58,6 +64,10 @@ class QuestionsController < ApplicationController
     else
       @resultat = Vocabulaire.tirage(Vocabulaire.aleatoire(session[:voc_compteur_min],\
         session[:voc_date_min]),session[:voc_compteur_min],session[:voc_date_min])
+      unless @resultat
+        redirect_to parametres_edit_path
+        return
+      end
     end
     unless session.has_key?(:debut)
       session[:debut] = Time.now.to_i
